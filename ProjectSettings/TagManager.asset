@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tip
+  - FR_Collider
+  - FL_Collider
+  - RR_Collider
+  - RL_Collider
+  - FR_Transform
+  - FL_Transform
+  - RR_Transform
+  - RL_Transform
+  - Pedestrian
+  - Obstacle
+  - SteeringWheel
+  - ParentWheel
+  - projectile
+  - FxTemporaire
+  - Weather
+  - Rain
+  - Car
+  - ControllerLeft
+  - ControllerRight
+  - HandLeft
+  - HandRight
+  - lb_groundTarget
+  - lb_perchTarget
+  - Bird
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - Track
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Spatial Mapping
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
