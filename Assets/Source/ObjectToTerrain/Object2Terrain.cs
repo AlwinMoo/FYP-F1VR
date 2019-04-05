@@ -14,6 +14,9 @@ public class Object2Terrain : EditorWindow {
 	static string[] bottomTopRadio = new string[] { "Bottom Up", "Top Down"};
 	private float shiftHeight = 0f;
 
+    /// <summary>
+    /// button for create terrain
+    /// </summary>
 	void OnGUI () {
  
 		resolution = EditorGUILayout.IntField("Resolution", resolution);
@@ -37,7 +40,9 @@ public class Object2Terrain : EditorWindow {
 	}
  
 	delegate void CleanUp();
- 
+     /// <summary>
+     /// creates terrain
+     /// </summary>
 	void CreateTerrain(){	
  
 		//fire up the progress bar
@@ -122,7 +127,11 @@ public class Object2Terrain : EditorWindow {
 			cleanUp();    
 		}
 	}
- 
+    /// <summary>
+    /// shows progress of creating terrain
+    /// </summary>
+    /// <param name="progress">the progress</param>
+    /// <param name="maxProgress">the maxprogress</param>
     void ShowProgressBar(float progress, float maxProgress){
  
 		float p = progress / maxProgress;
