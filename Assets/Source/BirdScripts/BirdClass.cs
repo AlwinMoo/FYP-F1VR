@@ -38,7 +38,6 @@ public class BirdClass : MonoBehaviour
     Vector3 target = Vector3.zero;
     float soundEndTime;
 
-    //hash variables for the animation states and animation properties
     int idleAnimationHash;
     int singAnimationHash;
     int ruffleAnimationHash;
@@ -79,10 +78,12 @@ public class BirdClass : MonoBehaviour
         flyingDirectionHash = Animator.StringToHash("flyingDirectionX");
         anim.SetFloat("IdleAgitated", agitationLevel);
 
-        //Birds default starting animation is set to flying
-        anim.SetBool("flying", flying);
+        anim.SetBool("flying", flying); //!< Birds default starting animation is set to flying */
     }
 
+    /// <summary>
+    /// pauses bird
+    /// </summary>
     void PauseBird()
     {
         originalAnimSpeed = anim.speed;
@@ -93,6 +94,9 @@ public class BirdClass : MonoBehaviour
         paused = true;
     }
 
+    /// <summary>
+    /// resumes bird
+    /// </summary>
     void UnPauseBird()
     {
         anim.speed = originalAnimSpeed;
@@ -101,6 +105,11 @@ public class BirdClass : MonoBehaviour
         paused = false;
     }
 
+    /// <summary>
+    /// Birds fly to the target
+    /// </summary>
+    /// <param name="target">destination</param>
+    /// <returns></returns>
     IEnumerator FlyToTarget(Vector3 target)
     {
         flying = true;
@@ -113,14 +122,12 @@ public class BirdClass : MonoBehaviour
         anim.SetBool(flyingBoolHash, true);
         anim.SetBool(landingBoolHash, false);
 
-        //Wait to apply velocity until the bird is entering the flying animation
-        while (anim.GetCurrentAnimatorStateInfo(0).nameHash != flyAnimationHash)
+        while (anim.GetCurrentAnimatorStateInfo(0).nameHash != flyAnimationHash)//!< Wait to apply velocity until the bird is entering the flying animation */
         {
             yield return 0;
         }
 
-        //birds fly up and away for 1 second before orienting to the next target
-        GetComponent<Rigidbody>().AddForce((transform.forward * 50.0f) + (transform.up * 100.0f));
+        GetComponent<Rigidbody>().AddForce((transform.forward * 50.0f) + (transform.up * 100.0f));//!< birds fly up and away for 1 second before orienting to the next target */
         float t = 0.0f;
         while (t < 1.0f)
         {
@@ -134,8 +141,8 @@ public class BirdClass : MonoBehaviour
             }
             yield return 0;
         }
-        //start to rotate toward target
-        Vector3 vectorDirectionToTarget = (target - transform.position).normalized;
+
+        Vector3 vectorDirectionToTarget = (target - transform.position).normalized;//!< start to rotate toward target */
         Quaternion finalRotation = Quaternion.identity;
         Quaternion startingRotation = transform.rotation;
         distanceToTarget = Vector3.Distance(transform.position, target);
@@ -143,15 +150,12 @@ public class BirdClass : MonoBehaviour
         Vector3 tempTarget = target;
         t = 0.0f;
 
-        //if the target is directly above the bird the bird needs to fly out before going up
-        //this should stop them from taking off like a rocket upwards
-        if (vectorDirectionToTarget.y > .5f)
+        if (vectorDirectionToTarget.y > .5f)//!< if the target is directly above the bird the bird needs to fly out before going up, preventing them from taking off like a rocket upwards */
         {
             tempTarget = transform.position + (new Vector3(transform.forward.x, .5f, transform.forward.z) * distanceToTarget);
 
             while (vectorDirectionToTarget.y > .5f)
             {
-                //Debug.DrawLine (tempTarget,tempTarget+Vector3.up,Color.red);
                 vectorDirectionToTarget = (tempTarget - transform.position).normalized;
                 finalRotation = Quaternion.LookRotation(vectorDirectionToTarget);
                 transform.rotation = Quaternion.Slerp(startingRotation, finalRotation, t);
@@ -159,8 +163,8 @@ public class BirdClass : MonoBehaviour
                 t += Time.deltaTime * 0.5f;
                 GetComponent<Rigidbody>().AddForce(transform.forward * 70.0f * Time.deltaTime);
 
-                vectorDirectionToTarget = (target - transform.position).normalized;//reset the variable to reflect the actual target and not the temptarget
-                
+                vectorDirectionToTarget = (target - transform.position).normalized;//!< reset the variable to reflect the actual target and not the temptarget */
+
                 yield return null;
             }
         }
@@ -169,8 +173,7 @@ public class BirdClass : MonoBehaviour
         startingRotation = transform.rotation;
         distanceToTarget = Vector3.Distance(transform.position, target);
 
-        //rotate the bird toward the target over time
-        while (transform.rotation != finalRotation || distanceToTarget >= 1.5f)
+        while (transform.rotation != finalRotation || distanceToTarget >= 1.5f)//!< rotate the bird toward the target over time */
         {
             if (!paused)
             {
@@ -189,8 +192,7 @@ public class BirdClass : MonoBehaviour
             yield return 0;
         }
 
-        //keep the bird pointing at the target and move toward it
-        float flyingForce = 50.0f;
+        float flyingForce = 50.0f;//!< keep the bird pointing at the target and move toward it*/
         while (true)
         {
             if (!paused)
@@ -226,14 +228,22 @@ public class BirdClass : MonoBehaviour
         anim.SetFloat(flyingDirectionHash, 0);
     }
 
-    //Sets a variable between -1 and 1 to control the left and right banking animation
-    float FindBankingAngle(Vector3 birdForward, Vector3 dirToTarget)
+    /// <summary>
+    /// Birds attempting to fly in a curve will rotate their bodies accordingly for realism
+    /// </summary>
+    /// <param name="birdForward">front of bird</param>
+    /// <param name="dirToTarget">direction to target</param>
+    /// <returns></returns>
+    float FindBankingAngle(Vector3 birdForward, Vector3 dirToTarget)//!< Sets a variable between -1 and 1 to control the left and right banking animation */
     {
         Vector3 cr = Vector3.Cross(birdForward, dirToTarget);
         float ang = Vector3.Dot(cr, Vector3.up);
         return ang;
     }
 
+    /// <summary>
+    /// Function that checks conditions before deciding to fly to target
+    /// </summary>
     void FlyAway()
     {
         if (target == Vector3.zero || reachedTarget)
@@ -246,6 +256,10 @@ public class BirdClass : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Plays audio at the bird's position
+    /// </summary>
+    /// <param name="music">selected clip to play</param>
     void PlayAudio(AudioClip music)
     {
         if (GetComponent<AudioSource>().clip != null)

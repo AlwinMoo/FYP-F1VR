@@ -21,13 +21,12 @@ public class BirdObjectPool : MonoBehaviour
     }
     #endregion
 
-    public List<Pool> pools;
+    public List<Pool> pools;//!< list of pools from Pool Class*/
 
-    public Dictionary<string, Queue<BirdClass>> poolDictionary;
+    public Dictionary<string, Queue<BirdClass>> poolDictionary;//!< stores all the pools from Pool Class */
 
     private Queue<BirdClass> objectPool;
 
-    // Start is called before the first frame update
     void Start()
     {
         poolDictionary = new Dictionary<string, Queue<BirdClass>>();
@@ -40,40 +39,44 @@ public class BirdObjectPool : MonoBehaviour
             {
                 BirdClass obj = Instantiate(pool.Prefab);
                 obj.gameObject.SetActive(false);
-                objectPool.Enqueue(obj);//add it to the end of the queue
+                objectPool.Enqueue(obj);//!< add it to the end of the queue */
             }
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
 
+    /// <summary>
+    /// pulls out the first element in the queue, sets it to active then add it to the end of the queue
+    /// </summary>
+    /// <param name="tag">tag found in objectpool</param>
+    /// <returns></returns>
     public BirdClass SpawnFromPool(string tag)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
             Debug.Log("Pool with tag does not exist");
         }
-        BirdClass objectToSpawn = poolDictionary[tag].Dequeue();//pull out first element in the queue
+        BirdClass objectToSpawn = poolDictionary[tag].Dequeue();
         objectToSpawn.gameObject.SetActive(true);
-        poolDictionary[tag].Enqueue(objectToSpawn);//add it to the end of the queue
+        poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
     }
-    
-    //Returns the list of gameobjects
-    public Queue<BirdClass> GetPoolList()
-    {
-        return objectPool;
-    }
 
+    /// <summary>
+    /// Sets all gameobjects in the object pools to false
+    /// </summary>
     public void setAllFalse()
     {
-        foreach (BirdClass obj in objectPool)
+        foreach (Pool pool in pools)
         {
-            obj.gameObject.SetActive(false);
-        }
-        foreach (BirdClass obj in poolDictionary[pools[0].tag])
-        {
-            obj.gameObject.SetActive(false);
+            for (int i = 0; i < pool.size; i++)
+            {
+                foreach (BirdClass obj in poolDictionary[pools[i].tag])
+                {
+                    obj.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

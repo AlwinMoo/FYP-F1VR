@@ -20,22 +20,19 @@ public class BirdSpawner : MonoBehaviour
     public int birdSpawnMax;
     private int currentBirdAmt;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("ChanceToSpawnBird", 5.0f, 5.0f);//!< delay for ChanceToSpawnBird */
     }
 
-    // Update is called once per frame
     void Update()
     {
         SpawnBird();
-        Debug.Log(currentBirdAmt);
-        Debug.Log(currentCrowAmt);
-        Debug.Log(currentRobinAmt);
-        Debug.Log(currentSparrowAmt);
     }
 
+    /// <summary>
+    /// Spawns birds at the start of the game
+    /// </summary>
     public void SpawnBird()
     {
         if (crowSpawnMin > currentCrowAmt && currentBirdAmt < birdSpawnMax)
@@ -62,10 +59,16 @@ public class BirdSpawner : MonoBehaviour
             currentSparrowAmt++;
             currentBirdAmt++;
         }
+    }
 
+    /// <summary>
+    /// chooses a random bird type to spawn after a delay
+    /// </summary>
+    public void ChanceToSpawnBird()
+    {
         if (currentBirdAmt < birdSpawnMax)
         {
-            int random = Random.Range(0, 100);
+            int random = Random.Range(0, 3);
 
             switch (random)
             {
@@ -90,8 +93,8 @@ public class BirdSpawner : MonoBehaviour
                         robin.transform.position = temp;
                         currentRobinAmt++;
                         currentBirdAmt++;
-                        }
-                        break;
+                    }
+                    break;
                 }
                 case 2:
                 {
@@ -105,6 +108,8 @@ public class BirdSpawner : MonoBehaviour
                     }
                     break;
                 }
+                default:
+                    break;
             }
         }
     }
