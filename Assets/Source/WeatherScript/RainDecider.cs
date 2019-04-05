@@ -26,7 +26,7 @@ public class RainDecider : MonoBehaviour {
         GameObject _playerGameObject = GameObject.FindGameObjectWithTag("Car");
         _player = _playerGameObject.transform;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (Time2 >= 10)

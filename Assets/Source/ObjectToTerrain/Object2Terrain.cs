@@ -13,7 +13,7 @@ public class Object2Terrain : EditorWindow {
 	int bottomTopRadioSelected = 0;
 	static string[] bottomTopRadio = new string[] { "Bottom Up", "Top Down"};
 	private float shiftHeight = 0f;
- 
+
 	void OnGUI () {
  
 		resolution = EditorGUILayout.IntField("Resolution", resolution);

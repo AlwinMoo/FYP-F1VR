@@ -7,21 +7,19 @@ public class DayNight : MonoBehaviour {
     float FDay = 1.2f;
     float angle;
 
-	// Use this for initialization
 	void Start () {
         angle = 5f * Time.deltaTime;
-
     }
 	
-	// Update is called once per frame
 	void Update () {
         transform.RotateAround(Vector3.zero, Vector3.right, angle);
         FDay += angle;
-
-
-
     }
 
+    /// <summary>
+    /// Get current day.
+    /// </summary>
+    /// <returns> Returns the current day</returns>
     public float ReturnDay()
     {
         return FDay;
