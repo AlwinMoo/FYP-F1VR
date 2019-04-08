@@ -6,7 +6,7 @@ namespace Valve.VR.InteractionSystem.Sample
 {
     public class Key : MonoBehaviour
     {
-        public ChangeScene change;
+        ChangeScene change;
         public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
         private SteamVR_Input_Sources hand;
         private Interactable interactable;
@@ -15,8 +15,6 @@ namespace Valve.VR.InteractionSystem.Sample
         void Start()
         {
             interactable = GetComponent<Interactable>();
-            GameObject Player = GameObject.FindGameObjectWithTag("Player");
-            change = Player.GetComponent<ChangeScene>();
         }
 
         // Update is called once per frame
@@ -26,10 +24,7 @@ namespace Valve.VR.InteractionSystem.Sample
             {
                 if (grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
                 {
-                    if (change != null)
-                    {
-                        change.changeScene = true;
-                    }
+                    change.changeScene = true;
                 }
             }
         }
