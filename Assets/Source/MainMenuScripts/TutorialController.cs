@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    public GameObject LeftController;
-    public GameObject RightController;
+    public GameObject m_goLeftController;
+    public GameObject m_goRightController;
 
-    public GameObject LeftHand;
-    public GameObject RightHand;
+    public GameObject m_goLeftHand;
+    public GameObject m_goRightHand;
 
-    float timer =0;
-    public float TimeLimit = 5;
+    float fTimer =0;
+    public float fTimeLimit = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +21,19 @@ public class TutorialController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (timer <= TimeLimit)
+            if (fTimer <= fTimeLimit)
             {
-            LeftHand.SetActive(false);
-            RightHand.SetActive(false);
-            timer += Time.deltaTime;
+               m_goLeftHand.SetActive(false);
+               m_goRightHand.SetActive(false);
+            fTimer += Time.deltaTime;
             }
-            if (timer >= TimeLimit)
+            if (fTimer >= fTimeLimit)
             {
-                LeftHand.SetActive(true);
-                RightHand.SetActive(true);
+            m_goLeftHand.SetActive(true);
+            m_goRightHand.SetActive(true);
 
-                LeftController.SetActive(false);
-                RightController.SetActive(false);
+            m_goLeftController.SetActive(false);
+            m_goRightController.SetActive(false);
             }
         }
 }

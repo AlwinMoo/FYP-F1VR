@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RainDecider : MonoBehaviour {
 
-    public GameObject Rain;
-    public GameObject RainDrop;
-    public Light Sun;
-    public Light Moon;
+    public GameObject m_goRain;
+    public GameObject m_goRainDrop;
+    public Light m_lSun;
+    public Light m_lMoon;
 
-    private Transform _player;
-    public float _weatherHeight = 90f;
+    private Transform trPlayer;
+    public float fWeatherHeight = 90f;
 
     bool RainOrNot;
     float myTimer;
@@ -23,8 +23,8 @@ public class RainDecider : MonoBehaviour {
         RainOrNot = false;
         myTimer = 20;
         Time2 = 0;
-        GameObject _playerGameObject = GameObject.FindGameObjectWithTag("Car");
-        _player = _playerGameObject.transform;
+        GameObject goPlayerGameObject = GameObject.FindGameObjectWithTag("Car");
+        trPlayer = goPlayerGameObject.transform;
     }
 
 	// Update is called once per frame
@@ -52,17 +52,17 @@ public class RainDecider : MonoBehaviour {
 
         if (RainOrNot == true)
         {
-            if (Sun.intensity > 0.006f)
-                Sun.intensity -= 0.003f;
-            if (Moon.intensity > 0.006f)
-                Moon.intensity -= 0.003f;
+            if (m_lSun.intensity > 0.006f)
+                m_lSun.intensity -= 0.003f;
+            if (m_lMoon.intensity > 0.006f)
+                m_lMoon.intensity -= 0.003f;
 
             if (once == true)
             {
                 once = false;
             }
-            Rain.SetActive(true);
-            RainDrop.SetActive(true);
+            m_goRain.SetActive(true);
+            m_goRainDrop.SetActive(true);
             if (myTimer > 0)
             {
                 myTimer -= Time.deltaTime;
@@ -75,20 +75,20 @@ public class RainDecider : MonoBehaviour {
         }
         else
         {
-            Rain.SetActive(false);
-            RainDrop.SetActive(false);
+            m_goRain.SetActive(false);
+            m_goRainDrop.SetActive(false);
             once = true;
-            if (Sun.intensity < 0.49f)
-                Sun.intensity += 0.005f;
-            if (Sun.intensity > 0.49f)
-                Sun.intensity = 0.5f;
-            if (Moon.intensity < 0.49f)
-            Moon.intensity += 0.005f;
-            if (Moon.intensity > 0.49f)
-                Moon.intensity = 0.5f;
+            if (m_lSun.intensity < 0.49f)
+                m_lSun.intensity += 0.005f;
+            if (m_lSun.intensity > 0.49f)
+                m_lSun.intensity = 0.5f;
+            if (m_lMoon.intensity < 0.49f)
+                m_lMoon.intensity += 0.005f;
+            if (m_lMoon.intensity > 0.49f)
+                m_lMoon.intensity = 0.5f;
         }
 
-        if(Rain.active == true)
-        Rain.transform.position = new Vector3(_player.position.x + 62, _player.position.y + _weatherHeight, _player.position.z + 47);
+        if(m_goRain.active == true)
+            m_goRain.transform.position = new Vector3(trPlayer.position.x + 62, trPlayer.position.y + fWeatherHeight, trPlayer.position.z + 47);
     }
 }

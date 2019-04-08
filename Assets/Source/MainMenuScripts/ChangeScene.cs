@@ -5,14 +5,14 @@ using UnityEngine;
 public class ChangeScene : MonoBehaviour
 {
     public Animator Player;
-    public bool changeScene;
-    public bool animationFinish;
+    public bool m_bChangeScene;
+    public bool m_bAnimationFinish;
 
     // Start is called before the first frame update
     void Start()
     {
-        animationFinish = false;
-        changeScene = false;
+        m_bAnimationFinish = false;
+        m_bChangeScene = false;
     }
 
     // Update is called once per frame
@@ -20,15 +20,15 @@ public class ChangeScene : MonoBehaviour
     {
        if(Input.GetKeyDown("space"))
         {
-            changeScene = true;
+            m_bChangeScene = true;
         }
-       if (changeScene == true)
+       if (m_bChangeScene == true)
         {
             Player.SetBool("KeySelected", true);
         }
 
 
-        if (animationFinish == true)
+        if (m_bAnimationFinish == true)
         {
             SceneChanger.GetInstance().SceneMain();
         }

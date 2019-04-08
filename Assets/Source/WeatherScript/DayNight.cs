@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour {
 
-    float FDay = 1.2f;
-    float angle;
+    float fDay = 1.2f;
+    float fAngle;
 
 	void Start () {
-        angle = 5f * Time.deltaTime;
+        fAngle = 5f * Time.deltaTime;
     }
 	
 	void Update () {
-        transform.RotateAround(Vector3.zero, Vector3.right, angle);
-        FDay += angle;
+        transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
+        fDay += fAngle;
     }
 
     /// <summary>
@@ -22,6 +22,6 @@ public class DayNight : MonoBehaviour {
     /// <returns> Returns the current day</returns>
     public float ReturnDay()
     {
-        return FDay;
+        return fDay;
     }
 }
