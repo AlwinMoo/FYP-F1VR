@@ -15,6 +15,8 @@ namespace Valve.VR.InteractionSystem.Sample
         void Start()
         {
             interactable = GetComponent<Interactable>();
+            GameObject Player = GameObject.FindGameObjectWithTag("Player");
+            change = Player.GetComponent<ChangeScene>();
         }
 
         // Update is called once per frame
