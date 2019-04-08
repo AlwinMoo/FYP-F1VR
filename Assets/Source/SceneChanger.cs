@@ -23,7 +23,7 @@ public class SceneChanger : MonoBehaviour
 
     public void SceneMain()
     {
-        SteamVR_LoadLevel.Begin("oldMain");
+        SteamVR_LoadLevel.Begin("MAIN");
      }
 
     public void QuitGame()

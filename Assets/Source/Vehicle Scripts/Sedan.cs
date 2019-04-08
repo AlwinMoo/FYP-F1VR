@@ -31,7 +31,7 @@ namespace Valve.VR.InteractionSystem
             rL_T = GameObject.FindWithTag("RL_Transform").GetComponent<Transform>();
             InitWheelScale(rL_T, new Vector3(1f, 1f, 1f));
 
-            driveTrain = DriveTrain.DRIVE_RWD;
+            driveTrain = DriveTrain.DRIVE_AWD;
             vehicleType = VehicleType.VEH_SEDAN;
 
 

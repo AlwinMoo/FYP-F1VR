@@ -258,6 +258,8 @@ namespace Valve.VR.InteractionSystem
             Steer();
             Accelerate();
             UpdateWheelPoses();
+
+            AnalogueSpeedoMeter.SpeedToAngle(this.GetComponent<Rigidbody>().velocity.magnitude, 0, 25);
         }
 
         /// <summary>
