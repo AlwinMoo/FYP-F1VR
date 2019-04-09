@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107882, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -472,7 +472,7 @@ WindZone:
   m_Enabled: 1
   m_Mode: 0
   m_Radius: 20
-  m_WindMain: 0.15
+  m_WindMain: 0.3
   m_WindTurbulence: 0
   m_WindPulseMagnitude: 0.5
   m_WindPulseFrequency: 0.01
@@ -1017,38 +1017,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300072, guid: 430ddfcbbd2caa3499987a9e4f9e93fb, type: 3}
---- !u!84 &396537345
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &430778833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1507,12 +1475,12 @@ MonoBehaviour:
       - {x: 299.16077, y: -5.775412, z: 185.9261}
       - {x: 299.6931, y: -5.775463, z: 186.83162}
       - {x: 311.22903, y: -5.776566, z: 206.4542}
-      - {x: 317.9361, y: -5.0087013, z: 223.63847}
-      - {x: 321.27097, y: -4.284069, z: 232.73695}
-      - {x: 323.9087, y: -3.7109213, z: 239.9334}
-      - {x: 329.7085, y: -3.2169328, z: 250.77856}
-      - {x: 327.40927, y: -3.216362, z: 257.91434}
-      - {x: 318.66138, y: -3.2141905, z: 285.0638}
+      - {x: 318.4477, y: -5.0087013, z: 223.36526}
+      - {x: 321.78256, y: -4.284069, z: 232.46375}
+      - {x: 324.4203, y: -3.7109213, z: 239.66019}
+      - {x: 329.99475, y: -3.2169328, z: 252.37912}
+      - {x: 327.69553, y: -3.216362, z: 259.5149}
+      - {x: 318.94763, y: -3.2141905, z: 286.66437}
       - {x: 313.54782, y: -1.442667, z: 292.79364}
       - {x: 309.5062, y: -0.73932457, z: 303.07422}
       - {x: 298.40485, y: 1.1925807, z: 331.31238}
@@ -1543,9 +1511,9 @@ MonoBehaviour:
       - {x: 114.18611, y: -29.622726, z: 620.71356}
       - {x: 101.57447, y: -29.63126, z: 618.96857}
       - {x: 62.017876, y: -29.67646, z: 612.777}
-      - {x: 27.608837, y: -31.254417, z: 608.61896}
-      - {x: -27.309341, y: -23.701427, z: 598.2784}
-      - {x: -76.55598, y: -18.907219, z: 581.4518}
+      - {x: 29.354488, y: -31.254417, z: 609.66895}
+      - {x: -25.56369, y: -23.701427, z: 599.32837}
+      - {x: -74.810326, y: -18.907219, z: 582.5018}
       - {x: -82.70542, y: -14.345985, z: 567.18915}
       - {x: -79.90551, y: -6.1994705, z: 526.13293}
       - {x: -66.223564, y: 2.7762108, z: 463.02606}
@@ -1574,10 +1542,10 @@ MonoBehaviour:
       controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 1
-      pivot: {x: 35.33702, y: -40.00801, z: 128.39107}
+      pivot: {x: 35.52236, y: -40.00801, z: 128.39107}
       bounds:
-        m_Center: {x: 35.33702, y: -40.00801, z: 128.39107}
-        m_Extent: {x: 204.20317, y: 17.160973, z: 348.6601}
+        m_Center: {x: 35.52236, y: -40.00801, z: 128.39107}
+        m_Extent: {x: 204.31995, y: 17.160973, z: 348.6601}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 0.01, z: 1}
       perAnchorNormalsAngle:
@@ -3492,6 +3460,38 @@ MonoBehaviour:
   grabGripAction:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
+--- !u!84 &1267661623
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1350722471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100414, guid: 430ddfcbbd2caa3499987a9e4f9e93fb,
@@ -3697,6 +3697,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300022, guid: 430ddfcbbd2caa3499987a9e4f9e93fb, type: 3}
+--- !u!84 &1429277433
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1495080941 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100358, guid: 430ddfcbbd2caa3499987a9e4f9e93fb,
@@ -6106,38 +6138,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300082, guid: 430ddfcbbd2caa3499987a9e4f9e93fb, type: 3}
---- !u!84 &1719125006
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1719550533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100350, guid: 430ddfcbbd2caa3499987a9e4f9e93fb,
