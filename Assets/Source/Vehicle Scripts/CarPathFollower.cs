@@ -96,6 +96,28 @@ public class CarPathFollower : MonoBehaviour
             Debug.DrawRay(this.transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
         }
 
+        //45 right
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 18f))
+        {
+            if (hit.transform.tag == "Car" && hit.distance <= 18f)
+            {
+                accelerate = false;
+            }
+
+            Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        }
+
+        //45 left
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 18f))
+        {
+            if (hit.transform.tag == "Car" && hit.distance <= 18f)
+            {
+                accelerate = false;
+            }
+
+            Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        }
+
         if (accelerate)
         {
             if (speed < 10f)
