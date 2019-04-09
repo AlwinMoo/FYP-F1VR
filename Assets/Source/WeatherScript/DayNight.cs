@@ -11,17 +11,16 @@ public class DayNight : MonoBehaviour
     float fRealHour = 7;
     int nDay = 1;
 
-    bool b_once = true;
-    bool b_am = true;
+    bool bAm = true;
 
     void Start()
     {
-        fAngle = 2f * Time.deltaTime;
+        fAngle = 4f * Time.deltaTime;
     }
 
     void Update()
     {
-       // Debug.Log(fHourAngle + " " + fRealHour + " am:" + b_am);
+        Debug.Log(fHourAngle + " " + fRealHour + " am:" + bAm);
         transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
         frealAngle += fAngle;
         fHourAngle += fAngle;
@@ -29,7 +28,6 @@ public class DayNight : MonoBehaviour
         {
             frealAngle = 0f;
             nDay += 1;
-            b_once = true;
         }
         if (fHourAngle >= 15)
         {
@@ -39,12 +37,12 @@ public class DayNight : MonoBehaviour
         if (fRealHour >= 13)
         {
             fRealHour -= 12;
-            if(b_am == true)
+            if(bAm == true)
             {
-                b_am = false;
+                bAm = false;
             }
             else
-            b_am = true; 
+                bAm = true; 
         }
         // fFakeTime = fFakeTime;
         //ftime = fFakeTime / 15;
@@ -58,6 +56,17 @@ public class DayNight : MonoBehaviour
     {
         // return fDay;
         return nDay;
+    }
+
+    public float ReturnHour()
+    {
+        // return fDay;
+        return fRealHour;
+    }
+
+    public bool ReturnAM()
+    {
+        return bAm;
     }
 }
 
