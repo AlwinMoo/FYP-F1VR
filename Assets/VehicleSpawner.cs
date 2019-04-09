@@ -31,6 +31,7 @@ public class VehicleSpawner : MonoBehaviour
                 {
                     newGO.GetComponent<CarPathFollower>().pathCreator = listIndex.PathArrayList[ranDirection].Path; //randomise driving direction
                     newGO.GetComponent<CarPathFollower>().WaypointContainer = listIndex.PathArrayList[ranDirection].waypointContainer;
+                    newGO.transform.position = new Vector3(0, 4 + 0.5f, 0);
                 }
 
                 break;

@@ -223,6 +223,7 @@ ModelImporter:
     100434: polySurface96
     100436: polySurface97
     100438: //RootNode
+    100440: polySurface160
     400000: pCube100
     400002: pCube101
     400004: pCube102
@@ -443,11 +444,13 @@ ModelImporter:
     400434: polySurface96
     400436: polySurface97
     400438: //RootNode
+    400440: polySurface160
     2100000: lambert1
     2100002: curbs_pbs
     2100004: road_arrow_pbs
     2100006: carpark_pbs
     2100008: road_pbs
+    2100010: lambert6
     2300000: pCube100
     2300002: pCube101
     2300004: pCube102
@@ -661,6 +664,7 @@ ModelImporter:
     2300420: polySurface95
     2300422: polySurface96
     2300424: polySurface97
+    2300426: polySurface160
     3300000: pCube100
     3300002: pCube101
     3300004: pCube102
@@ -874,6 +878,7 @@ ModelImporter:
     3300420: polySurface95
     3300422: polySurface96
     3300424: polySurface97
+    3300426: polySurface160
     4300000: polySurface27
     4300002: polySurface80
     4300004: polySurface83
@@ -1087,6 +1092,7 @@ ModelImporter:
     4300420: pCube239
     4300422: pCube240
     4300424: pCube241
+    4300426: polySurface160
   externalObjects:
   - first:
       type: UnityEngine:Material

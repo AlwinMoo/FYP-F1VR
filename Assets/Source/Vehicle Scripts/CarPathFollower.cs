@@ -34,7 +34,7 @@ public class CarPathFollower : MonoBehaviour
 
         // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
         pathCreator.pathUpdated += OnPathChanged;
-        transform.position = new Vector3(0, pathCreator.path.GetPoint(0).y + 0.5f, 0);
+        transform.position = new Vector3(0, 4 + 0.5f, 0);
         stopping = false;
     }
 
