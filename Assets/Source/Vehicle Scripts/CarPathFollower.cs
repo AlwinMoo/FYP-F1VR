@@ -12,6 +12,8 @@ public class CarPathFollower : MonoBehaviour
     float distanceTravelled;
     private List<Transform> trafficLightList;
 
+    private bool stopping;
+
     public GameObject WaypointContainer = null;
 
     bool accelerate = true;
@@ -33,6 +35,7 @@ public class CarPathFollower : MonoBehaviour
         // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
         pathCreator.pathUpdated += OnPathChanged;
         transform.position = new Vector3(0, pathCreator.path.GetPoint(0).y + 0.5f, 0);
+        stopping = false;
     }
 
     void Update()
@@ -97,9 +100,9 @@ public class CarPathFollower : MonoBehaviour
         }
 
         //45 right
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 18f))
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 18f)
+            if (hit.transform.tag == "Car" && hit.distance <= 9f)
             {
                 accelerate = false;
             }
@@ -108,9 +111,9 @@ public class CarPathFollower : MonoBehaviour
         }
 
         //45 left
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 18f))
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 18f)
+            if (hit.transform.tag == "Car" && hit.distance <= 9f)
             {
                 accelerate = false;
             }
@@ -120,6 +123,7 @@ public class CarPathFollower : MonoBehaviour
 
         if (accelerate)
         {
+            stopping = false;
             if (speed < 10f)
             {
                 speed += 8f * Time.deltaTime;
@@ -127,6 +131,8 @@ public class CarPathFollower : MonoBehaviour
         }
         else
         {
+            stopping = true;
+
             if (speed > 0f)
             {
                 speed -= 15f * Time.deltaTime;
@@ -137,10 +143,11 @@ public class CarPathFollower : MonoBehaviour
             }
         }
 
-        if (pathCreator != null)
+        if (pathCreator != null || stopping)
         {
             if (pathCreator.name[0] == 'C')
             {
+
                 distanceTravelled += speed * Time.deltaTime;
 
                 if (pathCreator.name[1] == 'C') //CCW

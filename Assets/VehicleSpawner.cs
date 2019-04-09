@@ -16,7 +16,7 @@ public class VehicleSpawner : MonoBehaviour
     {
         vehTimer += Time.deltaTime;
 
-        if (vehTimer > 5.0f)
+        if (vehTimer > 7.0f)
         {
             foreach (var listIndex in PathManager.Instance.PathList) //search through containers
             {
