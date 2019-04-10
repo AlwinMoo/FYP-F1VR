@@ -15,7 +15,7 @@ public class DayNight : MonoBehaviour
 
     void Start()
     {
-        fAngle = 4f * Time.deltaTime;
+        fAngle = 4f * Time.fixedDeltaTime;
     }
 
     void Update()
