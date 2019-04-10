@@ -152,7 +152,7 @@ public class CarPathFollower : MonoBehaviour
 
                 if (pathCreator.name[1] == 'C') //CCW
                 {
-                    Vector3 currentPoint = pathCreator.path.GetPointAtDistance(distanceTravelled, EndOfPathInstruction.Stop);
+                    Vector3 currentPoint = pathCreator.path.GetPointAtDistance(distanceTravelled, EndOfPathInstruction.Loop);
                     transform.position = new Vector3(currentPoint.x, this.transform.position.y, currentPoint.z);
 
                     Vector3 currentEulerRotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
@@ -160,7 +160,7 @@ public class CarPathFollower : MonoBehaviour
                 }
                 else if (pathCreator.name[1] == 'W')
                 {
-                    Vector3 currentPoint = pathCreator.path.GetPointAtDistance(pathCreator.path.length - distanceTravelled, EndOfPathInstruction.Stop);
+                    Vector3 currentPoint = pathCreator.path.GetPointAtDistance(pathCreator.path.length - distanceTravelled, EndOfPathInstruction.Loop);
                     transform.position = new Vector3(currentPoint.x, this.transform.position.y, currentPoint.z);
 
                     Vector3 currentEulerRotation = pathCreator.path.GetRotationAtDistance(pathCreator.path.length - distanceTravelled, endOfPathInstruction).eulerAngles;
