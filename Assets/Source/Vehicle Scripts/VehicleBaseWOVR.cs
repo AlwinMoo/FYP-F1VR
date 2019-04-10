@@ -51,6 +51,9 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     private float soundStartTime;
     private bool soundSwap;
     private AudioClip audioClip;
+    public AudioClip gasSound;
+    public AudioClip brakeSound;
+    public AudioClip idleSound;
     #endregion
 
     float maxSteerAngle = 30;
@@ -143,7 +146,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
 
         if (this.GetComponent<CarPathFollower>().speed == 0)
         {
-            //should replace with idle soubd
+            //should replace with idle sounsd
             source.Stop();
 
             prevDistance = distance;
@@ -151,44 +154,34 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         }
         if ((distance + 0.8) < prevDistance)
         {
-            for (int i = 0; i < audioManager.GetSoundLength(); i++)
+            if (source.clip == null || soundSwap)
             {
-                if (audioManager.GetSound(i).clipName == "brakeSound")
-                {
-                    if (source.clip == null || soundSwap)
-                    {
-                        source.pitch = 1.0f;
-                        source.loop = false;
+                source.pitch = 1.0f;
+                source.loop = false;
+                source.volume = audioManager.GetSFXVolume();
 
-                        soundStartTime = Time.time;
-                        soundSwap = false;
-                        prevDistance = distance;
-                        prevPosition = transform.position;
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
 
-                        audioClip = audioManager.GetSound(i).clip;
-                    }
-                }
+                audioClip = brakeSound;
             }
         }
         else
         {
-            for (int i = 0; i < audioManager.GetSoundLength(); i++)
+            if (source.clip == null || soundSwap)
             {
-                if (audioManager.GetSound(i).clipName == "gasSound")
-                {
-                    if (source.clip == null || soundSwap)
-                    {
-                        source.pitch = 1.0f;
-                        source.loop = true;
+                source.pitch = 1.0f;
+                source.loop = true;
+                source.volume = audioManager.GetSFXVolume();
 
-                        soundStartTime = Time.time;
-                        soundSwap = false;
-                        prevDistance = distance;
-                        prevPosition = transform.position;
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
 
-                        audioClip = audioManager.GetSound(i).clip;
-                    }
-                }
+                audioClip = gasSound;
             }
         }
 
@@ -198,6 +191,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         }
 
     }
+
     public virtual void GetInput()
     {
         m_verticalInput = Input.GetAxis("Vertical");
@@ -216,6 +210,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         //m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
         //m_horizonetalInput /= -180;
     }
+
     public virtual void Steer()
     {
         m_steeringAngle = maxSteerAngle * m_horizonetalInput;

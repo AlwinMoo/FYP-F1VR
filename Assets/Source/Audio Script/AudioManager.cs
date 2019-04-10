@@ -4,21 +4,16 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 
-[System.Serializable]
-public class Sound
-{
-    public string clipName;
-    public AudioClip clip;
-}
-
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    public float volume;
+    private float master;
+    private float SFXVolume;
+    private float BGMVolume;
 
-    [SerializeField]
-    Sound[] sound;
+    private float SFXMultiplier;
+    private float BGMMultiplier;
 
     void Awake()
     {
@@ -34,46 +29,119 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < sound.Length; i++)
+        master = 10;
+        SFXMultiplier = 10;
+        BGMMultiplier = 10;
+    }
+
+    public void Update()
+    {
+        SFXVolume = master * SFXMultiplier / 100;
+        if (master != 0 && SFXMultiplier != 0)
         {
-            GameObject go = new GameObject("Sound_ " + i + " " + sound[i].clipName);
+            if (SFXVolume < 0.1)
+            {
+                SFXVolume = 0.1f;
+            }
+        }
+
+        BGMVolume = master * BGMMultiplier / 100;
+        if (master != 0 && BGMMultiplier != 0)
+        {
+            if (BGMVolume < 0.1)
+            {
+                BGMVolume = 0.1f;
+            }
         }
     }
 
     /// <summary>
-    /// volume set
+    /// set master volume
     /// </summary>
-    /// <param name="volumeAmt">volume</param>
-    public void SetVolume(float volumeAmt)
+    /// <param name="volumeAmt">master volume</param>
+    public void SetMasterVolume(float volumeAmt)
     {
-        volume = volumeAmt;
+        master = volumeAmt;
     }
 
     /// <summary>
-    /// volume get
+    /// set sfx volume
     /// </summary>
-    /// <returns>volume</returns>
-    public float GetVolume()
+    /// <param name="volumeAmt">sfx volume</param>
+    public void SetSFXVolume(float volumeAmt)
     {
-        return volume;
+        SFXVolume = volumeAmt;
     }
 
     /// <summary>
-    /// gets no of sounds in list
+    /// set bgm volume
     /// </summary>
-    /// <returns>no of sounds in list</returns>
-    public int GetSoundLength()
+    /// <param name="volumeAmt">bgm volume</param>
+    public void SetBGMVolume(float volumeAmt)
     {
-        return sound.Length;
+        BGMVolume = volumeAmt;
     }
 
     /// <summary>
-    /// gets sound in list based off the sound no
+    /// set sfx multiplier
     /// </summary>
-    /// <param name="i">sound no</param>
-    /// <returns>gets sound in list</returns>
-    public Sound GetSound(int i)
+    /// <param name="amt">sfx multiplier</param>
+    public void SetSFXMultiplier(float amt)
     {
-        return sound[i];
+        SFXMultiplier = amt;
+    }
+
+    /// <summary>
+    /// set bgm multiplier
+    /// </summary>
+    /// <param name="amt">bgm multiplier</param>
+    public void SetBGMMultiplier(float amt)
+    {
+        BGMMultiplier = amt;
+    }
+
+    /// <summary>
+    /// get master volume
+    /// </summary>
+    /// <returns>master volume</returns>
+    public float GetMasterVolume()
+    {
+        return master;
+    }
+
+    /// <summary>
+    /// get sfx volume
+    /// </summary>
+    /// <returns>sfx volume</returns>
+    public float GetSFXVolume()
+    {
+        return SFXVolume;
+    }
+
+    /// <summary>
+    /// get bgm volume
+    /// </summary>
+    /// <returns>bgm volume</returns>
+    public float GetBGMVolume()
+    {
+        return BGMVolume;
+    }
+
+    /// <summary>
+    /// get sfx multiplier
+    /// </summary>
+    /// <returns>sfx multiplier</returns>
+    public float GetSFXMultiplier()
+    {
+        return SFXMultiplier;
+    }
+
+    /// <summary>
+    /// get bgm multiplier
+    /// </summary>
+    /// <returns>bgm multiplier</returns>
+    public float GetBGMMultiplier()
+    {
+        return BGMMultiplier;
     }
 }
