@@ -9,10 +9,12 @@ public class CarPathFollower : MonoBehaviour
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 0;
+    public float maxSpeed = 10;
     float distanceTravelled;
     private List<Transform> trafficLightList;
 
     private bool stopping;
+    private bool slowDown;
 
     public GameObject WaypointContainer = null;
 
@@ -36,6 +38,7 @@ public class CarPathFollower : MonoBehaviour
         pathCreator.pathUpdated += OnPathChanged;
         transform.position = new Vector3(0, 4 + 0.5f, 0);
         stopping = false;
+        slowDown = false;
     }
 
     void Update()
@@ -104,8 +107,10 @@ public class CarPathFollower : MonoBehaviour
         {
             if (hit.transform.tag == "Car" && hit.distance <= 9f)
             {
-                accelerate = false;
+                slowDown = true;
             }
+            else
+                slowDown = false;
 
             Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
@@ -115,16 +120,23 @@ public class CarPathFollower : MonoBehaviour
         {
             if (hit.transform.tag == "Car" && hit.distance <= 9f)
             {
-                accelerate = false;
+                slowDown = true;
             }
+            else
+                slowDown = false;
 
             Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
 
+        if (slowDown)
+            maxSpeed = 5;
+        else
+            maxSpeed = 10;
+
         if (accelerate)
         {
             stopping = false;
-            if (speed < 10f)
+            if (speed < maxSpeed)
             {
                 speed += 8f * Time.deltaTime;
             }
