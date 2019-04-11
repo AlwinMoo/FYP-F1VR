@@ -167,9 +167,6 @@ namespace Valve.VR.InteractionSystem
             }
 
             float rotateAngle = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
-            rotateAngle = (rotateAngle > 180) ? rotateAngle - 360 : rotateAngle;
-            GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles =
-                new Vector3(GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles.x, rotateAngle, GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles.z);
         }
         public virtual void Steer()
         {
