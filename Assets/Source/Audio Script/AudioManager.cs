@@ -39,18 +39,18 @@ public class AudioManager : MonoBehaviour
         SFXVolume = master * SFXMultiplier / 100;
         if (master != 0 && SFXMultiplier != 0)
         {
-            if (SFXVolume < 0.1)
+            if (SFXVolume < 0.01)
             {
-                SFXVolume = 0.1f;
+                SFXVolume = 0.01f;
             }
         }
 
         BGMVolume = master * BGMMultiplier / 100;
         if (master != 0 && BGMMultiplier != 0)
         {
-            if (BGMVolume < 0.1)
+            if (BGMVolume < 0.01)
             {
-                BGMVolume = 0.1f;
+                BGMVolume = 0.01f;
             }
         }
     }
