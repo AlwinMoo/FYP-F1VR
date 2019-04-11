@@ -166,14 +166,9 @@ namespace Valve.VR.InteractionSystem
                 m_verticalInput = 0;
             }
 
-            if (GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z >= 179)
-            {
-                GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles = new Vector3(GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.x, GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.y, 179);
-            }
-            else if (GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z <= -179)
-            {
-                GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles = new Vector3(GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.x, GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.y, -179);
-            }
+            Vector3 currentRotation = GameObject.FindGameObjectWithTag("SteeringWheel").transform.localRotation.eulerAngles;
+            currentRotation.z = Mathf.Clamp(currentRotation.z, -179, 179);
+            transform.localRotation = Quaternion.Euler(currentRotation);
 
             m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
             m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
