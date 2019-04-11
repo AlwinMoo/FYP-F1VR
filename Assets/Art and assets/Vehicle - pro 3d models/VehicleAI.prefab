@@ -3918,11 +3918,11 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0.7227677, z: 0.009065151}
   m_Size: 4.6297035
-  m_FadeMode: 0
+  m_FadeMode: 1
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6131134
+  - screenRelativeHeight: 0.58292663
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3955463480840703646}
@@ -3954,8 +3954,8 @@ LODGroup:
     - renderer: {fileID: 3954830078587286828}
     - renderer: {fileID: 3956361845592205886}
     - renderer: {fileID: 3990144853501154636}
-  - screenRelativeHeight: 0.34869027
-    fadeTransitionWidth: 0
+  - screenRelativeHeight: 0.2781029
+    fadeTransitionWidth: 0.504
     renderers:
     - renderer: {fileID: 3955815162222444654}
     - renderer: {fileID: 3955598079218779832}
@@ -3986,7 +3986,7 @@ LODGroup:
     - renderer: {fileID: 3955801051503422880}
     - renderer: {fileID: 3955081091965760250}
     - renderer: {fileID: 3989185817521136112}
-  - screenRelativeHeight: 0.13706127
+  - screenRelativeHeight: 0.09592061
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3955471859482204238}
@@ -4018,7 +4018,7 @@ LODGroup:
     - renderer: {fileID: 3955363944430191528}
     - renderer: {fileID: 3954910944440958148}
     - renderer: {fileID: 3989653796629121018}
-  - screenRelativeHeight: 0.041737624
+  - screenRelativeHeight: 0.008503184
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3954751412736075996}
@@ -4083,6 +4083,7 @@ MonoBehaviour:
   pathCreator: {fileID: 0}
   endOfPathInstruction: 0
   speed: 0
+  maxSpeed: 10
   WaypointContainer: {fileID: 0}
 --- !u!1 &3941272451600457880
 GameObject:
