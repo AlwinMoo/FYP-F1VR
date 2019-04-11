@@ -6,7 +6,6 @@ public class BasicTrafficLight : MonoBehaviour
 {
 
     public GameObject TrafficLightObject;
-    public GameObject TrafficLightObject2;
 
     public enum LIGHT_STATUS
     {
@@ -68,7 +67,7 @@ public class BasicTrafficLight : MonoBehaviour
         //-------DEBUG CUBE LIGHTS END-------
 
         //-------TRAFFIC LIGHT CONTROLLER-------
-        if (TrafficLightObject != null && TrafficLightObject2 != null)
+        if (TrafficLightObject != null)
         {
             LightReset();
             switch (trafficLight)
@@ -76,20 +75,17 @@ public class BasicTrafficLight : MonoBehaviour
                 case LIGHT_STATUS.LIGHT_RED:
                     {
                         TrafficLightObject.transform.GetChild(1).gameObject.SetActive(true);
-                        TrafficLightObject2.transform.GetChild(1).gameObject.SetActive(true);
                         break;
                     }
 
                 case LIGHT_STATUS.LIGHT_YELLOW:
                     {
                         TrafficLightObject.transform.GetChild(2).gameObject.SetActive(true);
-                        TrafficLightObject2.transform.GetChild(2).gameObject.SetActive(true);
                         break;
                     }
                 case LIGHT_STATUS.LIGHT_GREEN:
                     {
                         TrafficLightObject.transform.GetChild(3).gameObject.SetActive(true);
-                        TrafficLightObject2.transform.GetChild(3).gameObject.SetActive(true);
                         break;
                     }
                 default:
@@ -138,9 +134,6 @@ public class BasicTrafficLight : MonoBehaviour
         TrafficLightObject.transform.GetChild(1).gameObject.SetActive(false);
         TrafficLightObject.transform.GetChild(2).gameObject.SetActive(false);
         TrafficLightObject.transform.GetChild(3).gameObject.SetActive(false);
-        TrafficLightObject2.transform.GetChild(1).gameObject.SetActive(false);
-        TrafficLightObject2.transform.GetChild(2).gameObject.SetActive(false);
-        TrafficLightObject2.transform.GetChild(3).gameObject.SetActive(false);
     }
 
 
