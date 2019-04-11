@@ -298,8 +298,7 @@ namespace Valve.VR.InteractionSystem
 			// Need a non-zero distance from the hand to the center of the CircularDrive
 			if ( toTransform.sqrMagnitude > 0.0f )
 			{
-                Vector3 tempNormal = transform.TransformDirection(worldPlaneNormal).normalized;
-                toTransformProjected = Vector3.ProjectOnPlane( toTransform, tempNormal).normalized;
+				toTransformProjected = Vector3.ProjectOnPlane( toTransform, worldPlaneNormal ).normalized;
 			}
 			else
 			{
@@ -312,8 +311,9 @@ namespace Valve.VR.InteractionSystem
 				DrawDebugPath( xForm, toTransformProjected );
 			}
 
-			return toTransformProjected;
-		}
+            //return toTransformProjected;
+            return Vector3.ProjectOnPlane(transform.parent.InverseTransformVector(xForm.position - transform.position).normalized, localPlaneNormal).normalized;
+        }
 
 
 		//-------------------------------------------------
@@ -485,9 +485,7 @@ namespace Valve.VR.InteractionSystem
 					else
 					{
 						Vector3 cross = Vector3.Cross( lastHandProjected, toHandProjected ).normalized;
-
-                        Vector3 tempNormal = transform.TransformDirection(worldPlaneNormal).normalized;
-                        float dot = Vector3.Dot( tempNormal, cross );
+						float dot = Vector3.Dot( worldPlaneNormal, cross );
 
 						float signedAngleDelta = absAngleDelta;
 
