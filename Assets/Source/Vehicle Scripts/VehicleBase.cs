@@ -167,7 +167,7 @@ namespace Valve.VR.InteractionSystem
             }
 
             Vector3 currentRotation = GameObject.FindGameObjectWithTag("SteeringWheel").transform.localRotation.eulerAngles;
-            currentRotation.z = Mathf.Clamp(currentRotation.z, -179, 179);
+            currentRotation.z = Mathf.Clamp(currentRotation.z, -170, 170);
             GameObject.FindGameObjectWithTag("SteeringWheel").transform.localRotation = Quaternion.Euler(currentRotation);
 
             m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
