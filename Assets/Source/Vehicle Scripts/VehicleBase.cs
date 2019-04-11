@@ -135,11 +135,15 @@ namespace Valve.VR.InteractionSystem
             {
                 rL_Wheel.brakeTorque = brakeForce;
                 rR_Wheel.brakeTorque = brakeForce;
+                fL_Wheel.brakeTorque = brakeForce;
+                fR_Wheel.brakeTorque = brakeForce;
             }
             if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
             {
                 rL_Wheel.brakeTorque = 0;
                 rR_Wheel.brakeTorque = 0;
+                fL_Wheel.brakeTorque = 0;
+                fR_Wheel.brakeTorque = 0;
             }
 
             if (Input.GetKeyDown(KeyCode.P))

@@ -10,12 +10,12 @@ namespace Valve.VR.InteractionSystem
         // Use this for initialization
         public override void Start()
         {
-            this.gameObject.GetComponent<Rigidbody>().mass = 1000;
+            this.gameObject.GetComponent<Rigidbody>().mass = 1500;
             mass = this.gameObject.GetComponent<Rigidbody>().mass;
 
-            motorForce = 5000;
+            motorForce = 4000;
             steerForce = 9000;
-            brakeForce = 5 * motorForce;
+            brakeForce = 2 * motorForce;
 
             fR_Wheel = GameObject.FindWithTag("FR_Collider").GetComponent<WheelCollider>();
             fL_Wheel = GameObject.FindWithTag("FL_Collider").GetComponent<WheelCollider>();
