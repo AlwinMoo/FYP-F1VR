@@ -105,13 +105,13 @@ public class CarPathFollower : MonoBehaviour
         //45 right
         if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 9f)
-            {
-                slowDown = true;
-            }
-            else if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            if (hit.transform.tag == "Car" && hit.distance <= 5f)
             {
                 accelerate = false;
+            }
+            else if (hit.transform.tag == "Car" && hit.distance <= 9f)
+            {
+                slowDown = true;
             }
             else
                 slowDown = false;
@@ -122,13 +122,13 @@ public class CarPathFollower : MonoBehaviour
         //45 left
         if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 9f)
-            {
-                slowDown = true;
-            }
-            else if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            if (hit.transform.tag == "Car" && hit.distance <= 5f)
             {
                 accelerate = false;
+            }
+            else if (hit.transform.tag == "Car" && hit.distance <= 9f)
+            {
+                slowDown = true;
             }
             else
                 slowDown = false;
