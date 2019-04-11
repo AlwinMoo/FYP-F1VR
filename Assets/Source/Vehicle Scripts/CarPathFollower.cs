@@ -109,6 +109,10 @@ public class CarPathFollower : MonoBehaviour
             {
                 slowDown = true;
             }
+            else if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            {
+                accelerate = false;
+            }
             else
                 slowDown = false;
 
@@ -121,6 +125,10 @@ public class CarPathFollower : MonoBehaviour
             if (hit.transform.tag == "Car" && hit.distance <= 9f)
             {
                 slowDown = true;
+            }
+            else if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            {
+                accelerate = false;
             }
             else
                 slowDown = false;

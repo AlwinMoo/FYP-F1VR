@@ -166,9 +166,10 @@ namespace Valve.VR.InteractionSystem
                 m_verticalInput = 0;
             }
 
-            m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
-            m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
-            m_horizonetalInput /= -180;
+            float rotateAngle = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
+            rotateAngle = (rotateAngle > 180) ? rotateAngle - 360 : rotateAngle;
+            GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles =
+                new Vector3(GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles.x, rotateAngle, GameObject.FindGameObjectWithTag("SteeringWheel").transform.localEulerAngles.z);
         }
         public virtual void Steer()
         {
@@ -264,7 +265,7 @@ namespace Valve.VR.InteractionSystem
             UpdateWheelPoses();
 
             AnalogueSpeedoMeter.SpeedToAngle(this.GetComponent<Rigidbody>().velocity.magnitude, 0, 25);
-            this.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(this.GetComponent<Rigidbody>().velocity, 5);
+            this.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(this.GetComponent<Rigidbody>().velocity, 7);
         }
 
         /// <summary>
