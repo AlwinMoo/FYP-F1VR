@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(AudioSource))]
+//[RequireComponent(typeof(AudioSource))]
 public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
 {
     #region Elastic collision
@@ -43,17 +43,17 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     //private NavMeshAgent agent;
 
     #region Car audio
-    AudioManager audioManager;
-    public AudioSource source;
+    //AudioManager audioManager;
+    //public AudioSource source;
 
-    private Vector3 prevPosition;
-    private float prevDistance;
-    private float soundStartTime;
-    private bool soundSwap;
-    private AudioClip audioClip;
-    public AudioClip gasSound;
-    public AudioClip brakeSound;
-    public AudioClip idleSound;
+    //private Vector3 prevPosition;
+    //private float prevDistance;
+    //private float soundStartTime;
+    //private bool soundSwap;
+    //private AudioClip audioClip;
+    //public AudioClip gasSound;
+    //public AudioClip brakeSound;
+    //public AudioClip idleSound;
     #endregion
 
     float maxSteerAngle = 30;
@@ -77,8 +77,8 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     // Use this for initialization
     public virtual void OnObjectSpawn()
     {
-        audioManager = AudioManager.instance;
-        prevPosition = transform.position;
+        //audioManager = AudioManager.instance;
+        //prevPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -95,33 +95,45 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         {
             rL_Wheel.brakeTorque = brakeForce;
             rR_Wheel.brakeTorque = brakeForce;
+            fL_Wheel.brakeTorque = brakeForce;
+            fR_Wheel.brakeTorque = brakeForce;
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             rL_Wheel.brakeTorque = 0;
             rR_Wheel.brakeTorque = 0;
+            fL_Wheel.brakeTorque = 0;
+            fR_Wheel.brakeTorque = 0;
         }
 
         if (gameObject.GetComponent<Rigidbody>().velocity.magnitude < -3 && Input.GetKeyDown(KeyCode.W))
         {
             rL_Wheel.brakeTorque = brakeForce;
             rR_Wheel.brakeTorque = brakeForce;
+            fL_Wheel.brakeTorque = brakeForce;
+            fR_Wheel.brakeTorque = brakeForce;
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
             rL_Wheel.brakeTorque = 0;
             rR_Wheel.brakeTorque = 0;
+            fL_Wheel.brakeTorque = 0;
+            fR_Wheel.brakeTorque = 0;
         }
 
         if (gameObject.GetComponent<Rigidbody>().velocity.magnitude > 3 && Input.GetKeyDown(KeyCode.S))
         {
             rL_Wheel.brakeTorque = brakeForce;
             rR_Wheel.brakeTorque = brakeForce;
+            fL_Wheel.brakeTorque = brakeForce;
+            fR_Wheel.brakeTorque = brakeForce;
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
             rL_Wheel.brakeTorque = 0;
             rR_Wheel.brakeTorque = 0;
+            fL_Wheel.brakeTorque = 0;
+            fR_Wheel.brakeTorque = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -129,66 +141,66 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         }
 
-        if (!source.isPlaying)
-        {
-            source.Play();
-        }
+        //if (!source.isPlaying)
+        //{
+        //    source.Play();
+        //}
 
-        float distance = Vector3.Distance(prevPosition, transform.position);
+        //float distance = Vector3.Distance(prevPosition, transform.position);
 
-        if (!soundSwap)
-        {
-            if (soundStartTime + 1 < Time.time)
-            {
-                soundSwap = true;
-            }
-        }
+        //if (!soundSwap)
+        //{
+        //    if (soundStartTime + 1 < Time.time)
+        //    {
+        //        soundSwap = true;
+        //    }
+        //}
 
-        if (this.GetComponent<CarPathFollower>().speed == 0)
-        {
-            //should replace with idle sounsd
-            source.Stop();
+        ////if (this.GetComponent<CarPathFollower>().speed == 0)
+        ////{
+        ////    //should replace with idle sounsd
+        ////    source.Stop();
 
-            prevDistance = distance;
-            prevPosition = transform.position;
-        }
-        if ((distance + 0.8) < prevDistance)
-        {
-            if (source.clip == null || soundSwap)
-            {
-                source.pitch = 1.0f;
-                source.loop = false;
-                source.volume = audioManager.GetSFXVolume();
+        ////    prevDistance = distance;
+        ////    prevPosition = transform.position;
+        ////}
+        //if ((distance + 0.8) < prevDistance)
+        //{
+        //    if (source.clip == null || soundSwap)
+        //    {
+        //        source.pitch = 1.0f;
+        //        source.loop = false;
+        //        source.volume = audioManager.GetSFXVolume();
 
-                soundStartTime = Time.time;
-                soundSwap = false;
-                prevDistance = distance;
-                prevPosition = transform.position;
+        //        soundStartTime = Time.time;
+        //        soundSwap = false;
+        //        prevDistance = distance;
+        //        prevPosition = transform.position;
 
-                audioClip = brakeSound;
-            }
-        }
-        else
-        {
-            if (source.clip == null || soundSwap)
-            {
-                source.pitch = 1.0f;
-                source.loop = true;
-                source.volume = audioManager.GetSFXVolume();
+        //        audioClip = brakeSound;
+        //    }
+        //}
+        //else
+        //{
+        //    if (source.clip == null || soundSwap)
+        //    {
+        //        source.pitch = 1.0f;
+        //        source.loop = true;
+        //        source.volume = audioManager.GetSFXVolume();
 
-                soundStartTime = Time.time;
-                soundSwap = false;
-                prevDistance = distance;
-                prevPosition = transform.position;
+        //        soundStartTime = Time.time;
+        //        soundSwap = false;
+        //        prevDistance = distance;
+        //        prevPosition = transform.position;
 
-                audioClip = gasSound;
-            }
-        }
+        //        audioClip = gasSound;
+        //    }
+        //}
 
-        if (!soundSwap)
-        {
-            PlayAudio(audioClip);
-        }
+        //if (!soundSwap)
+        //{
+        //    PlayAudio(audioClip);
+        //}
 
     }
 
@@ -305,7 +317,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         UpdateWheelPoses();
 
         AnalogueSpeedoMeter.SpeedToAngle(this.GetComponent<Rigidbody>().velocity.magnitude, 0, 25);
-
+        this.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(this.GetComponent<Rigidbody>().velocity, 5);
     }
 
     /// <summary>
@@ -321,15 +333,15 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
 
     public void PlayAudio(AudioClip music)
     {
-        if (source.clip != null)
-        {
-            if (source.clip.name == music.name)
-                return;
-        }
+        //if (source.clip != null)
+        //{
+        //    if (source.clip.name == music.name)
+        //        return;
+        //}
 
-        //changing music it plays
-        source.Stop();
-        source.clip = music;
-        source.Play();
+        ////changing music it plays
+        //source.Stop();
+        //source.clip = music;
+        //source.Play();
     }
 }
