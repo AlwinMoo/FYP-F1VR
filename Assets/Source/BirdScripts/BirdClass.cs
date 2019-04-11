@@ -15,6 +15,7 @@ public class BirdClass : MonoBehaviour
         hopRight,
     }
 
+    AudioManager audioManager;
     public AudioClip song;
 
     Animator anim;
@@ -31,6 +32,8 @@ public class BirdClass : MonoBehaviour
     Vector3 bColCenter;
     Vector3 bColSize;
     SphereCollider solidCollider;
+    Rigidbody rigidbody;
+    AudioSource audioSource;
     float distanceToTarget = 0.0f;
     float agitationLevel = .5f;
     float originalAnimSpeed = 1.0f;
@@ -60,11 +63,15 @@ public class BirdClass : MonoBehaviour
 
     void OnEnable()
     {
+        audioManager = AudioManager.instance;
+
         birdCollider = gameObject.GetComponent<BoxCollider>();
         bColCenter = birdCollider.center;
         bColSize = birdCollider.size;
         solidCollider = gameObject.GetComponent<SphereCollider>();
         anim = gameObject.GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 
         idleAnimationHash = Animator.StringToHash("Base Layer.Idle");
         flyAnimationHash = Animator.StringToHash("Base Layer.fly");
@@ -88,9 +95,9 @@ public class BirdClass : MonoBehaviour
     {
         originalAnimSpeed = anim.speed;
         anim.speed = 0;
-        if (!GetComponent<Rigidbody>().isKinematic) { originalVelocity = GetComponent<Rigidbody>().velocity; }
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<AudioSource>().Stop();
+        if (!rigidbody.isKinematic) { originalVelocity = rigidbody.velocity; }
+        rigidbody.isKinematic = true;
+        audioSource.Stop();
         paused = true;
     }
 
@@ -100,8 +107,8 @@ public class BirdClass : MonoBehaviour
     void UnPauseBird()
     {
         anim.speed = originalAnimSpeed;
-        GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<Rigidbody>().velocity = originalVelocity;
+        rigidbody.isKinematic = false;
+        rigidbody.velocity = originalVelocity;
         paused = false;
     }
 
@@ -115,9 +122,9 @@ public class BirdClass : MonoBehaviour
         flying = true;
         landing = false;
         onGround = false;
-        GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().drag = 0.5f;
+        rigidbody.isKinematic = false;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.drag = 0.5f;
         anim.applyRootMotion = false;
         anim.SetBool(flyingBoolHash, true);
         anim.SetBool(landingBoolHash, false);
@@ -127,7 +134,7 @@ public class BirdClass : MonoBehaviour
             yield return 0;
         }
 
-        GetComponent<Rigidbody>().AddForce((transform.forward * 50.0f) + (transform.up * 100.0f));//!< birds fly up and away for 1 second before orienting to the next target */
+        rigidbody.AddForce((transform.forward * 50.0f) + (transform.up * 100.0f));//!< birds fly up and away for 1 second before orienting to the next target */
         float t = 0.0f;
         while (t < 1.0f)
         {
@@ -161,7 +168,7 @@ public class BirdClass : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(startingRotation, finalRotation, t);
                 anim.SetFloat(flyingDirectionHash, FindBankingAngle(transform.forward, vectorDirectionToTarget));
                 t += Time.deltaTime * 0.5f;
-                GetComponent<Rigidbody>().AddForce(transform.forward * 70.0f * Time.deltaTime);
+                rigidbody.AddForce(transform.forward * 70.0f * Time.deltaTime);
 
                 vectorDirectionToTarget = (target - transform.position).normalized;//!< reset the variable to reflect the actual target and not the temptarget */
 
@@ -187,7 +194,7 @@ public class BirdClass : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(startingRotation, finalRotation, t);
                 anim.SetFloat(flyingDirectionHash, FindBankingAngle(transform.forward, vectorDirectionToTarget));
                 t += Time.deltaTime * 0.5f;
-                GetComponent<Rigidbody>().AddForce(transform.forward * 70.0f * Time.deltaTime);
+                rigidbody.AddForce(transform.forward * 70.0f * Time.deltaTime);
             }
             yield return 0;
         }
@@ -201,7 +208,7 @@ public class BirdClass : MonoBehaviour
                 finalRotation = Quaternion.LookRotation(vectorDirectionToTarget);
                 anim.SetFloat(flyingDirectionHash, FindBankingAngle(transform.forward, vectorDirectionToTarget));
                 transform.rotation = finalRotation;
-                GetComponent<Rigidbody>().AddForce(transform.forward * flyingForce * Time.deltaTime);
+                rigidbody.AddForce(transform.forward * flyingForce * Time.deltaTime);
                 distanceToTarget = Vector3.Distance(transform.position, target);
                 if (distanceToTarget <= 1.5f)
                 {
@@ -212,13 +219,13 @@ public class BirdClass : MonoBehaviour
                     }
                     else
                     {
-                        GetComponent<Rigidbody>().drag = 2.0f;
+                        rigidbody.drag = 2.0f;
                         flyingForce = 50.0f;
                     }
                 }
                 else if (distanceToTarget <= 5.0f)
                 {
-                    GetComponent<Rigidbody>().drag = 1.0f;
+                    rigidbody.drag = 1.0f;
                     flyingForce = 50.0f;
                 }
             }
@@ -262,17 +269,17 @@ public class BirdClass : MonoBehaviour
     /// <param name="music">selected clip to play</param>
     void PlayAudio(AudioClip music)
     {
-        if (GetComponent<AudioSource>().clip != null)
+        if (audioSource.clip != null)
         {
-            if (GetComponent<AudioSource>().clip.name == music.name)
+            if (audioSource.clip.name == music.name)
                 return;
         }
         else
         {
             //changing music it plays
-            GetComponent<AudioSource>().Stop();
-            GetComponent<AudioSource>().clip = music;
-            GetComponent<AudioSource>().Play();
+            audioSource.Stop();
+            audioSource.clip = music;
+            audioSource.Play();
         }
     }
 
@@ -284,9 +291,10 @@ public class BirdClass : MonoBehaviour
 
             if (flying)
             {
-                GetComponent<AudioSource>().clip = song;
+                audioSource.clip = song;
+                audioSource.volume = audioManager.GetSFXVolume();
 
-                if (!GetComponent<AudioSource>().isPlaying)
+                if (!audioSource.isPlaying)
                 {
                     if (!soundCheck)
                     {
@@ -296,7 +304,7 @@ public class BirdClass : MonoBehaviour
 
                     if (soundEndTime + Random.Range(5, 100) < Time.time)
                     {
-                        GetComponent<AudioSource>().Play();
+                        audioSource.Play();
                         soundCheck = false;
                     }
                 }
