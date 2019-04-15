@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour
 {
-
+    GameObject go_Sun;
+    Transform tr_Sun;
     float frealAngle = 4f;
     float fAngle;
     float fHourAngle;
@@ -16,12 +17,13 @@ public class DayNight : MonoBehaviour
     void Start()
     {
         fAngle = 4f * Time.fixedDeltaTime;
+        go_Sun = GameObject.FindGameObjectWithTag("Sun");
     }
 
     void Update()
     {
-        Debug.Log(fHourAngle + " " + fRealHour + " am:" + bAm);
-        transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
+        Debug.Log(frealAngle+ " Time --" +fHourAngle + " " + fRealHour + " am:" + bAm);
+        go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
         frealAngle += fAngle;
         fHourAngle += fAngle;
         if (frealAngle >= 360)
@@ -29,6 +31,7 @@ public class DayNight : MonoBehaviour
             frealAngle = 0f;
             nDay += 1;
         }
+
         if (fHourAngle >= 15)
         {
             fRealHour += 1;
@@ -43,6 +46,15 @@ public class DayNight : MonoBehaviour
             }
             else
                 bAm = true; 
+        }
+
+        if (fRealHour == 8 && bAm == true)
+        {
+            go_Sun.SetActive(true);
+        }
+        if (fRealHour == 6 && bAm == false)
+        {
+            go_Sun.SetActive(false);
         }
         // fFakeTime = fFakeTime;
         //ftime = fFakeTime / 15;

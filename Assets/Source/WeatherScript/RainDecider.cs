@@ -7,7 +7,6 @@ public class RainDecider : MonoBehaviour {
     public GameObject m_goRain;
     public GameObject m_goRainDrop;
     public Light m_lSun;
-    public Light m_lMoon;
 
     private Transform trPlayer;
     public float fWeatherHeight = 90f;
@@ -54,8 +53,6 @@ public class RainDecider : MonoBehaviour {
         {
             if (m_lSun.intensity > 0.006f)
                 m_lSun.intensity -= 0.003f;
-            if (m_lMoon.intensity > 0.006f)
-                m_lMoon.intensity -= 0.003f;
 
             if (once == true)
             {
@@ -82,10 +79,6 @@ public class RainDecider : MonoBehaviour {
                 m_lSun.intensity += 0.005f;
             if (m_lSun.intensity > 0.49f)
                 m_lSun.intensity = 0.5f;
-            if (m_lMoon.intensity < 0.49f)
-                m_lMoon.intensity += 0.005f;
-            if (m_lMoon.intensity > 0.49f)
-                m_lMoon.intensity = 0.5f;
         }
 
         if(m_goRain.active == true)
