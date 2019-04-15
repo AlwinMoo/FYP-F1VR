@@ -43,17 +43,17 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     //private NavMeshAgent agent;
 
     #region Car audio
-    //AudioManager audioManager;
-    //public AudioSource source;
+    private GameObject AudioManagerGO;
+    private AudioManager audioManager;
+    public AudioSource source;
 
-    //private Vector3 prevPosition;
-    //private float prevDistance;
-    //private float soundStartTime;
-    //private bool soundSwap;
-    //private AudioClip audioClip;
-    //public AudioClip gasSound;
-    //public AudioClip brakeSound;
-    //public AudioClip idleSound;
+    private Vector3 prevPosition;
+    private float prevDistance;
+    private float soundStartTime;
+    private bool soundSwap;
+    private AudioClip audioClip;
+    public AudioClip gasSound;
+    public AudioClip brakeSound;
     #endregion
 
     float maxSteerAngle = 30;
@@ -84,6 +84,9 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     // Update is called once per frame
     public virtual void Update()
     {
+        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
         // If the gameobject is not owned by the client
         rR_Wheel.motorTorque = 0;
         rL_Wheel.motorTorque = 0;
@@ -141,66 +144,69 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         }
 
-        //if (!source.isPlaying)
-        //{
-        //    source.Play();
-        //}
+        if (!source.isPlaying)
+        {
+            source.Play();
+        }
 
-        //float distance = Vector3.Distance(prevPosition, transform.position);
+        float distance = Vector3.Distance(prevPosition, transform.position);
 
-        //if (!soundSwap)
-        //{
-        //    if (soundStartTime + 1 < Time.time)
-        //    {
-        //        soundSwap = true;
-        //    }
-        //}
+        if (!soundSwap)
+        {
+            if (soundStartTime + 1 < Time.time)
+            {
+                soundSwap = true;
+            }
+        }
 
-        ////if (this.GetComponent<CarPathFollower>().speed == 0)
-        ////{
-        ////    //should replace with idle sounsd
-        ////    source.Stop();
+        if (this.GetComponent<Rigidbody>().velocity.magnitude < 0)
+        {
+            if (soundSwap)
+            {
+                //should replace with idle sound
+                source.Stop();
 
-        ////    prevDistance = distance;
-        ////    prevPosition = transform.position;
-        ////}
-        //if ((distance + 0.8) < prevDistance)
-        //{
-        //    if (source.clip == null || soundSwap)
-        //    {
-        //        source.pitch = 1.0f;
-        //        source.loop = false;
-        //        source.volume = audioManager.GetSFXVolume();
+                prevDistance = distance;
+                prevPosition = transform.position;
+            }
+        }
+        else if ((distance + 0.8) < prevDistance)
+        {
+            if (source.clip == null || soundSwap)
+            {
+                source.pitch = 1.0f;
+                source.loop = false;
+                source.volume = audioManager.GetSFXVolume();
 
-        //        soundStartTime = Time.time;
-        //        soundSwap = false;
-        //        prevDistance = distance;
-        //        prevPosition = transform.position;
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
 
-        //        audioClip = brakeSound;
-        //    }
-        //}
-        //else
-        //{
-        //    if (source.clip == null || soundSwap)
-        //    {
-        //        source.pitch = 1.0f;
-        //        source.loop = true;
-        //        source.volume = audioManager.GetSFXVolume();
+                audioClip = brakeSound;
+            }
+        }
+        else
+        {
+            if (source.clip == null || soundSwap)
+            {
+                source.pitch = 1.0f;
+                source.loop = true;
+                source.volume = audioManager.GetSFXVolume();
 
-        //        soundStartTime = Time.time;
-        //        soundSwap = false;
-        //        prevDistance = distance;
-        //        prevPosition = transform.position;
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
 
-        //        audioClip = gasSound;
-        //    }
-        //}
+                audioClip = gasSound;
+            }
+        }
 
-        //if (!soundSwap)
-        //{
-        //    PlayAudio(audioClip);
-        //}
+        if (!soundSwap)
+        {
+            PlayAudio(audioClip);
+        }
 
     }
 
@@ -333,15 +339,15 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
 
     public void PlayAudio(AudioClip music)
     {
-        //if (source.clip != null)
-        //{
-        //    if (source.clip.name == music.name)
-        //        return;
-        //}
+        if (source.clip != null)
+        {
+            if (source.clip.name == music.name)
+                return;
+        }
 
-        ////changing music it plays
-        //source.Stop();
-        //source.clip = music;
-        //source.Play();
+        //changing music it plays
+        source.Stop();
+        source.clip = music;
+        source.Play();
     }
 }

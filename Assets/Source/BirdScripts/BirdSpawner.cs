@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BirdSpawner : MonoBehaviour
 {
-    public BirdClass crow;
-    public BirdClass robin;
-    public BirdClass sparrow;
+    private BirdClass crow;
+    private BirdClass robin;
+    private BirdClass sparrow;
 
     public int crowSpawnMin;
     private int currentCrowAmt;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6997445397720962391}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,9 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16d9bb045bee7847bc71f9174b3b74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 1
-  sound:
-  - clipName: gasSound
-    clip: {fileID: 8300000, guid: acc3a7d68e4b36249a2de34e0bb7d209, type: 3}
-  - clipName: brakeSound
-    clip: {fileID: 8300000, guid: 7866743a530d4094f8ec32fb0327ec1c, type: 3}

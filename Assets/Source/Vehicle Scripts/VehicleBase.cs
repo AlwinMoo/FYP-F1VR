@@ -44,6 +44,20 @@ namespace Valve.VR.InteractionSystem
 
         public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch"); // Button pushed
 
+        #region Car audio
+        private GameObject AudioManagerGO;
+        private AudioManager audioManager;
+        public AudioSource source;
+
+        private Vector3 prevPosition;
+        private float prevDistance;
+        private float soundStartTime;
+        private bool soundSwap;
+        private AudioClip audioClip;
+        public AudioClip gasSound;
+        public AudioClip brakeSound;
+        #endregion
+
         public enum DriveTrain
         {
             DRIVE_AWD,
@@ -71,6 +85,9 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         public virtual void Update()
         {
+            AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+            audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
             // If the gameobject is not owned by the client
             rR_Wheel.motorTorque = 0;
             rL_Wheel.motorTorque = 0;
@@ -131,12 +148,37 @@ namespace Valve.VR.InteractionSystem
             //    GameObject.Destroy(aimingRay);
             //}
 
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
+
+            if (!soundSwap)
+            {
+                if (soundStartTime + 1 < Time.time)
+                {
+                    soundSwap = true;
+                }
+            }
+
             if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
             {
                 rL_Wheel.brakeTorque = brakeForce;
                 rR_Wheel.brakeTorque = brakeForce;
                 fL_Wheel.brakeTorque = brakeForce;
                 fR_Wheel.brakeTorque = brakeForce;
+
+                if (source.clip == null || soundSwap)
+                {
+                    source.pitch = 1.0f;
+                    source.loop = false;
+                    source.volume = audioManager.GetSFXVolume();
+
+                    soundStartTime = Time.time;
+                    soundSwap = false;
+
+                    audioClip = brakeSound;
+                }
             }
             if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
             {
@@ -151,6 +193,19 @@ namespace Valve.VR.InteractionSystem
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
             }
 
+            if ((!grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && (!grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand)))
+            {
+                if (soundSwap)
+                {
+                    //should replace with idle sound
+                    source.Stop();
+                }
+            }
+
+            if (!soundSwap)
+            {
+                PlayAudio(audioClip);
+            }
         }
         public virtual void GetInput()
         {
@@ -160,6 +215,18 @@ namespace Valve.VR.InteractionSystem
             if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
             {
                 m_verticalInput = 1;
+
+                if (source.clip == null || soundSwap)
+                {
+                    source.pitch = 1.0f;
+                    source.loop = true;
+                    source.volume = audioManager.GetSFXVolume();
+
+                    soundStartTime = Time.time;
+                    soundSwap = false;
+
+                    audioClip = gasSound;
+                }
             }
             else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
             {
@@ -332,5 +399,19 @@ namespace Valve.VR.InteractionSystem
         //          this.gameObject.tag = SetName;
         //      }
         //  }
+
+        public void PlayAudio(AudioClip music)
+        {
+            if (source.clip != null)
+            {
+                if (source.clip.name == music.name)
+                    return;
+            }
+
+            //changing music it plays
+            source.Stop();
+            source.clip = music;
+            source.Play();
+        }
     }
 }

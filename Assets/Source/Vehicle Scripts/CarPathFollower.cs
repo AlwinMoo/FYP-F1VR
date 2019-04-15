@@ -20,6 +20,20 @@ public class CarPathFollower : MonoBehaviour
 
     bool accelerate = true;
 
+    #region Car audio
+    private GameObject AudioManagerGO;
+    private AudioManager audioManager;
+    public AudioSource source;
+
+    private Vector3 prevPosition;
+    private float prevDistance;
+    private float soundStartTime;
+    private bool soundSwap;
+    private AudioClip audioClip;
+    public AudioClip gasSound;
+    public AudioClip brakeSound;
+    #endregion
+
     void Start()
     {
         if (pathCreator == null)
@@ -43,6 +57,9 @@ public class CarPathFollower : MonoBehaviour
 
     void Update()
     {
+        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
         RaycastHit hit;
 
         if (WaypointContainer != null)
@@ -188,6 +205,70 @@ public class CarPathFollower : MonoBehaviour
                 }
             }
         }
+
+        if (!source.isPlaying)
+        {
+            source.Play();
+        }
+
+        float distance = Vector3.Distance(prevPosition, transform.position);
+
+        if (!soundSwap)
+        {
+            if (soundStartTime + 1 < Time.time)
+            {
+                soundSwap = true;
+            }
+        }
+
+        if (this.GetComponent<CarPathFollower>().speed < 0)
+        {
+            if (soundSwap)
+            {
+                //should replace with idle sound
+                source.Stop();
+
+                prevDistance = distance;
+                prevPosition = transform.position;
+            }
+        }
+        else if ((distance + 0.8) < prevDistance)
+        {
+            if (source.clip == null || soundSwap)
+            {
+                source.pitch = 1.0f;
+                source.loop = false;
+                source.volume = audioManager.GetSFXVolume();
+
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
+
+                audioClip = brakeSound;
+            }
+        }
+        else
+        {
+            if (source.clip == null || soundSwap)
+            {
+                source.pitch = 1.0f;
+                source.loop = true;
+                source.volume = audioManager.GetSFXVolume();
+
+                soundStartTime = Time.time;
+                soundSwap = false;
+                prevDistance = distance;
+                prevPosition = transform.position;
+
+                audioClip = gasSound;
+            }
+        }
+
+        if (!soundSwap)
+        {
+            PlayAudio(audioClip);
+        }
     }
 
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path
@@ -230,5 +311,19 @@ public class CarPathFollower : MonoBehaviour
     private bool Approximation(float a, float b, float tolerance)
     {
         return (Mathf.Abs(a - b) < tolerance);
+    }
+
+    public void PlayAudio(AudioClip music)
+    {
+        if (source.clip != null)
+        {
+            if (source.clip.name == music.name)
+                return;
+        }
+
+        //changing music it plays
+        source.Stop();
+        source.clip = music;
+        source.Play();
     }
 }

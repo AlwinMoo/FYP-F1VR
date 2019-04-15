@@ -15,7 +15,8 @@ public class BirdClass : MonoBehaviour
         hopRight,
     }
 
-    AudioManager audioManager;
+    private GameObject audioManagerGO;
+    private AudioManager audioManager;
     public AudioClip song;
 
     Animator anim;
@@ -63,8 +64,6 @@ public class BirdClass : MonoBehaviour
 
     void OnEnable()
     {
-        audioManager = AudioManager.instance;
-
         birdCollider = gameObject.GetComponent<BoxCollider>();
         bColCenter = birdCollider.center;
         bColSize = birdCollider.size;
@@ -285,6 +284,9 @@ public class BirdClass : MonoBehaviour
 
     void Update()
     {
+        audioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = audioManagerGO.GetComponent<AudioManager>();
+
         if (!paused)
         {
             FlyAway();

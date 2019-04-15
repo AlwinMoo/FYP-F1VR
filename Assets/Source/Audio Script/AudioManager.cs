@@ -8,11 +8,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    private float master;
+    private float master = 10;
     private float SFXVolume;
     private float BGMVolume;
 
-    private float SFXMultiplier;
+    private float SFXMultiplier = 10;
     private float BGMMultiplier;
 
     void Awake()
