@@ -22,7 +22,7 @@ public class DayNight : MonoBehaviour
 
     void Update()
     {
-       // Debug.Log(frealAngle+ " Time --" +fHourAngle + " " + fRealHour + " am:" + bAm);
+       Debug.Log(frealAngle+ " Time --" +fHourAngle + " " + fRealHour + " am:" + bAm);
         go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
         frealAngle += fAngle;
         fHourAngle += fAngle;
@@ -48,11 +48,11 @@ public class DayNight : MonoBehaviour
                 bAm = true; 
         }
 
-        if (fRealHour == 8 && bAm == true)
+        if (fRealHour == 6 && bAm == true)
         {
             go_Sun.SetActive(true);
         }
-        if (fRealHour == 6 && bAm == false)
+        if (fRealHour == 8 && bAm == false)
         {
             go_Sun.SetActive(false);
         }
