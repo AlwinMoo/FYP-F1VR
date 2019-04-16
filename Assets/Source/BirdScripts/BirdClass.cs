@@ -256,7 +256,7 @@ public class BirdClass : MonoBehaviour
         {
             StopCoroutine("FlyToTarget");
             target = new Vector3(Random.Range(-50, 50), Random.Range(40, 60), Random.Range(-50, 50));
-            Debug.Log(target);
+           // Debug.Log(target);
             StartCoroutine("FlyToTarget", target);
             reachedTarget = false;
         }

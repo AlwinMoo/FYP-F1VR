@@ -11,13 +11,15 @@ public class StreetLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject Sun = GameObject.FindGameObjectWithTag("Sun");
-        time = Sun.GetComponent<DayNight>();
+        GameObject go_GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        time = go_GameManager.GetComponent<DayNight>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(time.ReturnHour());
         fCurrentHour = time.ReturnHour();
         bCurrentAm = time.ReturnAM();
         if (fCurrentHour == 7 && bCurrentAm == true)

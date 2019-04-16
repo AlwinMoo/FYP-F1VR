@@ -20,26 +20,29 @@ public class RainDecider : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         RainOrNot = false;
-        myTimer = 20;
         Time2 = 0;
+        myTimer = Random.Range(10, 30);
         GameObject goPlayerGameObject = GameObject.FindGameObjectWithTag("Car");
         trPlayer = goPlayerGameObject.transform;
     }
 
 	// Update is called once per frame
 	void Update () {
-        if (Time2 >= 10)
+        Debug.Log(myTimer + " :: " + Time2 + " : " +RainOrNot);
+        if (Time2 >= 10 && RainOrNot != true)
         {
             rainchance = Random.Range(1, 5);
+            myTimer = Random.Range(10, 30);
             if (rainchance == 3)
             {
                 RainOrNot = true;
             }
             Time2 = 0;
         }
-
-        Time2 += Time.deltaTime;
-
+        if (RainOrNot != true)
+        {
+            Time2 += Time.deltaTime;
+        }
         if (Input.GetKeyDown(KeyCode.O))
         {
             RainOrNot = true;

@@ -29,6 +29,9 @@ TagManager:
   - lb_groundTarget
   - lb_perchTarget
   - Bird
+  - AudioManager
+  - Sun
+  - GameManager
   layers:
   - Default
   - TransparentFX
