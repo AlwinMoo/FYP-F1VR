@@ -37,10 +37,9 @@ namespace Valve.VR.InteractionSystem
         public Transform rR_T { get; set; }
         public Transform rL_T { get; set; }
 
-        //GameObject aimingRay;
-        //static Material lineMaterial;
+        public bool bReverse = false;
+
         float maxSteerAngle = 30;
-        //bool cancelShoot;
 
         public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch"); // Button pushed
 
@@ -214,7 +213,10 @@ namespace Valve.VR.InteractionSystem
 
             if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
             {
-                m_verticalInput = 1;
+                if (!bReverse)
+                    m_verticalInput = 1;
+                else
+                    m_verticalInput = -1;
 
                 if (source.clip == null || soundSwap)
                 {
