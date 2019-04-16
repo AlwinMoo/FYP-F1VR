@@ -48,7 +48,7 @@ public class DayNight : MonoBehaviour
                 bAm = true; 
         }
 
-        if (fRealHour == 8 && bAm == true)
+        if (fRealHour == 12 && bAm == true)
         {
             go_Sun.SetActive(true);
         }
