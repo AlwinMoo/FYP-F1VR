@@ -8,23 +8,6 @@ using Unity.Collections;
 // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
 public class CarPathFollower : MonoBehaviour
 {
-    struct CarCheckerJob : IJob
-    {
-        public Vector3 playerPos;
-        public Vector3 thisPos;
-
-        public bool _bAccelerate;
-        public bool _bSlowDown;
-
-        public void Execute()
-        {
-            if (Vector3.Distance(thisPos, playerPos) <= 10)
-            {
-                _bAccelerate = false;
-            }
-        }
-    }
-
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 0;
@@ -171,8 +154,6 @@ public class CarPathFollower : MonoBehaviour
 
             Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
-
-        ExecuteCarCheckerJob();
 
         if (slowDown)
             maxSpeed = 5;
@@ -346,18 +327,5 @@ public class CarPathFollower : MonoBehaviour
         source.Stop();
         source.clip = music;
         source.Play();
-    }
-
-    void ExecuteCarCheckerJob()
-    {
-        var job = new CarCheckerJob();
-        job.playerPos = GameObject.FindGameObjectWithTag("PlayerVehicle").transform.position;
-        job.thisPos = this.transform.position;
-
-        var jobHandle = job.Schedule();
-        jobHandle.Complete();
-
-        if (jobHandle.IsCompleted)
-            accelerate = job._bAccelerate;
     }
 }
