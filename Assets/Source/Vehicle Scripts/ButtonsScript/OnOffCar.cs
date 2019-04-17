@@ -7,7 +7,8 @@ namespace Valve.VR.InteractionSystem
     public class OnOffCar : MonoBehaviour
     {
         public bool bOnOff = false;
-
+        public GameObject Normal;
+        public GameObject Green;
         bool bOnce = false;
         public void OnButtonDown()
         {
@@ -16,10 +17,14 @@ namespace Valve.VR.InteractionSystem
                 if (bOnOff == false)
                 {
                     bOnOff = true;
+                    Green.SetActive(true);
+                    Normal.SetActive(false);
                 }
                 else
                 {
                     bOnOff = false;
+                    Green.SetActive(false);
+                    Normal.SetActive(true);
                 }
                 bOnce = true;
             }
