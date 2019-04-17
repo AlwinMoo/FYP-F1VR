@@ -1,11 +1,30 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
+using Unity.Jobs;
+using Unity.Collections;
 
 // Moves along a path at constant speed.
 // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
 public class CarPathFollower : MonoBehaviour
 {
+    struct CarCheckerJob : IJob
+    {
+        public Vector3 playerPos;
+        public Vector3 thisPos;
+
+        public bool _bAccelerate;
+        public bool _bSlowDown;
+
+        public void Execute()
+        {
+            if (Vector3.Distance(thisPos, playerPos) <= 10)
+            {
+                _bAccelerate = false;
+            }
+        }
+    }
+
     public PathCreator pathCreator;
     public EndOfPathInstruction endOfPathInstruction;
     public float speed = 0;
@@ -60,8 +79,6 @@ public class CarPathFollower : MonoBehaviour
         AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
         audioManager = AudioManagerGO.GetComponent<AudioManager>();
 
-        RaycastHit hit;
-
         if (WaypointContainer != null)
         {
             if (trafficLightList.Count == 0)
@@ -108,50 +125,54 @@ public class CarPathFollower : MonoBehaviour
             }
         }
 
+        RaycastHit hit;
+
         //forward
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 18f)
+            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
             {
                 accelerate = false;
             }
 
-            Debug.DrawRay(this.transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
         }
 
         //45 right
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 5f)
             {
                 accelerate = false;
             }
-            else if (hit.transform.tag == "Car" && hit.distance <= 9f)
+            else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 9f)
             {
                 slowDown = true;
             }
             else
                 slowDown = false;
 
-            Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
 
         //45 left
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
         {
-            if (hit.transform.tag == "Car" && hit.distance <= 5f)
+            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 5f)
             {
                 accelerate = false;
             }
-            else if (hit.transform.tag == "Car" && hit.distance <= 9f)
+            else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 9f)
             {
                 slowDown = true;
             }
             else
                 slowDown = false;
 
-            Debug.DrawRay(this.transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
+
+        ExecuteCarCheckerJob();
 
         if (slowDown)
             maxSpeed = 5;
@@ -325,5 +346,18 @@ public class CarPathFollower : MonoBehaviour
         source.Stop();
         source.clip = music;
         source.Play();
+    }
+
+    void ExecuteCarCheckerJob()
+    {
+        var job = new CarCheckerJob();
+        job.playerPos = GameObject.FindGameObjectWithTag("PlayerVehicle").transform.position;
+        job.thisPos = this.transform.position;
+
+        var jobHandle = job.Schedule();
+        jobHandle.Complete();
+
+        if (jobHandle.IsCompleted)
+            accelerate = job._bAccelerate;
     }
 }

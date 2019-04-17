@@ -28,7 +28,7 @@ public class RainDecider : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(myTimer + " :: " + Time2 + " : " +RainOrNot);
+        //Debug.Log(myTimer + " :: " + Time2 + " : " +RainOrNot);
         if (Time2 >= 10 && RainOrNot != true)
         {
             rainchance = Random.Range(1, 5);
