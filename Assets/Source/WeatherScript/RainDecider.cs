@@ -28,7 +28,7 @@ public class RainDecider : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(myTimer + " :: " + Time2 + " : " +RainOrNot);
+        //Debug.Log(myTimer + " :: " + Time2 + " : " +RainOrNot);
         if (Time2 >= 10 && RainOrNot != true)
         {
             rainchance = Random.Range(1, 5);
@@ -54,8 +54,8 @@ public class RainDecider : MonoBehaviour {
 
         if (RainOrNot == true)
         {
-            if (m_lSun.intensity > 0.006f)
-                m_lSun.intensity -= 0.003f;
+            if (m_lSun.intensity > 0.05f)
+                m_lSun.intensity -= 0.01f;
 
             if (once == true)
             {
@@ -78,10 +78,10 @@ public class RainDecider : MonoBehaviour {
             m_goRain.SetActive(false);
             m_goRainDrop.SetActive(false);
             once = true;
-            if (m_lSun.intensity < 0.49f)
-                m_lSun.intensity += 0.005f;
-            if (m_lSun.intensity > 0.49f)
-                m_lSun.intensity = 0.5f;
+            if (m_lSun.intensity < 1.9f)
+                m_lSun.intensity += 0.01f;
+            if (m_lSun.intensity > 1.9f)
+                m_lSun.intensity = 2f;
         }
 
         if(m_goRain.active == true)

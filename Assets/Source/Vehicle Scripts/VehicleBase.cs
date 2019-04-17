@@ -37,6 +37,10 @@ namespace Valve.VR.InteractionSystem
         public Transform rR_T { get; set; }
         public Transform rL_T { get; set; }
 
+        OnOffCar _OnOffCar;
+
+        bool bOnOrOff;
+
         public bool bReverse = false;
 
         float maxSteerAngle = 30;
@@ -78,132 +82,138 @@ namespace Valve.VR.InteractionSystem
         // Use this for initialization
         public virtual void Start()
         {
-
+            GameObject go_OFButton = GameObject.FindGameObjectWithTag("OFButton");
+            _OnOffCar = go_OFButton.GetComponent<OnOffCar>();
         }
 
         // Update is called once per frame
         public virtual void Update()
         {
-            AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-            audioManager = AudioManagerGO.GetComponent<AudioManager>();
-
-            // If the gameobject is not owned by the client
-            rR_Wheel.motorTorque = 0;
-            rL_Wheel.motorTorque = 0;
-
-            fR_Wheel.motorTorque = 0;
-            fL_Wheel.motorTorque = 0;
-
-            //if (Input.GetMouseButton(0) && (this.gameObject.GetComponent(typeof(Collider)) as Collider) != false)
-            //{
-            //    //RaycastHit hit;
-            //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //    Plane plane = new Plane(Vector3.up, this.transform.position);
-            //    float distToPlane;
-
-            //    if (plane.Raycast(ray, out distToPlane))
-            //    {
-            //        Vector3 hitPos = ray.GetPoint(distToPlane);
-
-            //        if (!aimingRay)
-            //            aimingRay = new GameObject();
-
-            //        aimingRay.transform.position = this.transform.position;
-
-            //        //CreateLineMaterial();
-            //        if (!aimingRay.GetComponent<LineRenderer>())
-            //        {
-            //            aimingRay.AddComponent<LineRenderer>();
-            //        }
-
-            //        LineRenderer aimLine = aimingRay.GetComponent<LineRenderer>();
-            //        aimLine.material = new Material(Shader.Find("Sprites/Default"));
-
-            //        Color endRed = Color.red;
-            //        endRed.a = 0.3f;
-            //        Color startRed = Color.red;
-            //        startRed.a = 0.6f;
-            //        aimLine.startColor = startRed;
-            //        aimLine.endColor = endRed;
-            //        aimLine.startWidth = 0.15f;
-            //        aimLine.endWidth = aimLine.startWidth;
-
-            //        aimLine.SetPosition(0, transform.position);
-            //        aimLine.SetPosition(1, hitPos);
-
-            //        Vector3 dir = hitPos - transform.position;
-            //        dir.y = 0;
-
-            //        parentDir = dir;
-
-
-            //        cancelShoot = true; 
-            //    }
-            //}
-
-            //if (Input.GetMouseButtonUp(0) && cancelShoot != false)
-            //{
-            //    cancelShoot = false;
-            //    GameObject.Destroy(aimingRay);
-            //}
-
-            if (!source.isPlaying)
+            Debug.Log(bOnOrOff);
+            bOnOrOff = _OnOffCar.bOnOff;
+      
+                AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+                audioManager = AudioManagerGO.GetComponent<AudioManager>();
+            if (bOnOrOff == true)
             {
-                source.Play();
-            }
+                // If the gameobject is not owned by the client
+                rR_Wheel.motorTorque = 0;
+                rL_Wheel.motorTorque = 0;
 
-            if (!soundSwap)
-            {
-                if (soundStartTime + 1 < Time.time)
+                fR_Wheel.motorTorque = 0;
+                fL_Wheel.motorTorque = 0;
+
+                //if (Input.GetMouseButton(0) && (this.gameObject.GetComponent(typeof(Collider)) as Collider) != false)
+                //{
+                //    //RaycastHit hit;
+                //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //    Plane plane = new Plane(Vector3.up, this.transform.position);
+                //    float distToPlane;
+
+                //    if (plane.Raycast(ray, out distToPlane))
+                //    {
+                //        Vector3 hitPos = ray.GetPoint(distToPlane);
+
+                //        if (!aimingRay)
+                //            aimingRay = new GameObject();
+
+                //        aimingRay.transform.position = this.transform.position;
+
+                //        //CreateLineMaterial();
+                //        if (!aimingRay.GetComponent<LineRenderer>())
+                //        {
+                //            aimingRay.AddComponent<LineRenderer>();
+                //        }
+
+                //        LineRenderer aimLine = aimingRay.GetComponent<LineRenderer>();
+                //        aimLine.material = new Material(Shader.Find("Sprites/Default"));
+
+                //        Color endRed = Color.red;
+                //        endRed.a = 0.3f;
+                //        Color startRed = Color.red;
+                //        startRed.a = 0.6f;
+                //        aimLine.startColor = startRed;
+                //        aimLine.endColor = endRed;
+                //        aimLine.startWidth = 0.15f;
+                //        aimLine.endWidth = aimLine.startWidth;
+
+                //        aimLine.SetPosition(0, transform.position);
+                //        aimLine.SetPosition(1, hitPos);
+
+                //        Vector3 dir = hitPos - transform.position;
+                //        dir.y = 0;
+
+                //        parentDir = dir;
+
+
+                //        cancelShoot = true; 
+                //    }
+                //}
+
+                //if (Input.GetMouseButtonUp(0) && cancelShoot != false)
+                //{
+                //    cancelShoot = false;
+                //    GameObject.Destroy(aimingRay);
+                //}
+
+                if (!source.isPlaying)
                 {
-                    soundSwap = true;
+                    source.Play();
                 }
-            }
 
-            if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
-            {
-                rL_Wheel.brakeTorque = brakeForce;
-                rR_Wheel.brakeTorque = brakeForce;
-                fL_Wheel.brakeTorque = brakeForce;
-                fR_Wheel.brakeTorque = brakeForce;
-
-                if (source.clip == null || soundSwap)
+                if (!soundSwap)
                 {
-                    source.pitch = 1.0f;
-                    source.loop = false;
-                    source.volume = audioManager.GetSFXVolume();
-
-                    soundStartTime = Time.time;
-                    soundSwap = false;
-
-                    audioClip = brakeSound;
+                    if (soundStartTime + 1 < Time.time)
+                    {
+                        soundSwap = true;
+                    }
                 }
-            }
-            if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
-            {
-                rL_Wheel.brakeTorque = 0;
-                rR_Wheel.brakeTorque = 0;
-                fL_Wheel.brakeTorque = 0;
-                fR_Wheel.brakeTorque = 0;
-            }
 
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
-            }
-
-            if ((!grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && (!grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand)))
-            {
-                if (soundSwap)
+                if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
                 {
-                    //should replace with idle sound
-                    source.Stop();
-                }
-            }
+                    rL_Wheel.brakeTorque = brakeForce;
+                    rR_Wheel.brakeTorque = brakeForce;
+                    fL_Wheel.brakeTorque = brakeForce;
+                    fR_Wheel.brakeTorque = brakeForce;
 
-            if (!soundSwap)
-            {
-                PlayAudio(audioClip);
+                    if (source.clip == null || soundSwap)
+                    {
+                        source.pitch = 1.0f;
+                        source.loop = false;
+                        source.volume = audioManager.GetSFXVolume();
+
+                        soundStartTime = Time.time;
+                        soundSwap = false;
+
+                        audioClip = brakeSound;
+                    }
+                }
+                if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
+                {
+                    rL_Wheel.brakeTorque = 0;
+                    rR_Wheel.brakeTorque = 0;
+                    fL_Wheel.brakeTorque = 0;
+                    fR_Wheel.brakeTorque = 0;
+                }
+
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+                }
+
+                if ((!grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && (!grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand)))
+                {
+                    if (soundSwap)
+                    {
+                        //should replace with idle sound
+                        source.Stop();
+                    }
+                }
+
+                if (!soundSwap)
+                {
+                    PlayAudio(audioClip);
+                }
             }
         }
         public virtual void GetInput()

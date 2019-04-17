@@ -22,7 +22,7 @@ public class DayNight : MonoBehaviour
 
     void Update()
     {
-       Debug.Log(frealAngle+ " Time --" +fHourAngle + " " + fRealHour + " am:" + bAm);
+       //Debug.Log(frealAngle+ " Time --" +fHourAngle + " " + fRealHour + " am:" + bAm);
         go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
         frealAngle += fAngle;
         fHourAngle += fAngle;
