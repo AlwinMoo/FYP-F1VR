@@ -32,6 +32,7 @@ TagManager:
   - AudioManager
   - Sun
   - GameManager
+  - SoundDial
   layers:
   - Default
   - TransparentFX

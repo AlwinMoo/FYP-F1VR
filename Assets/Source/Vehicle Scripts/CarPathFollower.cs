@@ -238,7 +238,7 @@ public class CarPathFollower : MonoBehaviour
             {
                 source.pitch = 1.0f;
                 source.loop = false;
-                source.volume = audioManager.GetSFXVolume();
+                source.volume = audioManager.GetMasterVolume();
 
                 soundStartTime = Time.time;
                 soundSwap = false;
@@ -254,7 +254,7 @@ public class CarPathFollower : MonoBehaviour
             {
                 source.pitch = 1.0f;
                 source.loop = true;
-                source.volume = audioManager.GetSFXVolume();
+                source.volume = audioManager.GetMasterVolume();
 
                 soundStartTime = Time.time;
                 soundSwap = false;
