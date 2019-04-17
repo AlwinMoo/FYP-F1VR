@@ -220,34 +220,36 @@ namespace Valve.VR.InteractionSystem
         {
             //m_verticalInput = Input.GetAxis("Vertical");
             //m_horizonetalInput = Input.GetAxis("Horizontal");
-
-            if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+            if (bOnOrOff == true)
             {
-                if (!bReverse)
-                    m_verticalInput = 1;
-                else
-                    m_verticalInput = -1;
-
-                if (source.clip == null || soundSwap)
+                if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
-                    source.pitch = 1.0f;
-                    source.loop = true;
-                    source.volume = audioManager.GetMasterVolume();
+                    if (!bReverse)
+                        m_verticalInput = 1;
+                    else
+                        m_verticalInput = -1;
 
-                    soundStartTime = Time.time;
-                    soundSwap = false;
+                    if (source.clip == null || soundSwap)
+                    {
+                        source.pitch = 1.0f;
+                        source.loop = true;
+                        source.volume = audioManager.GetMasterVolume();
 
-                    audioClip = gasSound;
+                        soundStartTime = Time.time;
+                        soundSwap = false;
+
+                        audioClip = gasSound;
+                    }
                 }
+                else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
+                {
+                    m_verticalInput = 0;
+                }
+
+                m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
+                m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
+                m_horizonetalInput /= -180;
             }
-            else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
-            {
-                m_verticalInput = 0;
-            }
-            
-            m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
-            m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
-            m_horizonetalInput /= -180;
         }
         public virtual void Steer()
         {
