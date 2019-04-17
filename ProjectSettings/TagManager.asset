@@ -33,6 +33,7 @@ TagManager:
   - Sun
   - GameManager
   - OFButton
+  - PlayerVehicle
   layers:
   - Default
   - TransparentFX
