@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RainDecider : MonoBehaviour {
 
+    CloudsToy CloudSystem;
     public GameObject m_goRain;
     public GameObject m_goRainDrop;
     public Light m_lSun;
@@ -19,10 +20,12 @@ public class RainDecider : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GameObject go_Clouds = GameObject.FindGameObjectWithTag("Cloud");
+        CloudSystem = go_Clouds.GetComponent<CloudsToy>();
         RainOrNot = false;
         Time2 = 0;
         myTimer = Random.Range(10, 30);
-        GameObject goPlayerGameObject = GameObject.FindGameObjectWithTag("Car");
+        GameObject goPlayerGameObject = GameObject.FindGameObjectWithTag("PlayerVehicle");
         trPlayer = goPlayerGameObject.transform;
     }
 
@@ -51,9 +54,13 @@ public class RainDecider : MonoBehaviour {
         {
             RainOrNot = false;
         }
-
+        if(RainOrNot == false)
+        {
+            CloudSystem.SetPresetCotton();
+        }
         if (RainOrNot == true)
         {
+            CloudSystem.SetPresetStormy();
             if (m_lSun.intensity > 0.05f)
                 m_lSun.intensity -= 0.01f;
 
