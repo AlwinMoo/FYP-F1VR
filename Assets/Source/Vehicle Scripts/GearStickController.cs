@@ -6,31 +6,33 @@ namespace Valve.VR.InteractionSystem
 {
     public class GearStickController : MonoBehaviour
     {
+        public LinearMapping linearMapping;
+
         // Start is called before the first frame update
         void Start()
         {
-
+            linearMapping = GetComponent<LinearMapping>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            Vector3 angle = this.transform.eulerAngles;
-
-            if (angle.x < 0)
-                angle.x = 0;
-            else if (angle.x > 15)
-                angle.x = 15;
-
-            this.transform.eulerAngles = angle;
+            if (linearMapping.value == 1)
+            {
+                Backward();
+            }
+            else if (linearMapping.value == 0)
+            {
+                Forward();
+            }
         }
 
-        public void MaxAngle()
+        void Forward()
         {
             transform.parent.GetComponent<VehicleBase>().bReverse = false;
         }
 
-        public void MinAngle()
+        void Backward()
         {
             transform.parent.GetComponent<VehicleBase>().bReverse = true;
         }

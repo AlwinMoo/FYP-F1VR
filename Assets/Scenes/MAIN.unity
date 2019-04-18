@@ -4186,6 +4186,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5947134957624370468, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3755132768606514815, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: m_IsActive
@@ -5475,12 +5480,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0d3e5ce77aec4354083ecfa6f92a60fb,
     type: 3}
   m_PrefabInstance: {fileID: 771545583}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &791267519 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3755132770434596525, guid: 51308d91cb44c0744aee14c68fcedfa4,
-    type: 3}
-  m_PrefabInstance: {fileID: 622814699}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &808170269
 PrefabInstance:
@@ -12035,7 +12034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goRain: {fileID: 2026653409}
-  m_goRainDrop: {fileID: 791267519}
+  m_goRainDrop: {fileID: 0}
   m_lSun: {fileID: 1397447472}
   fWeatherHeight: 90
 --- !u!114 &1781902360
@@ -12473,7 +12472,7 @@ PrefabInstance:
     - target: {fileID: 6828781073459008587, guid: c41b12efee6928648a4e145d8aeaa0d5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8918631539381283315, guid: c41b12efee6928648a4e145d8aeaa0d5,
         type: 3}
@@ -12543,7 +12542,7 @@ PrefabInstance:
     - target: {fileID: 6828781073312813276, guid: c41b12efee6928648a4e145d8aeaa0d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c41b12efee6928648a4e145d8aeaa0d5, type: 3}
@@ -13484,6 +13483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: PlayerVehicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034630949776486603, guid: 77b4c3740f77cc34bb2b0920d9b52299,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3941266149260027494, guid: 77b4c3740f77cc34bb2b0920d9b52299,
         type: 3}
