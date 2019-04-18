@@ -82,6 +82,9 @@ namespace Valve.VR.InteractionSystem
         // Use this for initialization
         public virtual void Start()
         {
+            AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+            audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
             GameObject go_OFButton = GameObject.FindGameObjectWithTag("OFButton");
             _OnOffCar = go_OFButton.GetComponent<OnOffCar>();
         }
@@ -92,8 +95,6 @@ namespace Valve.VR.InteractionSystem
             Debug.Log(bOnOrOff);
             bOnOrOff = _OnOffCar.bOnOff;
       
-                AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-                audioManager = AudioManagerGO.GetComponent<AudioManager>();
             if (bOnOrOff == true)
             {
                 // If the gameobject is not owned by the client

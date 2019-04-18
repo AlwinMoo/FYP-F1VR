@@ -79,13 +79,15 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     {
         //audioManager = AudioManager.instance;
         //prevPosition = transform.position;
+
+        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = AudioManagerGO.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-        audioManager = AudioManagerGO.GetComponent<AudioManager>();
+        
 
         // If the gameobject is not owned by the client
         rR_Wheel.motorTorque = 0;

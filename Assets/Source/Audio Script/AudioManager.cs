@@ -31,9 +31,8 @@ public class AudioManager : MonoBehaviour
     public void Update()
     {
         float value = GameObject.FindGameObjectWithTag("SoundDial").transform.eulerAngles.z;
-        //value = 360 - value;
+        value = (value < 1) ? 0 : value;//If value < 1, set value and master to 0
         value /= 360;
-
         master = maxVolume * value;
         Debug.Log(master);
     }
