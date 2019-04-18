@@ -92,7 +92,6 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         public virtual void Update()
         {
-            Debug.Log(bOnOrOff);
             bOnOrOff = _OnOffCar.bOnOff;
       
             if (bOnOrOff == true)
@@ -221,11 +220,12 @@ namespace Valve.VR.InteractionSystem
         {
             //m_verticalInput = Input.GetAxis("Vertical");
             //m_horizonetalInput = Input.GetAxis("Horizontal");
+
             if (bOnOrOff == true)
             {
                 if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
-                    if (!bReverse)
+                    if (bReverse == false)
                         m_verticalInput = 1;
                     else
                         m_verticalInput = -1;

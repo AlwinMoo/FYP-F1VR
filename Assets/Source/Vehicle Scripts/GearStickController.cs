@@ -11,30 +11,19 @@ namespace Valve.VR.InteractionSystem
         // Start is called before the first frame update
         void Start()
         {
-            linearMapping = GetComponent<LinearMapping>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (linearMapping.value == 1)
+            if (linearMapping.value >= 0.9f)
             {
-                Backward();
+                transform.parent.GetComponent<VehicleBase>().bReverse = true;
             }
-            else if (linearMapping.value == 0)
+            else if (linearMapping.value <= 0.1)
             {
-                Forward();
+                transform.parent.GetComponent<VehicleBase>().bReverse = false;
             }
-        }
-
-        void Forward()
-        {
-            transform.parent.GetComponent<VehicleBase>().bReverse = false;
-        }
-
-        void Backward()
-        {
-            transform.parent.GetComponent<VehicleBase>().bReverse = true;
         }
     }
 }

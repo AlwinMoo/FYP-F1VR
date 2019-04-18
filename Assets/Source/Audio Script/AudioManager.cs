@@ -34,7 +34,6 @@ public class AudioManager : MonoBehaviour
         value = (value < 1) ? 0 : value;//If value < 1, set value and master to 0
         value /= 360;
         master = maxVolume * value;
-        Debug.Log(master);
     }
 
     /// <summary>
