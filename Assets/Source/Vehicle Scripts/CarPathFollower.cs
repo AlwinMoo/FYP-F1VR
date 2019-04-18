@@ -155,6 +155,28 @@ public class CarPathFollower : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         }
 
+        //22.5 right
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
+        {
+            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
+            {
+                accelerate = false;
+            }
+
+            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        }
+
+        //22.5 left
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
+        {
+            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
+            {
+                accelerate = false;
+            }
+
+            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        }
+
         if (slowDown)
             maxSpeed = 5;
         else

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2617089071512630664}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.7950001, z: 0.193}
+  m_LocalPosition: {x: 0.038, y: 0.7950001, z: 0.221}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 5947134957624370477}
@@ -3304,7 +3304,7 @@ GameObject:
   - component: {fileID: 5947134957624370475}
   m_Layer: 0
   m_Name: VehicleNoLOD
-  m_TagString: Car
+  m_TagString: PlayerVehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3316,7 +3316,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5947134957624370468}
-  m_LocalRotation: {x: -0, y: -0.61543673, z: -0, w: 0.78818625}
+  m_LocalRotation: {x: 0, y: -0.6154345, z: 0, w: 0.78818804}
   m_LocalPosition: {x: -100.5, y: 5.29, z: 23.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -38956,7 +38956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7660782023904250823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.7950001, z: 0.388}
+  m_LocalPosition: {x: 0.038, y: 0.7950001, z: 0.357}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 5947134957624370477}
