@@ -38,6 +38,9 @@ public class CarPathFollower : MonoBehaviour
 
     void Start()
     {
+        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
         if (pathCreator == null)
         {
             pathCreator = PathManager.Instance.FindPathInt(Random.Range(0, (int)PathManager.PathArrayContainer.PathGroup.NUM_OF_VALUES), Random.Range(0, (int)PathManager.PathArray.Direction.NUM_OF_VALUES));
@@ -59,16 +62,13 @@ public class CarPathFollower : MonoBehaviour
 
     void Update()
     {
-        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-        audioManager = AudioManagerGO.GetComponent<AudioManager>();
-
         if (WaypointContainer != null)
         {
             if (trafficLightList.Count == 0)
             {
                 ReadWaypoint();
             }
-            
+
             if (Vector3.Distance(new Vector3(trafficLightList[0].position.x, 0, trafficLightList[0].position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)) <= 10)
             {
                 if (trafficLightList[0].GetComponent<BasicTrafficLight>().trafficLight == BasicTrafficLight.LIGHT_STATUS.LIGHT_GREEN)
@@ -225,7 +225,7 @@ public class CarPathFollower : MonoBehaviour
                     transform.position = new Vector3(currentPoint.x, this.transform.position.y, currentPoint.z);
 
                     Vector3 currentEulerRotation = pathCreator.path.GetRotationAtDistance(pathCreator.path.length - distanceTravelled, endOfPathInstruction).eulerAngles;
-                    transform.localEulerAngles = new Vector3(this.transform.eulerAngles.x, currentEulerRotation.y +180, this.transform.eulerAngles.z);
+                    transform.localEulerAngles = new Vector3(this.transform.eulerAngles.x, currentEulerRotation.y + 180, this.transform.eulerAngles.z);
                 }
             }
         }
@@ -262,7 +262,6 @@ public class CarPathFollower : MonoBehaviour
             {
                 source.pitch = 1.0f;
                 source.loop = false;
-                source.volume = audioManager.GetMasterVolume();
 
                 soundStartTime = Time.time;
                 soundSwap = false;
@@ -278,7 +277,6 @@ public class CarPathFollower : MonoBehaviour
             {
                 source.pitch = 1.0f;
                 source.loop = true;
-                source.volume = audioManager.GetMasterVolume();
 
                 soundStartTime = Time.time;
                 soundSwap = false;
@@ -348,6 +346,7 @@ public class CarPathFollower : MonoBehaviour
         //changing music it plays
         source.Stop();
         source.clip = music;
+        source.volume = audioManager.GetMasterVolume();
         source.Play();
     }
 }

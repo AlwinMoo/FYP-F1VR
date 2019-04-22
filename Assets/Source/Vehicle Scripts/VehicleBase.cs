@@ -93,7 +93,7 @@ namespace Valve.VR.InteractionSystem
         public virtual void Update()
         {
             bOnOrOff = _OnOffCar.bOnOff;
-      
+
             if (bOnOrOff == true)
             {
                 // If the gameobject is not owned by the client
@@ -426,6 +426,7 @@ namespace Valve.VR.InteractionSystem
             //changing music it plays
             source.Stop();
             source.clip = music;
+            source.volume = audioManager.GetMasterVolume();
             source.Play();
         }
     }

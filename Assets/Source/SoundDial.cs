@@ -418,13 +418,14 @@ namespace Valve.VR.InteractionSystem
         {
             if (rotateGameObject)
             {
-                if (outAngle > 3)
+                float value = 360 + outAngle;
+                if (outAngle > -1)
                 {
-                    outAngle = 3;
+                    outAngle = -1;
                 }
-                if (outAngle < -356)
+                if (outAngle < -359)
                 {
-                    outAngle = -356;
+                    outAngle = -359;
                 }
 
                 transform.localRotation = start * Quaternion.AngleAxis(outAngle, localPlaneNormal);

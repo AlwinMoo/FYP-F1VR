@@ -87,7 +87,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
     // Update is called once per frame
     public virtual void Update()
     {
-        
+
 
         // If the gameobject is not owned by the client
         rR_Wheel.motorTorque = 0;
@@ -350,6 +350,7 @@ public class VehicleBaseWOVR : MonoBehaviour, IPooledObject
         //changing music it plays
         source.Stop();
         source.clip = music;
+        source.volume = audioManager.GetMasterVolume();
         source.Play();
     }
 }
