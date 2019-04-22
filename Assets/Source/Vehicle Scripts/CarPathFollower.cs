@@ -38,6 +38,9 @@ public class CarPathFollower : MonoBehaviour
 
     void Start()
     {
+        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = AudioManagerGO.GetComponent<AudioManager>();
+
         if (pathCreator == null)
         {
             pathCreator = PathManager.Instance.FindPathInt(Random.Range(0, (int)PathManager.PathArrayContainer.PathGroup.NUM_OF_VALUES), Random.Range(0, (int)PathManager.PathArray.Direction.NUM_OF_VALUES));
@@ -59,9 +62,6 @@ public class CarPathFollower : MonoBehaviour
 
     void Update()
     {
-        AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-        audioManager = AudioManagerGO.GetComponent<AudioManager>();
-
         if (WaypointContainer != null)
         {
             if (trafficLightList.Count == 0)
@@ -348,6 +348,7 @@ public class CarPathFollower : MonoBehaviour
         //changing music it plays
         source.Stop();
         source.clip = music;
+        source.volume = audioManager.GetMasterVolume();
         source.Play();
     }
 }

@@ -426,6 +426,7 @@ namespace Valve.VR.InteractionSystem
             //changing music it plays
             source.Stop();
             source.clip = music;
+            source.volume = audioManager.GetMasterVolume();
             source.Play();
         }
     }
