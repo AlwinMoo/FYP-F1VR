@@ -20,18 +20,13 @@ public class BirdSpawner : MonoBehaviour
     public int birdSpawnMax;
     private int currentBirdAmt;
 
-    private GameObject player;
-    private Vector3 playerPosition;
-
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         InvokeRepeating("ChanceToSpawnBird", 5.0f, 5.0f);//!< delay for ChanceToSpawnBird */
     }
 
     void Update()
     {
-        playerPosition = player.transform.position;
         SpawnBird();
     }
 
@@ -42,27 +37,24 @@ public class BirdSpawner : MonoBehaviour
     {
         if (crowSpawnMin > currentCrowAmt && currentBirdAmt < birdSpawnMax)
         {
-            Vector3 temp = new Vector3(Random.Range(-20, 20) + playerPosition.x, 5 + playerPosition.y, Random.Range(-20, 20) + playerPosition.z);
+            Vector3 temp = new Vector3(Random.Range(-10, 10), 35, Random.Range(-10, 10));
             crow = BirdObjectPool.Instance.SpawnFromPool("crow");
-            crow.transform.localScale *= 3;
             crow.transform.position = temp;
             currentCrowAmt++;
             currentBirdAmt++;
         }
         if (robinSpawnMin > currentRobinAmt && currentBirdAmt < birdSpawnMax)
         {
-            Vector3 temp = new Vector3(Random.Range(-20, 20) + playerPosition.x, 5 + playerPosition.y, Random.Range(-20, 20) + playerPosition.z);
+            Vector3 temp = new Vector3(Random.Range(-10, 10), 35, Random.Range(-10, 10));
             robin = BirdObjectPool.Instance.SpawnFromPool("robin");
-            robin.transform.localScale *= 3;
             robin.transform.position = temp;
             currentRobinAmt++;
             currentBirdAmt++;
         }
         if (sparrowSpawnMin > currentSparrowAmt && currentBirdAmt < birdSpawnMax)
         {
-            Vector3 temp = new Vector3(Random.Range(-20, 20) + playerPosition.x, 5 + playerPosition.y, Random.Range(-20, 20) + playerPosition.z);
+            Vector3 temp = new Vector3(Random.Range(-10, 10), 35, Random.Range(-10, 10));
             sparrow = BirdObjectPool.Instance.SpawnFromPool("sparrow");
-            sparrow.transform.localScale *= 3;
             sparrow.transform.position = temp;
             currentSparrowAmt++;
             currentBirdAmt++;

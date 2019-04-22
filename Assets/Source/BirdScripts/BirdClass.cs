@@ -62,16 +62,8 @@ public class BirdClass : MonoBehaviour
     int singTriggerHash;
     int flyingDirectionHash;
 
-    private GameObject player;
-    Vector3 playerPosition;
-
     void OnEnable()
     {
-        audioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-        audioManager = audioManagerGO.GetComponent<AudioManager>();
-
-        player = GameObject.FindGameObjectWithTag("Player");
-
         birdCollider = gameObject.GetComponent<BoxCollider>();
         bColCenter = birdCollider.center;
         bColSize = birdCollider.size;
@@ -263,7 +255,7 @@ public class BirdClass : MonoBehaviour
         if (target == Vector3.zero || reachedTarget)
         {
             StopCoroutine("FlyToTarget");
-            target = new Vector3(Random.Range(-20, 20) + playerPosition.x, Random.Range(5, 10) + playerPosition.y, Random.Range(-20, 20) + playerPosition.z);
+            target = new Vector3(Random.Range(-50, 50), Random.Range(40, 60), Random.Range(-50, 50));
            // Debug.Log(target);
             StartCoroutine("FlyToTarget", target);
             reachedTarget = false;
@@ -292,7 +284,8 @@ public class BirdClass : MonoBehaviour
 
     void Update()
     {
-        playerPosition = player.transform.position;
+        audioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
+        audioManager = audioManagerGO.GetComponent<AudioManager>();
 
         if (!paused)
         {

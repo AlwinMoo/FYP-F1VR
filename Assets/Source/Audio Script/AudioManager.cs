@@ -10,7 +10,6 @@ public class AudioManager : MonoBehaviour
 
     private float master;
     private float maxVolume;
-    private GameObject soundDial;
 
     void Awake()
     {
@@ -27,14 +26,12 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         maxVolume = 10;
-        soundDial = GameObject.FindGameObjectWithTag("SoundDial");
-        soundDial.transform.eulerAngles = new Vector3(0, 359, 0);
     }
 
     public void Update()
     {
-        float value = soundDial.transform.eulerAngles.y;
-        value = (value < 2) ? 0 : value;//If value < 2, set value and master to 0
+        float value = GameObject.FindGameObjectWithTag("SoundDial").transform.eulerAngles.z;
+        value = (value < 1) ? 0 : value;//If value < 1, set value and master to 0
         value /= 360;
         master = maxVolume * value;
     }
