@@ -22,7 +22,7 @@ public class RainDecider : MonoBehaviour {
 	void Start () {
         GameObject go_Clouds = GameObject.FindGameObjectWithTag("Cloud");
         CloudSystem = go_Clouds.GetComponent<CloudsToy>();
-        m_goRain = GameObject.FindGameObjectWithTag("WeatherRain");
+        m_goRain = GameObject.FindGameObjectWithTag("Rain");
         m_goRainDrop = GameObject.FindGameObjectWithTag("RainDrop");
         RainOrNot = false;
         Time2 = 0;
