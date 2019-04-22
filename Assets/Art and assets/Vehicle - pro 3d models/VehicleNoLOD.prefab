@@ -20492,7 +20492,7 @@ GameObject:
   - component: {fileID: 5947134958500522107}
   m_Layer: 0
   m_Name: RainDropOnCAR
-  m_TagString: Untagged
+  m_TagString: RainDrop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

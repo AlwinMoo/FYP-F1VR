@@ -20,7 +20,6 @@ TagManager:
   - projectile
   - FxTemporaire
   - Weather
-  - Rain
   - Car
   - ControllerLeft
   - ControllerRight
@@ -34,6 +33,10 @@ TagManager:
   - GameManager
   - OFButton
   - PlayerVehicle
+  - SoundDial
+  - Cloud
+  - RainDrop
+  - WeatherRain
   layers:
   - Default
   - TransparentFX

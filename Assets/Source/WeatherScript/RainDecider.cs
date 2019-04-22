@@ -5,8 +5,8 @@ using UnityEngine;
 public class RainDecider : MonoBehaviour {
 
     CloudsToy CloudSystem;
-    public GameObject m_goRain;
-    public GameObject m_goRainDrop;
+    GameObject m_goRain;
+    GameObject m_goRainDrop;
     public Light m_lSun;
 
     private Transform trPlayer;
@@ -22,11 +22,14 @@ public class RainDecider : MonoBehaviour {
 	void Start () {
         GameObject go_Clouds = GameObject.FindGameObjectWithTag("Cloud");
         CloudSystem = go_Clouds.GetComponent<CloudsToy>();
+        m_goRain = GameObject.FindGameObjectWithTag("WeatherRain");
+        m_goRainDrop = GameObject.FindGameObjectWithTag("RainDrop");
         RainOrNot = false;
         Time2 = 0;
         myTimer = Random.Range(10, 30);
         GameObject goPlayerGameObject = GameObject.FindGameObjectWithTag("PlayerVehicle");
         trPlayer = goPlayerGameObject.transform;
+
     }
 
 	// Update is called once per frame
