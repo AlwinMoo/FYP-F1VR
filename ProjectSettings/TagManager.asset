@@ -36,7 +36,7 @@ TagManager:
   - SoundDial
   - Cloud
   - RainDrop
-  - WeatherRain
+  - Rain
   layers:
   - Default
   - TransparentFX

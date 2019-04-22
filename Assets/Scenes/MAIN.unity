@@ -21096,6 +21096,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rain
       objectReference: {fileID: 0}
+    - target: {fileID: 1348417058684604, guid: c4ba98b42efcde4439ae4641cd4650c9, type: 3}
+      propertyPath: m_TagString
+      value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348417058684604, guid: c4ba98b42efcde4439ae4641cd4650c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4935163837604496, guid: c4ba98b42efcde4439ae4641cd4650c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 125
