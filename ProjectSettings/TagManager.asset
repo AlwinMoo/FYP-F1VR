@@ -37,6 +37,9 @@ TagManager:
   - Cloud
   - RainDrop
   - Rain
+  - WeatherRain
+  - DaySetting
+  - NightSetting
   layers:
   - Default
   - TransparentFX
