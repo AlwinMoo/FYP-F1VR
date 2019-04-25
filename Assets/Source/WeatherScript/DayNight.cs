@@ -48,14 +48,14 @@ public class DayNight : MonoBehaviour
                 bAm = true; 
         }
 
-        if (fRealHour == 6 && bAm == true)
-        {
-            go_Sun.SetActive(true);
-        }
-        if (fRealHour == 8 && bAm == false)
-        {
-            go_Sun.SetActive(false);
-        }
+        //if (fRealHour == 6 && bAm == true)
+        //{
+        //    go_Sun.SetActive(true);
+        //}
+        //if (fRealHour == 9 && bAm == false)
+        //{
+        //    go_Sun.SetActive(false);
+        //}
         // fFakeTime = fFakeTime;
         //ftime = fFakeTime / 15;
     }
