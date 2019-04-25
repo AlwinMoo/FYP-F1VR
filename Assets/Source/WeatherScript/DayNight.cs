@@ -27,11 +27,11 @@ public class DayNight : MonoBehaviour
         fAngle = 4f * Time.fixedDeltaTime *2;
         go_Sun = GameObject.FindGameObjectWithTag("Sun");
         SunPos = go_Sun.transform.position;
-        go_Moon = GameObject.FindGameObjectWithTag("Moon");
-        MoonPos = go_Moon.transform.position;
+        //go_Moon = GameObject.FindGameObjectWithTag("Moon");
+        //MoonPos = SunPos;
 
         go_SunSetting = GameObject.FindGameObjectWithTag("DaySetting");
-        go_MoonSetting = GameObject.FindGameObjectWithTag("NightSetting");
+        //go_MoonSetting = GameObject.FindGameObjectWithTag("NightSetting");
     }
 
     void Update()
@@ -44,10 +44,10 @@ public class DayNight : MonoBehaviour
             go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
         }
 
-        if (go_Moon != null)
-        {
-            go_Moon.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
-        }
+        //if (go_Moon != null)
+        //{
+        //    go_Moon.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
+        //}
 
         if (frealAngle >= 360)
         {
@@ -72,15 +72,15 @@ public class DayNight : MonoBehaviour
         }
         if (fRealHour == 6 && bAm == true)
         {
-            if (bOnceD)
-            {
-                go_Sun.transform.position = SunPos;
-                bOnceD = false;
-            }
+            //if (bOnceD)
+            //{
+            //    go_Sun.transform.position = SunPos;
+            //    bOnceD = false;
+            //}
             go_SunSetting.SetActive(true);
-            go_MoonSetting.SetActive(false);
+           // go_MoonSetting.SetActive(false);
             go_Sun.SetActive(true);
-            go_Moon.SetActive(false);
+           // go_Moon.SetActive(false);
         }
         if (fRealHour == 7 && bAm == true)
         {
@@ -88,15 +88,15 @@ public class DayNight : MonoBehaviour
         }
         if (fRealHour == 8 && bAm == false)
           {
-            if (bOnceN)
-            {
-                go_Moon.transform.position = MoonPos;
-                bOnceN = false;
-            }
+            //if (bOnceN)
+            //{
+            //    go_Moon.transform.position = MoonPos;
+            //    bOnceN = false;
+            //}
             go_SunSetting.SetActive(false);
-            go_MoonSetting.SetActive(true);
+            //go_MoonSetting.SetActive(true);
             go_Sun.SetActive(false);
-            go_Moon.SetActive(true);
+            //go_Moon.SetActive(true);
         }
         if (fRealHour == 9 && bAm == false)
         {

@@ -487,7 +487,147 @@ ModelImporter:
     4300172: polySurface3486
     4300174: pCube699
     4300176: polySurface3697
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base
+    second: {fileID: 2100000, guid: b9c7d89afc1b1a345b7f483a5708cdd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseDarker
+    second: {fileID: 2100000, guid: 7fdc44ac2c7023e458fa2686ec5eb425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Turquiose
+    second: {fileID: 2100000, guid: 81eb13fb5aeb32e40baa0765f05186a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_blue
+    second: {fileID: 2100000, guid: 68ca60778b05da44f8b5e4f6c09f9869, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_purple
+    second: {fileID: 2100000, guid: 1d4954cbc9f7c6f4a82f713ea866dac2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue_tile
+    second: {fileID: 2100000, guid: af90c3c8fea0b0f4a928dc30fc7fe15e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cylinder
+    second: {fileID: 2100000, guid: da5e4bce107f3fd49a5e92e2a6683275, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: D1shader
+    second: {fileID: 2100000, guid: 3c06298c0aa947c418087dc0b186be28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: 35a2243990263a046a245114d1f470ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence
+    second: {fileID: 2100000, guid: 460badcd46dd6f44e973e90577beb4b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GFshader
+    second: {fileID: 2100000, guid: 3f2fd44beb390c84281e06d778d04820, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: cdbb25f1e36f4444d9d52e49d75de88c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NYPtext
+    second: {fileID: 2100000, guid: 32cd089ae1fd6404089601c34e186180, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange_tile
+    second: {fileID: 2100000, guid: 5244c72ca2efeeb42ac88189d82cc99d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SITshader
+    second: {fileID: 2100000, guid: a5d0b2001bf0c0f4caad35c06ab6493f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small_Vent
+    second: {fileID: 2100000, guid: b930fa169aad9e54e8f7fcccdd67ff90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stadium
+    second: {fileID: 2100000, guid: cad8b14769f236b4da3d946027dc1ca6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StaffCshader
+    second: {fileID: 2100000, guid: 392860f8a8c10df43970287ab86d350f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tarp
+    second: {fileID: 2100000, guid: 62f59a51ba4a6cc42a6d7c570d058c93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White_tile
+    second: {fileID: 2100000, guid: 3350b650c551c504d905c26101064dd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowPanels
+    second: {fileID: 2100000, guid: c517b5a2adf0fdf499e916f0b0d19f24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiAmbientOcclusion2
+    second: {fileID: 2100000, guid: ef37effd31c90274a8cef11cf22dd53d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpark_pbs2
+    second: {fileID: 2100000, guid: 1d6e9c6b6fd60234fa4267b1e31e20f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: curbs_pbs2
+    second: {fileID: 2100000, guid: 3ad36510dd8cb8847a2b6d108a48919e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: a9ce7e3b313127f44a9a9eb79da6ee99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert9
+    second: {fileID: 2100000, guid: 513c44987e0f34d45a6216d8e9bfc68a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: b13548d07647333409d6ca484168cbea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: road_pbs2
+    second: {fileID: 2100000, guid: 04f5f6bea6f58e24a9146d676bd3d246, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
