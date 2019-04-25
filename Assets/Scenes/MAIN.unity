@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0.2104313, g: 0.19099773, b: 0.101147816, a: 1}
+  m_IndirectSpecularColor: {r: 0.47347367, g: 0.42974812, b: 0.22757941, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15901,6 +15901,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &594410817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9204302459976254385, guid: 51308d91cb44c0744aee14c68fcedfa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 622814699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &594410820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9204302459976254388, guid: 51308d91cb44c0744aee14c68fcedfa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 622814699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &594410821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594410817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 594410820}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 2
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 1
+    keepAlpha: 1
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &595936992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16311,6 +16383,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302459446465376, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: antialiasingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302459976254386, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
@@ -20505,7 +20587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1279637433585162, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4090592276694686, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20564,12 +20646,12 @@ PrefabInstance:
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9504717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.8160377
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114268209091728362, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
