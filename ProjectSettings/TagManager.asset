@@ -37,6 +37,10 @@ TagManager:
   - Cloud
   - RainDrop
   - Rain
+  - WeatherRain
+  - RedLight
+  - WhiteLight
+  - YellowLight
   layers:
   - Default
   - TransparentFX

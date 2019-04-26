@@ -23,7 +23,7 @@ namespace Valve.VR.InteractionSystem
         };
 
         [Tooltip("The axis around which the circular drive will rotate in local space")]
-        public Axis_t axisOfRotation = Axis_t.XAxis;
+        public Axis_t axisOfRotation = Axis_t.ZAxis;
 
         [Tooltip("Child GameObject which has the Collider component to initiate interaction, only needs to be set if there is more than one Collider child")]
         public Collider childCollider = null;
@@ -76,6 +76,7 @@ namespace Valve.VR.InteractionSystem
         public float outAngle;
 
         private Quaternion start;
+        private Quaternion startingRotation;
 
         private Vector3 worldPlaneNormal = new Vector3(1.0f, 0.0f, 0.0f);
         private Vector3 localPlaneNormal = new Vector3(1.0f, 0.0f, 0.0f);
@@ -132,6 +133,9 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         private void Start()
         {
+            startingRotation.eulerAngles = transform.localRotation.eulerAngles;
+            startingRotation.eulerAngles = new Vector3(startingRotation.eulerAngles.x, startingRotation.y, 0);
+
             if (childCollider == null)
             {
                 childCollider = GetComponentInChildren<Collider>();
@@ -418,17 +422,19 @@ namespace Valve.VR.InteractionSystem
         {
             if (rotateGameObject)
             {
-                float value = 360 + outAngle;
-                if (outAngle > -1)
+                outAngle += 0.5f;
+                if (outAngle < -359.0f)
                 {
-                    outAngle = -1;
+                    outAngle = -359.0f;
                 }
-                if (outAngle < -359)
+                if (outAngle > 0.5f)
                 {
-                    outAngle = -359;
+                    outAngle = 0.5f;
                 }
 
                 transform.localRotation = start * Quaternion.AngleAxis(outAngle, localPlaneNormal);
+                
+                transform.localRotation *= startingRotation;
             }
         }
 

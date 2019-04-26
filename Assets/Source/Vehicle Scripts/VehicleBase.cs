@@ -9,7 +9,6 @@ namespace Valve.VR.InteractionSystem
 {
     public class VehicleBase : MonoBehaviour
     {
-
         //public Vector3 u1 { get; set; }
         //public Vector3 u2 { get; set; }
         //public Vector3 v1 { get; set; }
@@ -61,6 +60,21 @@ namespace Valve.VR.InteractionSystem
         public AudioClip brakeSound;
         #endregion
 
+        #region
+        public Material Default;
+        public Material White;
+        public Material Red;
+        public Material Yellow;
+
+        private GameObject BrakeLightGO;
+        private GameObject DayTimeLightGO;
+        private GameObject MainLightGO;
+        private GameObject RearSideLightGO;
+        private GameObject ReverseLightGO;
+        private GameObject TurnSignalLeftGO;
+        private GameObject TurnSignalRightGO;
+        #endregion
+
         public enum DriveTrain
         {
             DRIVE_AWD,
@@ -87,6 +101,38 @@ namespace Valve.VR.InteractionSystem
 
             GameObject go_OFButton = GameObject.FindGameObjectWithTag("OFButton");
             _OnOffCar = go_OFButton.GetComponent<OnOffCar>();
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).name == "BrakeLights_LOD0")
+                {
+                    BrakeLightGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "DayTimeLight_LOD0")
+                {
+                    DayTimeLightGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "MainLight_LOD0")
+                {
+                    MainLightGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "RearSideLight_LOD0")
+                {
+                    BrakeLightGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "ReverseLight_LOD0")
+                {
+                    ReverseLightGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "TurnSignalLeft_LOD0")
+                {
+                    TurnSignalLeftGO = transform.GetChild(i).gameObject;
+                }
+                if (transform.GetChild(i).name == "TurnSignalRight_LOD0")
+                {
+                    TurnSignalRightGO = transform.GetChild(i).gameObject;
+                }
+            }
         }
 
         // Update is called once per frame
@@ -176,6 +222,8 @@ namespace Valve.VR.InteractionSystem
                     fL_Wheel.brakeTorque = brakeForce;
                     fR_Wheel.brakeTorque = brakeForce;
 
+                    BrakeLightGO.GetComponent<Renderer>().material = Red;
+
                     if (source.clip == null || soundSwap)
                     {
                         source.pitch = 1.0f;
@@ -226,7 +274,10 @@ namespace Valve.VR.InteractionSystem
                 if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
                     if (bReverse == false)
+                    {
                         m_verticalInput = 1;
+                        ReverseLightGO.GetComponent<Renderer>().material = White;
+                    }
                     else
                         m_verticalInput = -1;
 

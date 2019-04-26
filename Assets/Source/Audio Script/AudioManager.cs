@@ -28,15 +28,30 @@ public class AudioManager : MonoBehaviour
     {
         maxVolume = 10;
         soundDial = GameObject.FindGameObjectWithTag("SoundDial");
-        soundDial.transform.eulerAngles = new Vector3(0, 359, 0);
     }
 
     public void Update()
     {
-        float value = soundDial.transform.eulerAngles.y;
-        value = (value < 2) ? 0 : value;//If value < 2, set value and master to 0
+        Vector3 soundDialRotation = soundDial.transform.localRotation.eulerAngles;
+        float value = soundDialRotation.y;
+
+        Debug.Log(value);
+        if (value > 90 && value < 91)
+        {
+            value = 0;
+        }
+        else if (value <= 90)
+        {
+            value += 270;
+        }
+        else if (value <= 360 && value > 90)
+        {
+            value -= 90;
+        }
+        
         value /= 360;
         master = maxVolume * value;
+        Debug.Log(master);
     }
 
     /// <summary>
