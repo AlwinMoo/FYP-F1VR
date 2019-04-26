@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0.2104313, g: 0.19099773, b: 0.101147816, a: 1}
+  m_IndirectSpecularColor: {r: 0.47347367, g: 0.42974812, b: 0.22757941, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16382,6 +16382,51 @@ PrefabInstance:
     - target: {fileID: 9204302459775896558, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: forceStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: debugPath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: minAngle
+      value: -160
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: maxAngle
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: hoverLock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: limited
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: rotateGameObject
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: freezeOnMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204302461399643417, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: freezeOnMax
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9204302459446465376, guid: 51308d91cb44c0744aee14c68fcedfa4,
