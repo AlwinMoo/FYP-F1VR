@@ -86,7 +86,7 @@ public class DayNight : MonoBehaviour
         {
             bOnceD = true;
         }
-        if (fRealHour == 8 && bAm == false)
+        if (fRealHour == 7 && bAm == false && fHourAngle >= 8.2f)
           {
             //if (bOnceN)
             //{
