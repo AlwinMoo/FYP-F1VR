@@ -419,7 +419,12 @@ namespace Valve.VR.InteractionSystem
 			if ( rotateGameObject )
 			{
 				transform.localRotation = start * Quaternion.AngleAxis( outAngle, localPlaneNormal );
-			}
+                Vector3 invert = transform.localEulerAngles;
+
+                invert.z = -invert.z;
+
+                transform.localEulerAngles = invert;
+            }
 		}
 
 
@@ -543,7 +548,17 @@ namespace Valve.VR.InteractionSystem
 						else
 						{
 							outAngle += signedAngleDelta;
-							lastHandProjected = toHandProjected;
+
+                            if (outAngle < -160)
+                            {
+                                outAngle = -160;
+                            }
+                            else if (outAngle > 160)
+                            {
+                                outAngle = 160;
+                            }
+
+                            lastHandProjected = toHandProjected;
 						}
 					}
 				}
