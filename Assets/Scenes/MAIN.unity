@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.06552234, g: 0.07290507, b: 0.080077484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13696,6 +13696,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4201690785415749777, guid: 40d57ab0b30a5294ba243e90ea819a5c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4201690785415749780, guid: 40d57ab0b30a5294ba243e90ea819a5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17255,7 +17260,7 @@ PrefabInstance:
     - target: {fileID: 8455627176605973702, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8455627176605973727, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
@@ -17337,6 +17342,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.508
       objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: far clip plane
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 8455627178565957005, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: antialiasingMode
@@ -17352,6 +17367,11 @@ PrefabInstance:
       propertyPath: fastApproximateAntialiasing.fastMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 784800940822250867, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: antialiasing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
 --- !u!1001 &3942453966285081301
@@ -17364,7 +17384,7 @@ PrefabInstance:
     - target: {fileID: 6428561608531410648, guid: 77b4c3740f77cc34bb2b0920d9b52299,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6428561608531410648, guid: 77b4c3740f77cc34bb2b0920d9b52299,
         type: 3}

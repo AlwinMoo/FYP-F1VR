@@ -82,14 +82,14 @@ SpeedTreeImporter:
       assembly: UnityEngine.CoreModule
       name: Leaves_3_LOD2
     second: {fileID: 2100000, guid: 355b3169750599e4f957a9d54675c3fa, type: 2}
-  serializedVersion: 5
+  serializedVersion: 6
   mainColor: {r: 1, g: 1, b: 1, a: 1}
   hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
   alphaTestRef: 0.33
   bestWindQuality: 4
   hasBillboard: 1
   lODSettings:
-  - height: 0.5
+  - height: 0.4482234
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
@@ -98,7 +98,7 @@ SpeedTreeImporter:
     enableHue: 1
     enableSubsurface: 1
     windQuality: 4
-  - height: 0.25
+  - height: 0.23970467
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
@@ -107,7 +107,7 @@ SpeedTreeImporter:
     enableHue: 1
     enableSubsurface: 1
     windQuality: 4
-  - height: 0.125
+  - height: 0.10250107
     castShadows: 1
     receiveShadows: 1
     useLightProbes: 1
@@ -132,6 +132,7 @@ SpeedTreeImporter:
   scaleFactor: 0.3048
   materialVersion: 3
   materialLocation: 0
+  fileIDType: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
