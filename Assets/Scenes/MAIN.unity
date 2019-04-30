@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0.06552234, g: 0.07290507, b: 0.080077484, a: 1}
+  m_IndirectSpecularColor: {r: 0.10802221, g: 0.1060527, b: 0.09774144, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2152,7 +2152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 129066, guid: 47481170a4bc3ac43997313e3a98b2ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 129066, guid: 47481170a4bc3ac43997313e3a98b2ce, type: 3}
       propertyPath: m_TagString
@@ -8969,7 +8969,7 @@ PrefabInstance:
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
       propertyPath: m_Intensity
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
@@ -9116,7 +9116,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 5
+  displayLightIntensity: 8
   displayAreaLightEmissiveMesh: 0
   areaLightCookie: {fileID: 0}
   areaLightShadowCone: 120
@@ -17327,6 +17327,11 @@ PrefabInstance:
       propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnButtonUp
       objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428509, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: localMoveDistance.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2660340421806685228, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -17341,16 +17346,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.508
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
-        type: 3}
-      propertyPath: far clip plane
-      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8455627178565957005, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
@@ -17367,10 +17362,75 @@ PrefabInstance:
       propertyPath: fastApproximateAntialiasing.fastMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428483, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178252205820, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.234
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178252205820, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428511, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428511, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5204196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428511, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000008877784
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428511, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.4747904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428511, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000019346531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428482, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: bOnOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957000, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: far clip plane
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 784800940822250867, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: antialiasing
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784800940822250867, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: customRenderingSettings
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784800940822250867, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
