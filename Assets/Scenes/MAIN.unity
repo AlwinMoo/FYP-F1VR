@@ -9248,6 +9248,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1444407262}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463050156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1166557739502086625, guid: 51308d91cb44c0744aee14c68fcedfa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 784800941510427398}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fb8359fec7a694aa0ecd9872a24384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1471253792
 GameObject:
   m_ObjectHideFlags: 0
@@ -17365,7 +17377,12 @@ PrefabInstance:
     - target: {fileID: 8455627177231428483, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.573
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627177231428480, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Name
+      value: DeadButton
       objectReference: {fileID: 0}
     - target: {fileID: 8455627178252205820, guid: 51308d91cb44c0744aee14c68fcedfa4,
         type: 3}
@@ -17436,6 +17453,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
       value: 69284255694365
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437778482486049237, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437778482486049237, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 7437778482486049237, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.914
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480642569478713129, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.345
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: engageAtPercent
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: localMoveDistance.y
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: disengageAtPercent
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1463050156}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonDown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1463050156}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395890846472092219, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: onButtonUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
