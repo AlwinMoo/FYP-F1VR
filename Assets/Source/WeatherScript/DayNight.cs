@@ -22,6 +22,7 @@ public class DayNight : MonoBehaviour
     bool bOnceD = true;
     bool bOnceN = true;
 
+    bool bForward = true;
     void Start()
     {
         fAngle = 4f * Time.fixedDeltaTime *2;
@@ -41,7 +42,14 @@ public class DayNight : MonoBehaviour
         fHourAngle += fAngle;
         if (go_Sun != null)
         {
-            go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
+            if (bForward)
+            {
+                go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, fAngle);
+            }
+            else
+            {
+                go_Sun.transform.RotateAround(Vector3.zero, Vector3.right, -fAngle);
+            }
         }
 
         //if (go_Moon != null)
@@ -72,38 +80,47 @@ public class DayNight : MonoBehaviour
         }
         if (fRealHour == 6 && bAm == true)
         {
-            //if (bOnceD)
-            //{
-            //    go_Sun.transform.position = SunPos;
-            //    bOnceD = false;
-            //}
-            go_SunSetting.SetActive(true);
-           // go_MoonSetting.SetActive(false);
-            go_Sun.SetActive(true);
-           // go_Moon.SetActive(false);
-        }
-        if (fRealHour == 7 && bAm == true)
-        {
-            bOnceD = true;
+            bForward = true;
         }
         if (fRealHour == 7 && bAm == false && fHourAngle >= 8.2f)
-          {
-            //if (bOnceN)
-            //{
-            //    go_Moon.transform.position = MoonPos;
-            //    bOnceN = false;
-            //}
-            go_SunSetting.SetActive(false);
-            //go_MoonSetting.SetActive(true);
-            go_Sun.SetActive(false);
-            //go_Moon.SetActive(true);
-        }
-        if (fRealHour == 9 && bAm == false)
         {
-            bOnceN = true;
+            bForward = false;
         }
-        // fFakeTime = fFakeTime;
-        //ftime = fFakeTime / 15;
+
+            //if (fRealHour == 6 && bAm == true)
+            //{
+            //    //if (bOnceD)
+            //    //{
+            //    //    go_Sun.transform.position = SunPos;
+            //    //    bOnceD = false;
+            //    //}
+            //    go_SunSetting.SetActive(true);
+            //   // go_MoonSetting.SetActive(false);
+            //    go_Sun.SetActive(true);
+            //   // go_Moon.SetActive(false);
+            //}
+            //if (fRealHour == 7 && bAm == true)
+            //{
+            //    bOnceD = true;
+            //}
+            //if (fRealHour == 7 && bAm == false && fHourAngle >= 8.2f)
+            //  {
+            //    //if (bOnceN)
+            //    //{
+            //    //    go_Moon.transform.position = MoonPos;
+            //    //    bOnceN = false;
+            //    //}
+            //    go_SunSetting.SetActive(false);
+            //    //go_MoonSetting.SetActive(true);
+            //    go_Sun.SetActive(false);
+            //    //go_Moon.SetActive(true);
+            //}
+            //if (fRealHour == 9 && bAm == false)
+            //{
+            //    bOnceN = true;
+            //}
+            // fFakeTime = fFakeTime;
+            //ftime = fFakeTime / 15;
     }
 
     /// <summary>
