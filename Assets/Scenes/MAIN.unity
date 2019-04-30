@@ -17432,6 +17432,11 @@ PrefabInstance:
       propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data1
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 784800940822250867, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
+      value: 69284255694365
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
 --- !u!1001 &3942453966285081301
