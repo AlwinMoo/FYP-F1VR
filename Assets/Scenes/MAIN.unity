@@ -17332,6 +17332,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.508
       objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957005, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: antialiasingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957005, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: m_ShowToolkit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455627178565957005, guid: 51308d91cb44c0744aee14c68fcedfa4,
+        type: 3}
+      propertyPath: fastApproximateAntialiasing.fastMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51308d91cb44c0744aee14c68fcedfa4, type: 3}
 --- !u!1001 &3942453966285081301
