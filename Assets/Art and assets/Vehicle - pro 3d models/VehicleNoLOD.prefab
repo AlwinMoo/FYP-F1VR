@@ -7054,7 +7054,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8455627176605973727}
   - component: {fileID: 8455627176605973724}
-  - component: {fileID: 8455627176605973725}
   - component: {fileID: 8455627176605973698}
   - component: {fileID: 8455627176605973699}
   - component: {fileID: 8455627176605973696}
@@ -7139,137 +7138,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!205 &8455627176605973725
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8455627176605973702}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0.7227677, z: 0.009065151}
-  m_Size: 4.6297035
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.8967977
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8455627177813855058}
-    - renderer: {fileID: 8455627178557789434}
-    - renderer: {fileID: 8455627177706579321}
-    - renderer: {fileID: 8455627178417955234}
-    - renderer: {fileID: 8455627176888860536}
-    - renderer: {fileID: 8455627178637878724}
-    - renderer: {fileID: 8455627176666054558}
-    - renderer: {fileID: 8455627176525021338}
-    - renderer: {fileID: 8455627178008950038}
-    - renderer: {fileID: 8455627176865330122}
-    - renderer: {fileID: 8455627177712593286}
-    - renderer: {fileID: 8455627177155144723}
-    - renderer: {fileID: 8455627177659883805}
-    - renderer: {fileID: 8455627178034251113}
-    - renderer: {fileID: 8455627177896020277}
-    - renderer: {fileID: 8455627176502428423}
-    - renderer: {fileID: 8455627178584104792}
-    - renderer: {fileID: 8455627177376193435}
-    - renderer: {fileID: 8455627177574115520}
-    - renderer: {fileID: 8455627177400814628}
-    - renderer: {fileID: 8455627177629246156}
-    - renderer: {fileID: 8455627176618565633}
-    - renderer: {fileID: 8455627177038690511}
-    - renderer: {fileID: 8455627176938417399}
-    - renderer: {fileID: 8455627177916584882}
-    - renderer: {fileID: 8455627177542440875}
-    - renderer: {fileID: 8455627177281034716}
-    - renderer: {fileID: 8455627177027228390}
-    - renderer: {fileID: 8455627177437349859}
-  - screenRelativeHeight: 0.43267047
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8455627176751545535}
-    - renderer: {fileID: 8455627178406076417}
-    - renderer: {fileID: 8455627178272438319}
-    - renderer: {fileID: 8455627176503673723}
-    - renderer: {fileID: 8455627178482929395}
-    - renderer: {fileID: 8455627178212298504}
-    - renderer: {fileID: 8455627177123840961}
-    - renderer: {fileID: 8455627177553428417}
-    - renderer: {fileID: 8455627177997736250}
-    - renderer: {fileID: 8455627178008036120}
-    - renderer: {fileID: 8455627178125970305}
-    - renderer: {fileID: 8455627178491687676}
-    - renderer: {fileID: 8455627176764456251}
-    - renderer: {fileID: 8455627177544169889}
-    - renderer: {fileID: 8455627177636399814}
-    - renderer: {fileID: 8455627176875306605}
-    - renderer: {fileID: 8455627178317540618}
-    - renderer: {fileID: 8455627177263700184}
-    - renderer: {fileID: 8455627177863395583}
-    - renderer: {fileID: 8455627178398704376}
-    - renderer: {fileID: 8455627178612821809}
-    - renderer: {fileID: 8455627177005246080}
-    - renderer: {fileID: 8455627176594033042}
-    - renderer: {fileID: 8455627178281637245}
-    - renderer: {fileID: 8455627177584612368}
-    - renderer: {fileID: 8455627176604138215}
-    - renderer: {fileID: 8455627177167722021}
-    - renderer: {fileID: 8455627178419246234}
-    - renderer: {fileID: 8455627178248925513}
-  - screenRelativeHeight: 0.0625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8455627176656713099}
-    - renderer: {fileID: 8455627176531653959}
-    - renderer: {fileID: 8455627176624831094}
-    - renderer: {fileID: 8455627178016425987}
-    - renderer: {fileID: 8455627176852877681}
-    - renderer: {fileID: 8455627178165475965}
-    - renderer: {fileID: 8455627177044471119}
-    - renderer: {fileID: 8455627176869540857}
-    - renderer: {fileID: 8455627178011578616}
-    - renderer: {fileID: 8455627178223888204}
-    - renderer: {fileID: 8455627178535661817}
-    - renderer: {fileID: 8455627177350217994}
-    - renderer: {fileID: 8455627178628481499}
-    - renderer: {fileID: 8455627177684897429}
-    - renderer: {fileID: 8455627177329403333}
-    - renderer: {fileID: 8455627177246132089}
-    - renderer: {fileID: 8455627178386455982}
-    - renderer: {fileID: 8455627178620264365}
-    - renderer: {fileID: 8455627178248500453}
-    - renderer: {fileID: 8455627177414303733}
-    - renderer: {fileID: 8455627177527728559}
-    - renderer: {fileID: 8455627176605795194}
-    - renderer: {fileID: 8455627178203781174}
-    - renderer: {fileID: 8455627177987309408}
-    - renderer: {fileID: 8455627176868134000}
-    - renderer: {fileID: 8455627177374470810}
-    - renderer: {fileID: 8455627178596303578}
-    - renderer: {fileID: 8455627177309045311}
-    - renderer: {fileID: 8455627176680754355}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 8455627177365059540}
-    - renderer: {fileID: 8455627178133638177}
-    - renderer: {fileID: 8455627178006656331}
-    - renderer: {fileID: 8455627176651722931}
-    - renderer: {fileID: 8455627177050317738}
-    - renderer: {fileID: 8455627177414560177}
-    - renderer: {fileID: 8455627177556918316}
-    - renderer: {fileID: 8455627177406170210}
-    - renderer: {fileID: 8455627177889961999}
-    - renderer: {fileID: 8455627176508450698}
-    - renderer: {fileID: 8455627176975724344}
-    - renderer: {fileID: 8455627176516879209}
-    - renderer: {fileID: 8455627177541101791}
-    - renderer: {fileID: 8455627177291884318}
-    - renderer: {fileID: 8455627178485046188}
-    - renderer: {fileID: 8455627178073148231}
-    - renderer: {fileID: 8455627177416415215}
-  m_Enabled: 0
 --- !u!54 &8455627176605973698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7297,8 +7165,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3178644, y: 1.301796, z: 4.435067}
-  m_Center: {x: -0.029038908, y: 0.84900856, z: -0.057870626}
+  m_Size: {x: 1.878691, y: 1.3343172, z: 4.6465287}
+  m_Center: {x: 0.027894994, y: 0.8327601, z: -0.0009384153}
 --- !u!114 &8455627176605973696
 MonoBehaviour:
   m_ObjectHideFlags: 0
