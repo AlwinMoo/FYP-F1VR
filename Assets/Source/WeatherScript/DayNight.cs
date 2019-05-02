@@ -78,14 +78,14 @@ public class DayNight : MonoBehaviour
             else
                 bAm = true;
         }
-        if (fRealHour == 6 && bAm == true)
-        {
-            bForward = true;
-        }
-        if (fRealHour == 7 && bAm == false && fHourAngle >= 8.2f)
-        {
-            bForward = false;
-        }
+        //if (fRealHour == 6 && bAm == true)
+        //{
+        //    bForward = true;
+        //}
+        //if (fRealHour == 7 && bAm == false && fHourAngle >= 8.2f)
+        //{
+        //    bForward = false;
+        //}
 
             //if (fRealHour == 6 && bAm == true)
             //{
