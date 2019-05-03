@@ -18,11 +18,17 @@ namespace Valve.VR.InteractionSystem
         {
             if (linearMapping.value >= 0.9f)
             {
+                transform.parent.GetComponent<VehicleBase>().bNeutral = false;
                 transform.parent.GetComponent<VehicleBase>().bReverse = true;
             }
             else if (linearMapping.value <= 0.1)
             {
+                transform.parent.GetComponent<VehicleBase>().bNeutral = false;
                 transform.parent.GetComponent<VehicleBase>().bReverse = false;
+            }
+            else
+            {
+                transform.parent.GetComponent<VehicleBase>().bNeutral = true;
             }
         }
     }

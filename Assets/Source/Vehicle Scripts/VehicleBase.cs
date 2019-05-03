@@ -10,14 +10,6 @@ namespace Valve.VR.InteractionSystem
     public class VehicleBase : MonoBehaviour
     {
 
-        //public Vector3 u1 { get; set; }
-        //public Vector3 u2 { get; set; }
-        //public Vector3 v1 { get; set; }
-        //public Vector3 v2 { get; set; }
-        //public float m1 { get; set; }
-        //public float m2 { get; set; }
-
-
         public float mass { get; set; }
 
         public float m_horizonetalInput { get; set; }
@@ -38,10 +30,14 @@ namespace Valve.VR.InteractionSystem
         public Transform rL_T { get; set; }
 
         OnOffCar _OnOffCar;
-
+        
         bool bOnOrOff;
 
+        [NonSerialized]
         public bool bReverse = false;
+
+        [NonSerialized]
+        public bool bNeutral = false;
 
         float maxSteerAngle = 30;
 
@@ -77,8 +73,6 @@ namespace Valve.VR.InteractionSystem
         }
         public VehicleType vehicleType { get; set; }
 
-        public Vector3 parentDir;
-
         // Use this for initialization
         public virtual void Start()
         {
@@ -94,7 +88,7 @@ namespace Valve.VR.InteractionSystem
         {
             bOnOrOff = _OnOffCar.bOnOff;
 
-            if (bOnOrOff == true)
+            if (bOnOrOff && !bNeutral)
             {
                 // If the gameobject is not owned by the client
                 rR_Wheel.motorTorque = 0;
@@ -102,59 +96,6 @@ namespace Valve.VR.InteractionSystem
 
                 fR_Wheel.motorTorque = 0;
                 fL_Wheel.motorTorque = 0;
-
-                //if (Input.GetMouseButton(0) && (this.gameObject.GetComponent(typeof(Collider)) as Collider) != false)
-                //{
-                //    //RaycastHit hit;
-                //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                //    Plane plane = new Plane(Vector3.up, this.transform.position);
-                //    float distToPlane;
-
-                //    if (plane.Raycast(ray, out distToPlane))
-                //    {
-                //        Vector3 hitPos = ray.GetPoint(distToPlane);
-
-                //        if (!aimingRay)
-                //            aimingRay = new GameObject();
-
-                //        aimingRay.transform.position = this.transform.position;
-
-                //        //CreateLineMaterial();
-                //        if (!aimingRay.GetComponent<LineRenderer>())
-                //        {
-                //            aimingRay.AddComponent<LineRenderer>();
-                //        }
-
-                //        LineRenderer aimLine = aimingRay.GetComponent<LineRenderer>();
-                //        aimLine.material = new Material(Shader.Find("Sprites/Default"));
-
-                //        Color endRed = Color.red;
-                //        endRed.a = 0.3f;
-                //        Color startRed = Color.red;
-                //        startRed.a = 0.6f;
-                //        aimLine.startColor = startRed;
-                //        aimLine.endColor = endRed;
-                //        aimLine.startWidth = 0.15f;
-                //        aimLine.endWidth = aimLine.startWidth;
-
-                //        aimLine.SetPosition(0, transform.position);
-                //        aimLine.SetPosition(1, hitPos);
-
-                //        Vector3 dir = hitPos - transform.position;
-                //        dir.y = 0;
-
-                //        parentDir = dir;
-
-
-                //        cancelShoot = true; 
-                //    }
-                //}
-
-                //if (Input.GetMouseButtonUp(0) && cancelShoot != false)
-                //{
-                //    cancelShoot = false;
-                //    GameObject.Destroy(aimingRay);
-                //}
 
                 if (!source.isPlaying)
                 {
@@ -221,7 +162,7 @@ namespace Valve.VR.InteractionSystem
             //m_verticalInput = Input.GetAxis("Vertical");
             //m_horizonetalInput = Input.GetAxis("Horizontal");
 
-            if (bOnOrOff == true)
+            if (bOnOrOff || !bNeutral)
             {
                 if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
@@ -348,72 +289,28 @@ namespace Valve.VR.InteractionSystem
             AnalogueSpeedoMeter.SpeedToAngle(this.GetComponent<Rigidbody>().velocity.magnitude, 0, 25);
             this.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(this.GetComponent<Rigidbody>().velocity, 10);
         }
-
-        /// <summary>
-        /// Receives damage when the player enters collision with an enemy. Different vehicle types take different damage amounts
-        /// </summary>
-        public virtual void OnCollisionEnter(Collision collision)
+        
+        public virtual void OnTriggerEnter(Collider collision)
         {
-            if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.layer != 10) return;
+
+            if (collision.gameObject.CompareTag("Car"))
             {
-                Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+                collision.gameObject.GetComponent<CarPathFollower>().playerFound = true;
+                collision.gameObject.GetComponent<CarPathFollower>().accelerate = false;
             }
         }
-        /// <summary>
-        /// Triggers fire when a client shoots
-        /// </summary>
-        //  public override void triggerShoot(RpcArgs args)
-        //  {
-        //      int ShooterID = args.GetNext<int>();
-        //      bool ShootingStatus = args.GetNext<bool>();
 
-        //      if (this.gameObject.tag != "Player" + ShooterID)
-        //      {
-        //	return;
-        //}
+        public virtual void OnTriggerLeave(Collider collision)
+        {
+            if (collision.gameObject.layer != 10) return;
 
-        //      switch (this.gameObject.GetComponent<VehicleBase>().vehicleType)
-        //      {
-        //          case VehicleType.VEH_SEDAN:
-        //              {
-        //                  EventManager.TriggerEvent("MGShoot", this.gameObject.tag);
-        //                  break;
-        //              }
-        //          case VehicleType.VEH_VAN:
-        //              {
-        //                  if (!ShootingStatus)
-        //                  {
-        //                      EventManager.TriggerEvent("CancelFire", this.gameObject.tag);
-        //                      break;
-        //                  }
-
-        //                  EventManager.TriggerEvent("FireShoot", this.gameObject.tag);
-        //                  break;
-        //              }
-        //          case VehicleType.VEH_MONSTER_TRUCK:
-        //              {
-        //                  EventManager.TriggerEvent("RocketShoot", this.gameObject.tag);
-        //                  break;
-        //              }
-        //          default:
-        //              break;
-        //      }
-
-        //  }
-
-        //  public override void SendTag(RpcArgs args)
-        //  {
-        //      string SetName = args.GetNext<string>();
-        //Debug.Log ("Found name of: " + SetName + ". Checking with " + this.gameObject.tag);
-        //      if (this.gameObject.tag == "Player")
-        //      {
-        //          //if (GameObject.FindGameObjectWithTag(SetName) != null)
-        //          //    return;
-        //	Debug.Log (this.gameObject.tag + " set to " + SetName);
-
-        //          this.gameObject.tag = SetName;
-        //      }
-        //  }
+            if (collision.gameObject.CompareTag("Car"))
+            {
+                collision.gameObject.GetComponent<CarPathFollower>().playerFound = false;
+                collision.gameObject.GetComponent<CarPathFollower>().accelerate = true;
+            }
+        }
 
         public void PlayAudio(AudioClip music)
         {

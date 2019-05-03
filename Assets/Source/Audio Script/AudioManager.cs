@@ -34,8 +34,7 @@ public class AudioManager : MonoBehaviour
     {
         Vector3 soundDialRotation = soundDial.transform.localRotation.eulerAngles;
         float value = soundDialRotation.y;
-
-        Debug.Log(value);
+        
         if (value > 90 && value < 91)
         {
             value = 0;
@@ -51,7 +50,6 @@ public class AudioManager : MonoBehaviour
 
         value /= 360;
         master = maxVolume * value;
-        Debug.Log(master);
     }
 
     /// <summary>

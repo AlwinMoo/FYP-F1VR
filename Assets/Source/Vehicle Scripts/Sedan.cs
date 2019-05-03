@@ -37,32 +37,5 @@ namespace Valve.VR.InteractionSystem
 
             base.Start();
         }
-
-
-        /// <summary>
-        /// Do momentum transfer when collided
-        /// </summary>
-        ///// <param name="collision"> Enemies </param>
-        //public override void OnCollisionEnter(Collision collision)
-        //{
-        //    base.OnCollisionEnter(collision);
-
-        //    if (collision.gameObject.CompareTag("Enemy"))
-        //    {
-        //        collision.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        //        collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        //        GetComponent<Rigidbody>().isKinematic = false;
-
-        //        m1 = mass;
-        //        m2 = collision.gameObject.GetComponent<Rigidbody>().mass;
-        //        u1 = this.gameObject.GetComponent<Rigidbody>().velocity;
-        //        u2 = collision.gameObject.GetComponent<Rigidbody>().velocity;
-
-        //        Vector3 N = (this.gameObject.transform.position - collision.gameObject.transform.position).normalized;
-
-        //        this.gameObject.GetComponent<Rigidbody>().AddForce(u1 + ((2 * m2) / (m1 + m2)) * Vector3.Dot((u2 - u1), N) * N, ForceMode.VelocityChange);
-        //        collision.gameObject.GetComponent<Rigidbody>().AddForce(u2 + ((2 * m2) / (m1 + m2)) * Vector3.Dot((u1 - u2), N) * N, ForceMode.VelocityChange);
-        //    }
-        //}
     }
 }

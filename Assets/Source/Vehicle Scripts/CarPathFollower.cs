@@ -3,6 +3,7 @@ using UnityEngine;
 using PathCreation;
 using Unity.Jobs;
 using Unity.Collections;
+using System;
 
 // Moves along a path at constant speed.
 // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
@@ -20,7 +21,11 @@ public class CarPathFollower : MonoBehaviour
 
     public GameObject WaypointContainer = null;
 
-    bool accelerate = true;
+    [NonSerialized]
+    public bool accelerate = true;
+
+    [NonSerialized]
+    public bool playerFound = false;
 
     #region Car audio
     private GameObject AudioManagerGO;
@@ -43,7 +48,7 @@ public class CarPathFollower : MonoBehaviour
 
         if (pathCreator == null)
         {
-            pathCreator = PathManager.Instance.FindPathInt(Random.Range(0, (int)PathManager.PathArrayContainer.PathGroup.NUM_OF_VALUES), Random.Range(0, (int)PathManager.PathArray.Direction.NUM_OF_VALUES));
+            pathCreator = PathManager.Instance.FindPathInt(UnityEngine.Random.Range(0, (int)PathManager.PathArrayContainer.PathGroup.NUM_OF_VALUES), UnityEngine.Random.Range(0, (int)PathManager.PathArray.Direction.NUM_OF_VALUES));
         }
 
         if (WaypointContainer != null)
@@ -69,42 +74,45 @@ public class CarPathFollower : MonoBehaviour
                 ReadWaypoint();
             }
 
-            if (Vector3.Distance(new Vector3(trafficLightList[0].position.x, 0, trafficLightList[0].position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)) <= 10)
+            if (!playerFound)
             {
-                if (trafficLightList[0].GetComponent<BasicTrafficLight>().trafficLight == BasicTrafficLight.LIGHT_STATUS.LIGHT_GREEN)
+                if (Vector3.Distance(new Vector3(trafficLightList[0].position.x, 0, trafficLightList[0].position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)) <= 10)
                 {
-                    accelerate = true;
-
-                    if (!trafficLightList[0].GetComponent<BasicTrafficLight>().IsSplitPoint)
+                    if (trafficLightList[0].GetComponent<BasicTrafficLight>().trafficLight == BasicTrafficLight.LIGHT_STATUS.LIGHT_GREEN)
                     {
-                        trafficLightList.RemoveAt(0);
+                        accelerate = true;
 
-                        if (trafficLightList.Count == 0)
+                        if (!trafficLightList[0].GetComponent<BasicTrafficLight>().IsSplitPoint)
                         {
-                            ReadWaypoint();
+                            trafficLightList.RemoveAt(0);
+
+                            if (trafficLightList.Count == 0)
+                            {
+                                ReadWaypoint();
+                            }
                         }
                     }
-                }
-                else if (trafficLightList[0].GetComponent<BasicTrafficLight>().trafficLight == BasicTrafficLight.LIGHT_STATUS.LIGHT_RED)
-                {
-                    accelerate = false;
+                    else if (trafficLightList[0].GetComponent<BasicTrafficLight>().trafficLight == BasicTrafficLight.LIGHT_STATUS.LIGHT_RED)
+                    {
+                        accelerate = false;
+                    }
+                    else
+                    {
+                        if (!trafficLightList[0].GetComponent<BasicTrafficLight>().IsSplitPoint)
+                        {
+                            trafficLightList.RemoveAt(0);
+
+                            if (trafficLightList.Count == 0)
+                            {
+                                ReadWaypoint();
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    if (!trafficLightList[0].GetComponent<BasicTrafficLight>().IsSplitPoint)
-                    {
-                        trafficLightList.RemoveAt(0);
-
-                        if (trafficLightList.Count == 0)
-                        {
-                            ReadWaypoint();
-                        }
-                    }
+                    accelerate = true;
                 }
-            }
-            else
-            {
-                accelerate = true;
             }
         }
 
@@ -113,7 +121,7 @@ public class CarPathFollower : MonoBehaviour
         //forward
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
+            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
             {
                 accelerate = false;
             }
@@ -122,43 +130,43 @@ public class CarPathFollower : MonoBehaviour
         }
 
         //45 right
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
-        {
-            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 9f)
-            {
-                accelerate = false;
-            }
-            else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 15f)
-            {
-                slowDown = true;
-            }
-            else
-                slowDown = false;
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
+        //{
+        //    if (hit.transform.gameObject.layer == 10 && hit.distance <= 9f)
+        //    {
+        //        accelerate = false;
+        //    }
+        //    else if (hit.transform.gameObject.layer == 10 && hit.distance <= 15f)
+        //    {
+        //        slowDown = true;
+        //    }
+        //    else
+        //        slowDown = false;
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
-        }
+        //    Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        //}
 
         //45 left
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
-        {
-            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 9f)
-            {
-                accelerate = false;
-            }
-            else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 15f)
-            {
-                slowDown = true;
-            }
-            else
-                slowDown = false;
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
+        //{
+        //    if (hit.transform.gameObject.layer == 10 && hit.distance <= 9f)
+        //    {
+        //        accelerate = false;
+        //    }
+        //    else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 15f)
+        //    {
+        //        slowDown = true;
+        //    }
+        //    else
+        //        slowDown = false;
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
-        }
+        //    Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+        //}
 
         //22.5 right
         if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
+            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
             {
                 accelerate = false;
             }
@@ -169,7 +177,7 @@ public class CarPathFollower : MonoBehaviour
         //22.5 left
         if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 18f)
+            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
             {
                 accelerate = false;
             }

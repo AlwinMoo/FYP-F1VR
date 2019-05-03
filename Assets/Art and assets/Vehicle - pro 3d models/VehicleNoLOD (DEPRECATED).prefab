@@ -908,7 +908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2610862740550329874}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: 0.0151, y: 0.7198, z: 0.1634}
+  m_LocalPosition: {x: 0.005, y: 0.5634, z: 0.508}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
   m_Father: {fileID: 8455627176605973727}
@@ -1098,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7437119067423573113}
   m_LocalRotation: {x: -0.7071068, y: -0.00000013240823, z: -0.00000013240823, w: 0.7071068}
-  m_LocalPosition: {x: -0.043, y: 0.893, z: 0.598}
+  m_LocalPosition: {x: -0.089, y: 0.914, z: 0.596}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 7437778484570398079}
@@ -1126,7 +1126,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.69, z: 1}
-  m_Center: {x: 0, y: -0.39, z: 0}
+  m_Center: {x: 0, y: -0.345, z: 0}
 --- !u!114 &7395890845827638587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,14 +1192,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingPart: {fileID: 7437778484570398079}
   localMoveDistance: {x: 0, y: -0.8, z: 0}
-  engageAtPercent: 0.95
-  disengageAtPercent: 0.9
+  engageAtPercent: 0.9
+  disengageAtPercent: 0.95
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7395890845715219199}
-        m_MethodName: OnButtonDown
-        m_Mode: 0
+      - m_Target: {fileID: 1166557739502086625}
+        m_MethodName: OnButtonUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1213,9 +1213,9 @@ MonoBehaviour:
   onButtonUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7395890845715219199}
-        m_MethodName: OnButtonUp
-        m_Mode: 0
+      - m_Target: {fileID: 1166557739502086625}
+        m_MethodName: OnButtonDown
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7434,7 +7434,7 @@ GameObject:
   - component: {fileID: 8455627176605973696}
   - component: {fileID: 8455627176605973697}
   m_Layer: 0
-  m_Name: VehicleNoLOD
+  m_Name: VehicleNoLOD (DEPRECATED)
   m_TagString: PlayerVehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7447,7 +7447,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8455627176605973702}
-  m_LocalRotation: {x: -0, y: 0.9998966, z: -0, w: -0.014382847}
+  m_LocalRotation: {x: 0, y: 0.9998966, z: -0, w: -0.014380949}
   m_LocalPosition: {x: 166, y: 3.44, z: -45.8}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
@@ -10588,7 +10588,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51296e496d2e7fc4d8b1deb81ee519da, type: 3}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23824,7 +23824,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 30e9737a282f10943b51b06b5cbb31aa, type: 3}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39089,7 +39089,6 @@ GameObject:
   - component: {fileID: 8455627178565957006}
   - component: {fileID: 8455627178565957007}
   - component: {fileID: 8455627178565957004}
-  - component: {fileID: 8455627178565957005}
   - component: {fileID: 784800940822250867}
   m_Layer: 0
   m_Name: VRCamera
@@ -39136,14 +39135,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 1000
+  far clip plane: 800
   field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4160749567
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -39238,66 +39237,6 @@ MonoBehaviour:
   blueNoiseTexturesArray: {fileID: 18700000, guid: 518b8337a0340444aa49dd0780efa9c2,
     type: 2}
   _hasBeenAssigned: 1
---- !u!114 &8455627178565957005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8455627178565957043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 0}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 1
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 1
-    keepAlpha: 1
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!114 &784800940822250867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39337,11 +39276,11 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_RenderingPathCustomFrameSettings:
     bitDatas:
-      data1: 69284255760157
+      data1: 69284255694365
       data2: 4539628424389459968
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 2147483648
+      data1: 0
       data2: 0
   defaultFrameSettings: 0
   m_Version: 5
