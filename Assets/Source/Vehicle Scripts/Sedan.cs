@@ -13,7 +13,7 @@ namespace Valve.VR.InteractionSystem
             this.gameObject.GetComponent<Rigidbody>().mass = 1500;
             mass = this.gameObject.GetComponent<Rigidbody>().mass;
 
-            motorForce = 4000;
+            motorForce = 3000;
             steerForce = 9000;
             brakeForce = 2 * motorForce;
 
