@@ -37,7 +37,7 @@ namespace Valve.VR.InteractionSystem
         public bool bReverse = false;
 
         [NonSerialized]
-        public bool bNeutral = false;
+        public bool bNeutral = true;
 
         float maxSteerAngle = 30;
 
@@ -88,7 +88,7 @@ namespace Valve.VR.InteractionSystem
         {
             bOnOrOff = _OnOffCar.bOnOff;
 
-            if (bOnOrOff && !bNeutral)
+            if (bOnOrOff && bNeutral == false)
             {
                 // If the gameobject is not owned by the client
                 rR_Wheel.motorTorque = 0;
@@ -162,7 +162,7 @@ namespace Valve.VR.InteractionSystem
             //m_verticalInput = Input.GetAxis("Vertical");
             //m_horizonetalInput = Input.GetAxis("Horizontal");
 
-            if (bOnOrOff || !bNeutral)
+            if (bOnOrOff && bNeutral == false)
             {
                 if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
@@ -301,7 +301,7 @@ namespace Valve.VR.InteractionSystem
             }
         }
 
-        public virtual void OnTriggerLeave(Collider collision)
+        public virtual void OnTriggerExit(Collider collision)
         {
             if (collision.gameObject.layer != 10) return;
 

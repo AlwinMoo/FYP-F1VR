@@ -121,7 +121,7 @@ public class CarPathFollower : MonoBehaviour
         //forward
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
+            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
             {
                 accelerate = false;
             }
@@ -129,14 +129,14 @@ public class CarPathFollower : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
         }
 
-        //45 right
+        ////45 right
         //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
         //{
-        //    if (hit.transform.gameObject.layer == 10 && hit.distance <= 9f)
+        //    if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
         //    {
         //        accelerate = false;
         //    }
-        //    else if (hit.transform.gameObject.layer == 10 && hit.distance <= 15f)
+        //    else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
         //    {
         //        slowDown = true;
         //    }
@@ -146,14 +146,14 @@ public class CarPathFollower : MonoBehaviour
         //    Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
         //}
 
-        //45 left
+        ////45 left
         //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
         //{
-        //    if (hit.transform.gameObject.layer == 10 && hit.distance <= 9f)
+        //    if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
         //    {
         //        accelerate = false;
         //    }
-        //    else if (hit.transform.tag == "Car" || hit.transform.tag == "PlayerVehicle" && hit.distance <= 15f)
+        //    else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
         //    {
         //        slowDown = true;
         //    }
@@ -166,7 +166,7 @@ public class CarPathFollower : MonoBehaviour
         //22.5 right
         if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
+            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
             {
                 accelerate = false;
             }
@@ -177,7 +177,7 @@ public class CarPathFollower : MonoBehaviour
         //22.5 left
         if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
         {
-            if (hit.transform.gameObject.layer == 10 && hit.distance <= 18f)
+            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
             {
                 accelerate = false;
             }

@@ -16,12 +16,14 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
+            Debug.Log(transform.parent.GetComponent<VehicleBase>().bNeutral);
+
             if (linearMapping.value >= 0.9f)
             {
                 transform.parent.GetComponent<VehicleBase>().bNeutral = false;
                 transform.parent.GetComponent<VehicleBase>().bReverse = true;
             }
-            else if (linearMapping.value <= 0.1)
+            else if (linearMapping.value <= 0.1f)
             {
                 transform.parent.GetComponent<VehicleBase>().bNeutral = false;
                 transform.parent.GetComponent<VehicleBase>().bReverse = false;
