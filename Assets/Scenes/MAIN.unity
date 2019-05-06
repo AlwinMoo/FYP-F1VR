@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0.05010847, g: 0.07046016, b: 0.10981449, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24135,6 +24135,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerVehicle
       objectReference: {fileID: 0}
+    - target: {fileID: 5770621550642000051, guid: ee262a929518daf42ad912ae97aa127f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24719,11 +24724,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5770621550642000051, guid: ee262a929518daf42ad912ae97aa127f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9149085678345739536, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
