@@ -169,7 +169,7 @@ namespace Valve.VR.InteractionSystem
                     if (bReverse == false)
                         m_verticalInput = 1;
                     else
-                        m_verticalInput = -1;
+                        m_verticalInput = -0.8f;
 
                     if (source.clip == null || soundSwap)
                     {
