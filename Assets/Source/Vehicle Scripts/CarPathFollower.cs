@@ -118,19 +118,22 @@ public class CarPathFollower : MonoBehaviour
 
             RaycastHit hit;
 
+            Vector3 raycastPos = transform.position;
+            raycastPos.y += 0.5f;
+
             //forward
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Vector3.forward), out hit, 18f))
             {
                 if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
                 {
                     accelerate = false;
                 }
 
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
+                Debug.DrawRay(raycastPos, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
             }
 
             //45 right
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
             {
                 if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
                 {
@@ -143,11 +146,11 @@ public class CarPathFollower : MonoBehaviour
                 else
                     slowDown = false;
 
-                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+                Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
             //45 left
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
             {
                 if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
                 {
@@ -160,29 +163,29 @@ public class CarPathFollower : MonoBehaviour
                 else
                     slowDown = false;
 
-                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+                Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
             //22.5 right
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
             {
                 if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
                 {
                     accelerate = false;
                 }
 
-                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+                Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
             //22.5 left
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
             {
                 if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
                 {
                     accelerate = false;
                 }
 
-                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+                Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
         }
 
