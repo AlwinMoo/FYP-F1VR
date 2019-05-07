@@ -423,16 +423,17 @@ namespace Valve.VR.InteractionSystem
             if (rotateGameObject)
             {
                 outAngle += 0.5f;
-                if (outAngle < -359.0f)
+                float var = outAngle * 1.5f;
+                if (var < -359.0f)
                 {
-                    outAngle = -359.0f;
+                    var = -359.0f;
                 }
-                if (outAngle > 0.5f)
+                if (var > 0.5f)
                 {
-                    outAngle = 0.5f;
+                    var = 0.5f;
                 }
 
-                transform.localRotation = start * Quaternion.AngleAxis(outAngle, localPlaneNormal);
+                transform.localRotation = start * Quaternion.AngleAxis(var, localPlaneNormal);
 
                 transform.localRotation *= startingRotation;
             }
