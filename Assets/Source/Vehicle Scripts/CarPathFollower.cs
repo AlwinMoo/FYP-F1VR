@@ -114,75 +114,76 @@ public class CarPathFollower : MonoBehaviour
                     accelerate = true;
                 }
             }
-        }
 
-        RaycastHit hit;
 
-        //forward
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
-        {
-            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+            RaycastHit hit;
+
+            //forward
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 18f))
             {
-                accelerate = false;
+                if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+                {
+                    accelerate = false;
+                }
+
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
             }
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward).normalized * hit.distance, Color.red);
-        }
-
-        ////45 right
-        //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
-        //{
-        //    if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
-        //    {
-        //        accelerate = false;
-        //    }
-        //    else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
-        //    {
-        //        slowDown = true;
-        //    }
-        //    else
-        //        slowDown = false;
-
-        //    Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
-        //}
-
-        ////45 left
-        //if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
-        //{
-        //    if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
-        //    {
-        //        accelerate = false;
-        //    }
-        //    else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
-        //    {
-        //        slowDown = true;
-        //    }
-        //    else
-        //        slowDown = false;
-
-        //    Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
-        //}
-
-        //22.5 right
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
-        {
-            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+            //45 right
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward), out hit, 9f))
             {
-                accelerate = false;
+                if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
+                {
+                    accelerate = false;
+                }
+                else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
+                {
+                    slowDown = true;
+                }
+                else
+                    slowDown = false;
+
+                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
-        }
-
-        //22.5 left
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
-        {
-            if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+            //45 left
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward), out hit, 9f))
             {
-                accelerate = false;
+                if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
+                {
+                    accelerate = false;
+                }
+                else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
+                {
+                    slowDown = true;
+                }
+                else
+                    slowDown = false;
+
+                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
-            Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+            //22.5 right
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
+            {
+                if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+                {
+                    accelerate = false;
+                }
+
+                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+            }
+
+            //22.5 left
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
+            {
+                if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+                {
+                    accelerate = false;
+                }
+
+                Debug.DrawRay(transform.position, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
+            }
         }
 
         if (slowDown)
