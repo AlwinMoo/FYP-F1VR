@@ -58,12 +58,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 114920148507229532}
-  - {fileID: 114672330071098692}
   - {fileID: 114189414877628876}
   - {fileID: 9078926407336154370}
   - {fileID: 6183576675780029200}
   - {fileID: -584251567173809438}
   - {fileID: 6685357898982655462}
+  - {fileID: 8765226861117556661}
 --- !u!114 &114189414877628876
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -336,6 +336,29 @@ MonoBehaviour:
     m_Value: 0.2
     min: 0
     max: 1
+--- !u!114 &8765226861117556661
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime:UnityEngine.Experimental.Rendering.HDPipeline:VisualEnvironment
+  active: 1
+  m_AdvancedMode: 0
+  skyType:
+    m_OverrideState: 1
+    m_Value: 2
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 0
+  fogType:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &9078926407336154370
 MonoBehaviour:
   m_ObjectHideFlags: 3
