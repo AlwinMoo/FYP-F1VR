@@ -37,11 +37,11 @@ MonoBehaviour:
     supportLightLayers: 1
     supportDistortion: 1
     supportTransparentBackface: 1
-    supportTransparentDepthPrepass: 1
-    supportTransparentDepthPostpass: 1
+    supportTransparentDepthPrepass: 0
+    supportTransparentDepthPostpass: 0
     supportedLitShaderMode: 1
     supportDecals: 1
-    msaaSampleCount: 8
+    msaaSampleCount: 1
     supportMotionVectors: 0
     supportRuntimeDebugDisplay: 0
     supportDitheringCrossFade: 1
