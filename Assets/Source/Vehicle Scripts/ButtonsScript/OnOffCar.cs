@@ -12,7 +12,7 @@ public class OnOffCar : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.name);
+        //Debug.Log(collision.name);
 
         bOnce = !bOnce;
     }
