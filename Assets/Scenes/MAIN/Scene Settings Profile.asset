@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2713204713002046607
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime:UnityEngine.Experimental.Rendering.HDPipeline:VisualEnvironment
+  active: 1
+  m_AdvancedMode: 0
+  skyType:
+    m_OverrideState: 1
+    m_Value: 2
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 0
+  fogType:
+    m_OverrideState: 1
+    m_Value: 2
 --- !u!114 &-584251567173809438
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -63,7 +86,7 @@ MonoBehaviour:
   - {fileID: 6183576675780029200}
   - {fileID: -584251567173809438}
   - {fileID: 6685357898982655462}
-  - {fileID: 8765226861117556661}
+  - {fileID: -2713204713002046607}
 --- !u!114 &114189414877628876
 MonoBehaviour:
   m_ObjectHideFlags: 3
