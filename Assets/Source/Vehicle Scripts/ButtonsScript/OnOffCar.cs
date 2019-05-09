@@ -1,40 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-namespace Valve.VR.InteractionSystem
+public class OnOffCar : MonoBehaviour
 {
-    public class OnOffCar : MonoBehaviour
+    [NonSerialized]
+    public bool bOnOff = false;
+
+    bool bOnce = false;
+
+    public void OnTriggerEnter(Collider collision)
     {
-        public GameObject Normal;
-        public GameObject Green;
-        public bool bOnOff = false;
+        Debug.Log(collision.name);
 
-        bool bOnce = false;
-        public void OnButtonDown()
-        {
-            if (bOnce == false)
-            {
-                if (bOnOff == false)
-                {
-                    bOnOff = true;
-                    Green.SetActive(true);
-                    Normal.SetActive(false);
-                }
-                else
-                {
-                    bOnOff = false;
-                    Green.SetActive(false);
-                    Normal.SetActive(true);
-                }
-                bOnce = true;
-            }
-        }
+        bOnce = !bOnce;
+    }
 
-        public void OnButtonUp()
-        {
-            bOnce = false;
-        }
-
+    public void FixedUpdate()
+    {
+        if (bOnce)
+            GetComponent<Renderer>().material.color = Color.green;
+        else
+            GetComponent<Renderer>().material.color = Color.green;
     }
 }
