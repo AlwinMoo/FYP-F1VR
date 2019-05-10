@@ -42,6 +42,7 @@ namespace Valve.VR.InteractionSystem
         float maxSteerAngle = 30;
 
         public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch"); // Button pushed
+        public SteamVR_Action_Vibration vibrationMotor;
 
         #region Car audio
         private GameObject AudioManagerGO;
@@ -347,6 +348,12 @@ namespace Valve.VR.InteractionSystem
                 collision.gameObject.GetComponent<CarPathFollower>().playerFound = false;
                 collision.gameObject.GetComponent<CarPathFollower>().accelerate = true;
             }
+        }
+
+        public virtual void OnCollisionEnter(Collision collision)
+        {
+            vibrationMotor.Execute(0, 0.5f, 100, 0.8f, SteamVR_Input_Sources.LeftHand);
+            vibrationMotor.Execute(0, 0.5f, 100, 0.8f, SteamVR_Input_Sources.RightHand);
         }
 
         public void PlayAudio(AudioClip music)
