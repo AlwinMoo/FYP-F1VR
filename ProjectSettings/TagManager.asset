@@ -41,6 +41,7 @@ TagManager:
   - DaySetting
   - NightSetting
   - Moon
+  - Hands
   layers:
   - Default
   - TransparentFX
@@ -51,9 +52,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Hands
   - Vehicle
-  - 
+  - CubeButton
   - 
   - 
   - 

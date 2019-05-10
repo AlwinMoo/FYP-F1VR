@@ -34,8 +34,7 @@ public class AudioManager : MonoBehaviour
     {
         Vector3 soundDialRotation = soundDial.transform.localRotation.eulerAngles;
         float value = soundDialRotation.y;
-        
-        if (value > 90 && value < 91)
+        if (value > 270 && value < 271)
         {
             value = 0;
         }
@@ -48,7 +47,7 @@ public class AudioManager : MonoBehaviour
             value -= 90;
         }
 
-        value /= 360;
+        value /= 180;
         master = maxVolume * value;
     }
 

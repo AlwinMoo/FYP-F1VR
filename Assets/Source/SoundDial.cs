@@ -423,10 +423,10 @@ namespace Valve.VR.InteractionSystem
             if (rotateGameObject)
             {
                 outAngle += 0.5f;
-                float var = outAngle * 1.5f;
-                if (var < -359.0f)
+                float var = outAngle * 3.0f;
+                if (var < -179.0f)
                 {
-                    var = -359.0f;
+                    var = -179.0f;
                 }
                 if (var > 0.5f)
                 {

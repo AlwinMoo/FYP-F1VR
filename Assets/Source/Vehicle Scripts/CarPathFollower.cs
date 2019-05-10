@@ -43,6 +43,8 @@ public class CarPathFollower : MonoBehaviour
 
     void Start()
     {
+        source = transform.GetComponent<AudioSource>();
+
         AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
         audioManager = AudioManagerGO.GetComponent<AudioManager>();
 
@@ -167,23 +169,35 @@ public class CarPathFollower : MonoBehaviour
             //}
 
             //22.5 right
-            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 18f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward), out hit, 15f))
             {
-                if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+                if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
                 {
                     accelerate = false;
                 }
+                else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
+                {
+                    slowDown = true;
+                }
+                else
+                    slowDown = false;
 
                 Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, 15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }
 
             //22.5 left
-            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 18f))
+            if (Physics.Raycast(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward), out hit, 15f))
             {
-                if (hit.transform.CompareTag("Car") && hit.distance <= 18f)
+                if (hit.transform.CompareTag("Car") && hit.distance <= 9f)
                 {
                     accelerate = false;
                 }
+                else if (hit.transform.CompareTag("Car") && hit.distance <= 15f)
+                {
+                    slowDown = true;
+                }
+                else
+                    slowDown = false;
 
                 Debug.DrawRay(raycastPos, transform.TransformDirection(Quaternion.Euler(0, -15f, 0) * Vector3.forward).normalized * hit.distance, Color.red);
             }

@@ -30,8 +30,6 @@ namespace Valve.VR.InteractionSystem
         public Transform rL_T { get; set; }
 
         OnOffCar _OnOffCar;
-        
-        bool bOnOrOff;
 
         [NonSerialized]
         public bool bReverse = false;
@@ -43,10 +41,12 @@ namespace Valve.VR.InteractionSystem
 
         public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch"); // Button pushed
 
+        public SteamVR_Action_Vibration hapticEngine;
+
         #region Car audio
         private GameObject AudioManagerGO;
         private AudioManager audioManager;
-        public AudioSource source;
+        private AudioSource source;
 
         private Vector3 prevPosition;
         private float prevDistance;
@@ -76,6 +76,8 @@ namespace Valve.VR.InteractionSystem
         // Use this for initialization
         public virtual void Start()
         {
+            source = transform.GetComponent<AudioSource>();
+
             AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
             audioManager = AudioManagerGO.GetComponent<AudioManager>();
 
@@ -86,9 +88,7 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         public virtual void Update()
         {
-            bOnOrOff = _OnOffCar.bOnOff;
-
-            if (bOnOrOff && bNeutral == false)
+            if (_OnOffCar.bOnOff)
             {
                 // If the gameobject is not owned by the client
                 rR_Wheel.motorTorque = 0;
@@ -110,7 +110,34 @@ namespace Valve.VR.InteractionSystem
                     }
                 }
 
-                //if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
+                if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
+                {
+                    rL_Wheel.brakeTorque = brakeForce;
+                    rR_Wheel.brakeTorque = brakeForce;
+                    fL_Wheel.brakeTorque = brakeForce;
+                    fR_Wheel.brakeTorque = brakeForce;
+
+                    if (source.clip == null || soundSwap)
+                    {
+                        source.pitch = 1.0f;
+                        source.loop = false;
+                        source.volume = audioManager.GetMasterVolume();
+
+                        soundStartTime = Time.time;
+                        soundSwap = false;
+
+                        audioClip = brakeSound;
+                    }
+                }
+                else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
+                {
+                    rL_Wheel.brakeTorque = 0;
+                    rR_Wheel.brakeTorque = 0;
+                    fL_Wheel.brakeTorque = 0;
+                    fR_Wheel.brakeTorque = 0;
+                }
+
+                //if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand) && grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
                 //{
                 //    rL_Wheel.brakeTorque = brakeForce;
                 //    rR_Wheel.brakeTorque = brakeForce;
@@ -129,7 +156,45 @@ namespace Valve.VR.InteractionSystem
                 //        audioClip = brakeSound;
                 //    }
                 //}
-                //else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand))
+                //else if (gameObject.GetComponent<Rigidbody>().velocity.magnitude > 3 && grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
+                //{
+                //    rL_Wheel.brakeTorque = brakeForce;
+                //    rR_Wheel.brakeTorque = brakeForce;
+                //    fL_Wheel.brakeTorque = brakeForce;
+                //    fR_Wheel.brakeTorque = brakeForce;
+
+                //    if (source.clip == null || soundSwap)
+                //    {
+                //        source.pitch = 1.0f;
+                //        source.loop = false;
+                //        source.volume = audioManager.GetMasterVolume();
+
+                //        soundStartTime = Time.time;
+                //        soundSwap = false;
+
+                //        audioClip = brakeSound;
+                //    }
+                //}
+                //else if (gameObject.GetComponent<Rigidbody>().velocity.magnitude < -3 && grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+                //{
+                //    rL_Wheel.brakeTorque = brakeForce;
+                //    rR_Wheel.brakeTorque = brakeForce;
+                //    fL_Wheel.brakeTorque = brakeForce;
+                //    fR_Wheel.brakeTorque = brakeForce;
+
+                //    if (source.clip == null || soundSwap)
+                //    {
+                //        source.pitch = 1.0f;
+                //        source.loop = false;
+                //        source.volume = audioManager.GetMasterVolume();
+
+                //        soundStartTime = Time.time;
+                //        soundSwap = false;
+
+                //        audioClip = brakeSound;
+                //    }
+                //}
+                //else
                 //{
                 //    rL_Wheel.brakeTorque = 0;
                 //    rR_Wheel.brakeTorque = 0;
@@ -137,48 +202,19 @@ namespace Valve.VR.InteractionSystem
                 //    fR_Wheel.brakeTorque = 0;
                 //}
 
-                if (gameObject.GetComponent<Rigidbody>().velocity.magnitude < -3 && grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+                if ((!grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && (!grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand)))
                 {
-                    rL_Wheel.brakeTorque = brakeForce;
-                    rR_Wheel.brakeTorque = brakeForce;
-                    fL_Wheel.brakeTorque = brakeForce;
-                    fR_Wheel.brakeTorque = brakeForce;
-                }
-                else if (gameObject.GetComponent<Rigidbody>().velocity.magnitude > 3 && grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
-                {
-                    rL_Wheel.brakeTorque = brakeForce;
-                    rR_Wheel.brakeTorque = brakeForce;
-                    fL_Wheel.brakeTorque = brakeForce;
-                    fR_Wheel.brakeTorque = brakeForce;
-                }
-                else if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand) && grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
-                {
-                    rL_Wheel.brakeTorque = brakeForce;
-                    rR_Wheel.brakeTorque = brakeForce;
-                    fL_Wheel.brakeTorque = brakeForce;
-                    fR_Wheel.brakeTorque = brakeForce;
-                }
-                else
-                {
-                    rL_Wheel.brakeTorque = 0;
-                    rR_Wheel.brakeTorque = 0;
-                    fL_Wheel.brakeTorque = 0;
-                    fR_Wheel.brakeTorque = 0;
+                    if (soundSwap)
+                    {
+                        //should replace with idle sound
+                        source.Stop();
+                    }
                 }
 
-                //if ((!grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && (!grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand)))
-                //{
-                //    if (soundSwap)
-                //    {
-                //        //should replace with idle sound
-                //        source.Stop();
-                //    }
-                //}
-
-                //if (!soundSwap)
-                //{
-                //    PlayAudio(audioClip);
-                //}
+                if (!soundSwap)
+                {
+                    PlayAudio(audioClip);
+                }
             }
         }
         public virtual void GetInput()
@@ -186,14 +222,35 @@ namespace Valve.VR.InteractionSystem
             //m_verticalInput = Input.GetAxis("Vertical");
             //m_horizonetalInput = Input.GetAxis("Horizontal");
 
-            if (bOnOrOff && bNeutral == false)
+            if (_OnOffCar.bOnOff)
             {
-                //if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+                if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+                {
+                    if (bReverse == false)
+                        m_verticalInput = 1;
+                    else
+                        m_verticalInput = -0.8f;
+
+                    if (source.clip == null || soundSwap)
+                    {
+                        source.pitch = 1.0f;
+                        source.loop = true;
+                        source.volume = audioManager.GetMasterVolume();
+
+                        soundStartTime = Time.time;
+                        soundSwap = false;
+
+                        audioClip = gasSound;
+                    }
+                }
+                else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
+                {
+                    m_verticalInput = 0;
+                }
+
+                //if (grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
                 //{
-                //    if (bReverse == false)
-                //        m_verticalInput = 1;
-                //    else
-                //        m_verticalInput = -0.8f;
+                //    m_verticalInput = 1f;
 
                 //    if (source.clip == null || soundSwap)
                 //    {
@@ -207,23 +264,26 @@ namespace Valve.VR.InteractionSystem
                 //        audioClip = gasSound;
                 //    }
                 //}
-                //else if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
+                //else if (grabPinchAction.GetState(SteamVR_Input_Sources.LeftHand))
+                //{
+                //    m_verticalInput = -0.8f;
+
+                //    if (source.clip == null || soundSwap)
+                //    {
+                //        source.pitch = 1.0f;
+                //        source.loop = true;
+                //        source.volume = audioManager.GetMasterVolume();
+
+                //        soundStartTime = Time.time;
+                //        soundSwap = false;
+
+                //        audioClip = gasSound;
+                //    }
+                //}
+                //else
                 //{
                 //    m_verticalInput = 0;
                 //}
-
-                if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
-                {
-                    m_verticalInput = 1f;
-                }
-                else if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.LeftHand))
-                {
-                    m_verticalInput = -0.8f;
-                }
-                else
-                {
-                    m_verticalInput = 0f;
-                }
 
                 m_horizonetalInput = GameObject.FindGameObjectWithTag("SteeringWheel").transform.eulerAngles.z;
                 m_horizonetalInput = (m_horizonetalInput > 180) ? m_horizonetalInput - 360 : m_horizonetalInput;
@@ -347,6 +407,12 @@ namespace Valve.VR.InteractionSystem
                 collision.gameObject.GetComponent<CarPathFollower>().playerFound = false;
                 collision.gameObject.GetComponent<CarPathFollower>().accelerate = true;
             }
+        }
+
+        public virtual void OnCollisionEnter(Collision collision)
+        {
+            hapticEngine.Execute(0, 1, 150, 1, SteamVR_Input_Sources.RightHand);
+            hapticEngine.Execute(0, 1, 150, 1, SteamVR_Input_Sources.LeftHand);
         }
 
         public void PlayAudio(AudioClip music)

@@ -8,20 +8,22 @@ public class OnOffCar : MonoBehaviour
     [NonSerialized]
     public bool bOnOff = false;
 
+    [SerializeField]
+    private Material OffMaterial;
+    [SerializeField]
+    private Material OnMaterial;
+
     bool bOnce = false;
 
     public void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log(collision.name);
+        if (collision.CompareTag("Hands"))
+            bOnOff = !bOnOff;
 
-        bOnce = !bOnce;
-    }
-
-    public void FixedUpdate()
-    {
-        if (bOnce)
-            GetComponent<Renderer>().material.color = Color.green;
+        if (bOnOff)
+            this.gameObject.GetComponent<Renderer>().material = OnMaterial;
         else
-            GetComponent<Renderer>().material.color = Color.green;
+            this.gameObject.GetComponent<Renderer>().material = OffMaterial;
     }
+    
 }
