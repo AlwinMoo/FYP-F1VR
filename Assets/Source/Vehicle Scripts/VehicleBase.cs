@@ -88,6 +88,8 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         public virtual void Update()
         {
+            source.volume = audioManager.GetMasterVolume();
+
             if (_OnOffCar.bOnOff)
             {
                 // If the gameobject is not owned by the client
@@ -426,7 +428,6 @@ namespace Valve.VR.InteractionSystem
             //changing music it plays
             source.Stop();
             source.clip = music;
-            source.volume = audioManager.GetMasterVolume();
             source.Play();
         }
     }

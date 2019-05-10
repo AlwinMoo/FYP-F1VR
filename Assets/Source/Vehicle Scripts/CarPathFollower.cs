@@ -69,6 +69,8 @@ public class CarPathFollower : MonoBehaviour
 
     void Update()
     {
+        source.volume = audioManager.GetMasterVolume();
+
         if (WaypointContainer != null)
         {
             if (trafficLightList.Count == 0)
@@ -372,7 +374,6 @@ public class CarPathFollower : MonoBehaviour
         //changing music it plays
         source.Stop();
         source.clip = music;
-        source.volume = audioManager.GetMasterVolume();
         source.Play();
     }
 }
