@@ -229,7 +229,7 @@ namespace Valve.VR.InteractionSystem
                 if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
                     if (bReverse == false)
-                        m_verticalInput = 1;
+                        m_verticalInput = 0.8f;
                     else
                         m_verticalInput = -0.8f;
 

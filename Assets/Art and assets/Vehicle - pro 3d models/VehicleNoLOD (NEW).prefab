@@ -354,6 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fb8359fec7a694aa0ecd9872a24384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OffMaterial: {fileID: 0}
+  OnMaterial: {fileID: 0}
 --- !u!1 &600502517729934279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6861,8 +6863,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.35
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 45000
+    damper: 5500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -7705,7 +7707,6 @@ MonoBehaviour:
   hapticEngine:
     actionPath: 
     needsReinit: 0
-  source: {fileID: 0}
   gasSound: {fileID: 8300000, guid: acc3a7d68e4b36249a2de34e0bb7d209, type: 3}
   brakeSound: {fileID: 8300000, guid: 7866743a530d4094f8ec32fb0327ec1c, type: 3}
 --- !u!1 &6828781073482524375
@@ -8530,8 +8531,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.35
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 45000
+    damper: 5500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -9702,8 +9703,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.35
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 45000
+    damper: 5500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -10419,8 +10420,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0.15, z: 0}
   m_Radius: 0.35
   m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
+    spring: 45000
+    damper: 5500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -10845,6 +10846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fb8359fec7a694aa0ecd9872a24384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OffMaterial: {fileID: 0}
+  OnMaterial: {fileID: 0}
 --- !u!54 &5057770620526742654
 Rigidbody:
   m_ObjectHideFlags: 0
