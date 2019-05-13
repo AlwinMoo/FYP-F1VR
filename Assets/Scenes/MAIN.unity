@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1397447472}
-  m_IndirectSpecularColor: {r: 0.14047359, g: 0.16288376, b: 0.20100017, a: 1}
+  m_IndirectSpecularColor: {r: 0.068109326, g: 0.097324066, b: 0.146139, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
       propertyPath: m_Intensity
-      value: 8
+      value: 3.1415927
       objectReference: {fileID: 0}
     - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
         type: 3}
@@ -69254,11 +69254,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerVehicle
       objectReference: {fileID: 0}
-    - target: {fileID: 5770621550642000051, guid: ee262a929518daf42ad912ae97aa127f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7509214630881170052, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_Layer
@@ -69269,20 +69264,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Hands
       objectReference: {fileID: 0}
+    - target: {fileID: 5770621550642000051, guid: ee262a929518daf42ad912ae97aa127f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -157.94
+      value: 166.77
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.63
+      value: 22.075
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 478.41
+      value: -35.84
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
@@ -69292,7 +69292,7 @@ PrefabInstance:
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6626805
+      value: 0.77918845
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
@@ -69302,7 +69302,7 @@ PrefabInstance:
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74890226
+      value: 0.62678975
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
@@ -69317,7 +69317,7 @@ PrefabInstance:
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 83.009
+      value: 102.373
       objectReference: {fileID: 0}
     - target: {fileID: 6828781073312813276, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
