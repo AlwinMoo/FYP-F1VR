@@ -69,7 +69,7 @@ public class CarPathFollower : MonoBehaviour
 
     void Update()
     {
-        source.volume = audioManager.GetMasterVolume();
+        source.volume = audioManager.GetMasterVolume() / 10;
 
         if (WaypointContainer != null)
         {

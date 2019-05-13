@@ -48,7 +48,11 @@ public class AudioManager : MonoBehaviour
         }
 
         value /= 180;
-        master = maxVolume * value;
+        master = maxVolume * value - 10;
+        if (master < 0)
+        {
+            master = 0;
+        }
     }
 
     /// <summary>

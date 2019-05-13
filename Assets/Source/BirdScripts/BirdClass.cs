@@ -301,7 +301,7 @@ public class BirdClass : MonoBehaviour
             if (flying)
             {
                 audioSource.clip = song;
-                audioSource.volume = audioManager.GetMasterVolume();
+                audioSource.volume = audioManager.GetMasterVolume() / 10;
 
                 if (!audioSource.isPlaying)
                 {

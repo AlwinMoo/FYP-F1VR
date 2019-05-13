@@ -86,7 +86,7 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         public virtual void Update()
         {
-            source.volume = audioManager.GetMasterVolume();
+            source.volume = audioManager.GetMasterVolume() / 10;
 
             
                 // If the gameobject is not owned by the client
