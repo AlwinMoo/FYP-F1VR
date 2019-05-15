@@ -69259,6 +69259,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5497530972335384705, guid: ee262a929518daf42ad912ae97aa127f,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7509214630881170052, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_Layer
@@ -70354,6 +70359,11 @@ PrefabInstance:
       propertyPath: hapticEngine.actionPath
       value: /actions/default/out/Haptic
       objectReference: {fileID: 0}
+    - target: {fileID: 254608432359870170, guid: ee262a929518daf42ad912ae97aa127f,
+        type: 3}
+      propertyPath: gasSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d0649cb0d4097594486bb971b2f28bab, type: 3}
     - target: {fileID: 7109886522604932987, guid: ee262a929518daf42ad912ae97aa127f,
         type: 3}
       propertyPath: m_Layer
