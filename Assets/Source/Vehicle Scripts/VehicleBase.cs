@@ -42,17 +42,16 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Action_Vibration hapticEngine;
 
         #region Car audio
-        private GameObject AudioManagerGO;
         private AudioManager audioManager;
         private AudioSource source;
 
-        private Vector3 prevPosition;
-        private float prevDistance;
+        //private Vector3 prevPosition;
+        //private float prevDistance;
         private float soundStartTime;
         private bool soundSwap;
         private AudioClip audioClip;
         public AudioClip gasSound;
-        public AudioClip brakeSound;
+        //public AudioClip brakeSound;
         #endregion
 
         public enum DriveTrain
@@ -75,9 +74,8 @@ namespace Valve.VR.InteractionSystem
         public virtual void Start()
         {
             source = transform.GetComponent<AudioSource>();
-
-            AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");
-            audioManager = AudioManagerGO.GetComponent<AudioManager>();
+            
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
 
             //GameObject go_OFButton = GameObject.FindGameObjectWithTag("OFButton");
             //_OnOffCar = go_OFButton.GetComponent<OnOffCar>();
@@ -89,27 +87,25 @@ namespace Valve.VR.InteractionSystem
             source.volume = audioManager.GetMasterVolume() / 10;
 
             
-                // If the gameobject is not owned by the client
-                rR_Wheel.motorTorque = 0;
-                rL_Wheel.motorTorque = 0;
+            // If the gameobject is not owned by the client
+            rR_Wheel.motorTorque = 0;
+            rL_Wheel.motorTorque = 0;
 
-                fR_Wheel.motorTorque = 0;
-                fL_Wheel.motorTorque = 0;
+            fR_Wheel.motorTorque = 0;
+            fL_Wheel.motorTorque = 0;
 
-                if (!source.isPlaying)
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
+
+            if (!soundSwap)
+            {
+                if (soundStartTime + 1 < Time.time)
                 {
-                    source.Play();
+                    soundSwap = true;
                 }
-
-                if (!soundSwap)
-                {
-                    if (soundStartTime + 1 < Time.time)
-                    {
-                        soundSwap = true;
-                    }
-                }
-
-                //ju=- 
+            }
 
                 //if (grabPinchAction.GetStateUp(SteamVR_Input_Sources.LeftHand) && grabPinchAction.GetStateUp(SteamVR_Input_Sources.RightHand))
                 //{
@@ -138,17 +134,17 @@ namespace Valve.VR.InteractionSystem
                     fL_Wheel.brakeTorque = brakeForce;
                     fR_Wheel.brakeTorque = brakeForce;
 
-                    if (source.clip == null || soundSwap)
-                    {
-                        source.pitch = 1.0f;
-                        source.loop = false;
-                        source.volume = audioManager.GetMasterVolume();
+                    //if (source.clip == null || soundSwap)
+                    //{
+                    //    source.pitch = 1.0f;
+                    //    source.loop = false;
+                    //    source.volume = audioManager.GetMasterVolume();
 
-                        soundStartTime = Time.time;
-                        soundSwap = false;
+                    //    soundStartTime = Time.time;
+                    //    soundSwap = false;
 
-                        audioClip = brakeSound;
-                    }
+                    //    audioClip = brakeSound;
+                    //}
                 }
                 else if (gameObject.GetComponent<Rigidbody>().velocity.magnitude < -5 && grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
                 {
@@ -157,17 +153,17 @@ namespace Valve.VR.InteractionSystem
                     fL_Wheel.brakeTorque = brakeForce;
                     fR_Wheel.brakeTorque = brakeForce;
 
-                    if (source.clip == null || soundSwap)
-                    {
-                        source.pitch = 1.0f;
-                        source.loop = false;
-                        source.volume = audioManager.GetMasterVolume();
+                    //if (source.clip == null || soundSwap)
+                    //{
+                    //    source.pitch = 1.0f;
+                    //    source.loop = false;
+                    //    source.volume = audioManager.GetMasterVolume();
 
-                        soundStartTime = Time.time;
-                        soundSwap = false;
+                    //    soundStartTime = Time.time;
+                    //    soundSwap = false;
 
-                        audioClip = brakeSound;
-                    }
+                    //    audioClip = brakeSound;
+                    //}
                 }
                 else
                 {
@@ -228,7 +224,7 @@ namespace Valve.VR.InteractionSystem
 
                     if (source.clip == null || soundSwap)
                     {
-                        source.pitch = 1.0f;
+                        source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
                         source.loop = true;
                         source.volume = audioManager.GetMasterVolume();
 
@@ -244,7 +240,7 @@ namespace Valve.VR.InteractionSystem
 
                     if (source.clip == null || soundSwap)
                     {
-                        source.pitch = 1.0f;
+                        source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
                         source.loop = true;
                         source.volume = audioManager.GetMasterVolume();
 
@@ -401,6 +397,14 @@ namespace Valve.VR.InteractionSystem
             source.Stop();
             source.clip = music;
             source.Play();
+        }
+
+        float GetPitch(float speed, bool inverse = false)
+        {
+            if (!inverse)
+                return Mathf.Pow(1.15f, (speed - 15)) + 1;
+            else
+                return Mathf.Pow(1.15f, (speed - 15)) + 1;
         }
     }
 }
