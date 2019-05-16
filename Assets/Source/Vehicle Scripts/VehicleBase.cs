@@ -225,10 +225,7 @@ namespace Valve.VR.InteractionSystem
                     if (source.clip == null || soundSwap)
                     {
                         source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
-                        source.loop = true;
                         source.volume = audioManager.GetMasterVolume();
-
-                        soundStartTime = Time.time;
                         soundSwap = false;
 
                         audioClip = gasSound;
@@ -241,10 +238,7 @@ namespace Valve.VR.InteractionSystem
                     if (source.clip == null || soundSwap)
                     {
                         source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
-                        source.loop = true;
                         source.volume = audioManager.GetMasterVolume();
-
-                        soundStartTime = Time.time;
                         soundSwap = false;
 
                         audioClip = gasSound;
@@ -402,9 +396,9 @@ namespace Valve.VR.InteractionSystem
         float GetPitch(float speed, bool inverse = false)
         {
             if (!inverse)
-                return Mathf.Pow(1.15f, (speed - 15)) + 1;
+                return Mathf.Pow(1.05f, (speed - 15)) + 1;
             else
-                return Mathf.Pow(1.15f, (speed - 15)) + 1;
+                return Mathf.Pow(1.05f, (speed - 15)) + 1;
         }
     }
 }
