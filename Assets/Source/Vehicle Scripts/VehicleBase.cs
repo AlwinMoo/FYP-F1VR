@@ -396,9 +396,9 @@ namespace Valve.VR.InteractionSystem
         float GetPitch(float speed, bool inverse = false)
         {
             if (!inverse)
-                return Mathf.Pow(1.05f, (speed - 15)) + 1;
+                return Mathf.Pow(1.02f, (speed - 15)) + 1;
             else
-                return Mathf.Pow(1.05f, (speed - 15)) + 1;
+                return Mathf.Pow(1.02f, (speed - 15)) + 1;
         }
     }
 }
