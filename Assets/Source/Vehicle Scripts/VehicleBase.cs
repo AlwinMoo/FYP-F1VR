@@ -227,7 +227,7 @@ namespace Valve.VR.InteractionSystem
                         source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
                         source.volume = audioManager.GetMasterVolume();
                         soundSwap = false;
-
+                        soundStartTime = Time.time;
                         audioClip = gasSound;
                     }
                 }
@@ -240,7 +240,7 @@ namespace Valve.VR.InteractionSystem
                         source.pitch = GetPitch(this.GetComponent<Rigidbody>().velocity.magnitude);
                         source.volume = audioManager.GetMasterVolume();
                         soundSwap = false;
-
+                        soundStartTime = Time.time;
                         audioClip = gasSound;
                     }
                 }
