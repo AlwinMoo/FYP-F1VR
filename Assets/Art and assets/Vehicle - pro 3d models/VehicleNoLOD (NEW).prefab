@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 3606241749743877511}
   - component: {fileID: 837237181999213955}
   - component: {fileID: 1452303746212515606}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 1929657002877464819}
   - component: {fileID: 2672254727871545630}
   - component: {fileID: 7666179194386404427}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 738695385241753461}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3552890761355525312}
   - component: {fileID: 8344552277336293599}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1037,7 @@ GameObject:
   - component: {fileID: 7913071129429911143}
   - component: {fileID: 5056802871775063818}
   - component: {fileID: 2120055661648436272}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 3338899927226147712}
   - component: {fileID: 6736541826213601372}
   m_Layer: 0
-  m_Name: BrakeLine
+  m_Name: ReverseLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1315,7 +1315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1360,7 +1360,7 @@ GameObject:
   - component: {fileID: 7763085206724199875}
   - component: {fileID: 4005774399921221640}
   - component: {fileID: 6213029650944759381}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,7 +1456,7 @@ GameObject:
   - component: {fileID: 2088282828184933747}
   - component: {fileID: 4396263678579409165}
   m_Layer: 0
-  m_Name: SelectLine
+  m_Name: AccelerateLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,7 +1502,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1746,7 +1746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1254034605853016793}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,7 +1935,7 @@ GameObject:
   - component: {fileID: 5258811927736427775}
   - component: {fileID: 2565987985643159087}
   - component: {fileID: 6820989545206228012}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2002,7 +2002,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Brake
+  m_Text: Reverse
 --- !u!114 &6820989545206228012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,8 +2080,8 @@ GameObject:
   - component: {fileID: 4587718771012599101}
   - component: {fileID: 7028124487752779774}
   - component: {fileID: 4627007345151120004}
-  m_Layer: 5
-  m_Name: Brake
+  m_Layer: 0
+  m_Name: Accelerate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2226,7 +2226,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2653,7 +2653,7 @@ GameObject:
   - component: {fileID: 8755819542070948929}
   - component: {fileID: 7359887504897895227}
   - component: {fileID: 1365046964538924312}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2979,7 +2979,7 @@ GameObject:
   - component: {fileID: 6477549974192767539}
   - component: {fileID: 6643895227290506261}
   - component: {fileID: 6701733306503630630}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: FallbackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3105,7 +3105,7 @@ GameObject:
   - component: {fileID: 2318250458934318453}
   - component: {fileID: 6994693965742324467}
   - component: {fileID: 8388852476538749476}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3183,7 +3183,7 @@ GameObject:
   - component: {fileID: 2828836577781321821}
   - component: {fileID: 5948554305878964542}
   - component: {fileID: 7972282822970212876}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3360,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 082c4db9ee5f9bc4689fdf4911e0896e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3402,7 +3402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9065229939632696549}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3897,7 +3897,7 @@ GameObject:
   - component: {fileID: 9148733136589071074}
   - component: {fileID: 6076762141377090419}
   - component: {fileID: 9065400654395036468}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4261,8 +4261,9 @@ GameObject:
   - component: {fileID: 6581954816245353824}
   - component: {fileID: 3638457044152305920}
   - component: {fileID: 1940475720672000147}
-  - component: {fileID: 5222119017380224722}
   - component: {fileID: 8681037812977183321}
+  - component: {fileID: 1401711880}
+  - component: {fileID: 1401711881}
   m_Layer: 0
   m_Name: VRCamera
   m_TagString: MainCamera
@@ -4355,61 +4356,6 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5770621550642000051}
   m_Enabled: 1
---- !u!114 &5222119017380224722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5770621550642000051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frustum:
-    settings:
-      enableVolumes: 1
-      enableVolumesTextureMask: 1
-      enableVolumesNoiseMask: 1
-      enableDirectionalLights: 1
-      enableDirectionalLightsShadows: 1
-      enableSpotLights: 1
-      enableSpotLightsShadows: 1
-      enablePointLights: 1
-      enablePointLightsShadows: 1
-      enableLightsCookies: 1
-      enableOcclusionCulling: 1
-      occlusionCullingAccuracy: 2
-      enableTemporalReprojection: 1
-      temporalReprojectionFactor: 0.9
-      resolution: {x: 320, y: 176, z: 256}
-      farClipPlaneDistance: 50
-      density: 0.015
-      anisotropy: 0.5
-      color: {r: 0.25, g: 0.18993738, b: 0.12721163, a: 1}
-      colorStrength: 0.5
-    _computeMaximumDepthComputeShader: {fileID: 7200000, guid: a5d52c8a306e8b746ab60b306575aa3e,
-      type: 3}
-    _processOcclusionMapShader: {fileID: 4800000, guid: b9b5b0990ea6cfa4d96c89a9c1cec3e9,
-      type: 3}
-    _computeDataComputeShader: {fileID: 7200000, guid: 971d5d94be5bebc44aa6d832c17f5e62,
-      type: 3}
-    _computeAccumulationComputeShader: {fileID: 7200000, guid: 41ac7d79af1f9614ebe54df4f30ac3e0,
-      type: 3}
-  applyAsPostProcess: 1
-  computeMaximumDepthComputeShader: {fileID: 7200000, guid: a5d52c8a306e8b746ab60b306575aa3e,
-    type: 3}
-  processOcclusionMapShader: {fileID: 4800000, guid: b9b5b0990ea6cfa4d96c89a9c1cec3e9,
-    type: 3}
-  computeDataComputeShader: {fileID: 7200000, guid: 971d5d94be5bebc44aa6d832c17f5e62,
-    type: 3}
-  computeAccumulationComputeShader: {fileID: 7200000, guid: 41ac7d79af1f9614ebe54df4f30ac3e0,
-    type: 3}
-  postProcessShader: {fileID: 4800000, guid: 50255fa344dbd814c910fdafc5692b09, type: 3}
-  blueNoiseTexturesArray: {fileID: 18700000, guid: 518b8337a0340444aa49dd0780efa9c2,
-    type: 2}
-  _hasBeenAssigned: 1
 --- !u!114 &8681037812977183321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,6 +4449,159 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &1401711880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770621550642000051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  volumeAnchorOverride: {fileID: 0}
+  antialiasing: 0
+  dithering: 0
+  stopNaNs: 0
+  physicalParameters:
+    m_Iso: 200
+    m_ShutterSpeed: 0.005
+    m_Aperture: 16
+    m_BladeCount: 5
+    m_Curvature: {x: 2, y: 11}
+    m_BarrelClipping: 0.25
+    m_Anamorphism: 0
+  flipYMode: 0
+  fullscreenPassthrough: 0
+  customRenderingSettings: 0
+  invertFaceCulling: 0
+  probeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPathCustomFrameSettings:
+    bitDatas:
+      data1: 69284255760157
+      data2: 4539628424389459968
+  renderingPathCustomFrameSettingsOverrideMask:
+    mask:
+      data1: 0
+      data2: 0
+  defaultFrameSettings: 0
+  m_Version: 5
+  m_ObsoleteRenderingPath: 0
+  m_ObsoleteFrameSettings:
+    overrides: 0
+    enableShadow: 0
+    enableContactShadows: 0
+    enableShadowMask: 0
+    enableSSR: 0
+    enableSSAO: 0
+    enableSubsurfaceScattering: 0
+    enableTransmission: 0
+    enableAtmosphericScattering: 0
+    enableVolumetrics: 0
+    enableReprojectionForVolumetrics: 0
+    enableLightLayers: 0
+    enableExposureControl: 1
+    diffuseGlobalDimmer: 0
+    specularGlobalDimmer: 0
+    shaderLitMode: 0
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 0
+    enableMotionVectors: 0
+    enableObjectMotionVectors: 0
+    enableDecals: 0
+    enableRoughRefraction: 0
+    enableTransparentPostpass: 0
+    enableDistortion: 0
+    enablePostprocess: 0
+    enableOpaqueObjects: 0
+    enableTransparentObjects: 0
+    enableRealtimePlanarReflection: 0
+    enableMSAA: 0
+    enableAsyncCompute: 0
+    runLightListAsync: 0
+    runSSRAsync: 0
+    runSSAOAsync: 0
+    runContactShadowsAsync: 0
+    runVolumeVoxelizationAsync: 0
+    lightLoopSettings:
+      overrides: 0
+      enableDeferredTileAndCluster: 0
+      enableComputeLightEvaluation: 0
+      enableComputeLightVariants: 0
+      enableComputeMaterialVariants: 0
+      enableFptlForForwardOpaque: 0
+      enableBigTilePrepass: 0
+      isFptlEnabled: 0
+--- !u!114 &1401711881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770621550642000051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 4759886354646936481}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &5774834805138314800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4631,7 +4730,7 @@ GameObject:
   - component: {fileID: 5829762119106582210}
   - component: {fileID: 2866409182548938552}
   - component: {fileID: 6748281698884806057}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: LeftHand
   m_TagString: Hands
   m_Icon: {fileID: 0}
@@ -4801,7 +4900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5895986419405081265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 1.23, y: -0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7116389311911626548}
@@ -4907,7 +5006,7 @@ GameObject:
   - component: {fileID: 9189402725837082669}
   - component: {fileID: 4646801677293845419}
   - component: {fileID: 3567717098694371881}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4974,7 +5073,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Gas
+  m_Text: Accelerate
 --- !u!114 &3567717098694371881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7516,7 +7615,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1500
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -7562,7 +7661,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7705,10 +7804,9 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   hapticEngine:
-    actionPath: 
+    actionPath: /actions/default/out/Haptic
     needsReinit: 0
-  gasSound: {fileID: 8300000, guid: acc3a7d68e4b36249a2de34e0bb7d209, type: 3}
-  brakeSound: {fileID: 8300000, guid: 7866743a530d4094f8ec32fb0327ec1c, type: 3}
+  gasSound: {fileID: 8300000, guid: d0649cb0d4097594486bb971b2f28bab, type: 3}
 --- !u!1 &6828781073482524375
 GameObject:
   m_ObjectHideFlags: 0
@@ -10512,7 +10610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4021864247875126965}
   - component: {fileID: 6069697510500452733}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10761,7 +10859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3799624823542045362
 Transform:
   m_ObjectHideFlags: 0
@@ -10846,8 +10944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fb8359fec7a694aa0ecd9872a24384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OffMaterial: {fileID: 0}
-  OnMaterial: {fileID: 0}
+  OffMaterial: {fileID: 2100000, guid: 01763a1c279a5cd4d8f897f6b6cdbae5, type: 2}
+  OnMaterial: {fileID: 2100000, guid: 9ca80467a033e954a8b9ad8601d6f4c7, type: 2}
 --- !u!54 &5057770620526742654
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11104,7 +11202,7 @@ GameObject:
   - component: {fileID: 1612546024000484354}
   - component: {fileID: 8510866306895992889}
   - component: {fileID: 6395405518478135313}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: HeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11167,7 +11265,7 @@ GameObject:
   - component: {fileID: 8226229004941965890}
   - component: {fileID: 7254517102989989634}
   - component: {fileID: 7032877854119666105}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: RightHand
   m_TagString: Hands
   m_Icon: {fileID: 0}
@@ -11701,7 +11799,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6602492312553319487}
   - component: {fileID: 993240698735297409}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11812,7 +11910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8540440582961641836}
-  m_Layer: 26
+  m_Layer: 0
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11907,8 +12005,8 @@ GameObject:
   - component: {fileID: 7981718032243451960}
   - component: {fileID: 6786541213030249880}
   - component: {fileID: 1741040440610239131}
-  m_Layer: 5
-  m_Name: Brake
+  m_Layer: 0
+  m_Name: Reverse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12051,7 +12149,7 @@ GameObject:
   - component: {fileID: 5253966311250998480}
   - component: {fileID: 7555736486285118113}
   - component: {fileID: 7430981121462028149}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12183,7 +12281,7 @@ GameObject:
   - component: {fileID: 5230207184322047511}
   - component: {fileID: 6385899206509293058}
   - component: {fileID: 7850938479468408812}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TextPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12445,7 +12543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initializeSteamVROnAwake: 1
-  doNotDestroy: 1
+  doNotDestroy: 0
   steamvr_render: {fileID: 0}
 --- !u!114 &2710456738019191292
 MonoBehaviour:
