@@ -2864,7 +2864,7 @@ PrefabInstance:
     - target: {fileID: 9173622256514993884, guid: 346f433a678d05e4dbbec2a4f59b5f14,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9173622256514993884, guid: 346f433a678d05e4dbbec2a4f59b5f14,
         type: 3}
@@ -3731,7 +3731,7 @@ GameObject:
   - component: {fileID: 968758014}
   - component: {fileID: 968758013}
   m_Layer: 0
-  m_Name: CW-D1AptAmphitht
+  m_Name: CCW-D1AptAmphitht
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,7 +3988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1048025609
 PrefabInstance:
@@ -5691,7 +5691,7 @@ GameObject:
   - component: {fileID: 1482449681}
   - component: {fileID: 1482449680}
   m_Layer: 0
-  m_Name: CCW-D1AptAmphitht
+  m_Name: CW-D1AptAmphitht
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5948,7 +5948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596429074
 GameObject:
@@ -6578,7 +6578,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781902352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc018059e2276a343a10e500c847ba1f, type: 3}
   m_Name: 
