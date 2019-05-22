@@ -43,6 +43,8 @@ public class CarPathFollower : MonoBehaviour
 
     void Start()
     {
+        this.GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -1, 0);
+
         source = transform.GetComponent<AudioSource>();
 
         AudioManagerGO = GameObject.FindGameObjectWithTag("AudioManager");

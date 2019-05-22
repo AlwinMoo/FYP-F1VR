@@ -71,6 +71,7 @@ namespace Valve.VR.InteractionSystem
         // Use this for initialization
         public virtual void Start()
         {
+            this.GetComponent<Rigidbody>().centerOfMass = new Vector3(0, -1, 0);
             source = transform.GetComponent<AudioSource>();
 
             audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
