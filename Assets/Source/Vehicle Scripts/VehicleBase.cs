@@ -197,7 +197,7 @@ namespace Valve.VR.InteractionSystem
 
             Debug.Log(gasSoundDone);
 
-            if (!grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
+            if (!Input.GetKey(KeyCode.J))
             {
                 if (!gasSoundDone)
                 {
