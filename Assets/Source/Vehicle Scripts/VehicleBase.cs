@@ -174,17 +174,16 @@ namespace Valve.VR.InteractionSystem
             if (grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
             {
                 m_verticalInput = 0.7f;
-            }
-            else if (grabPinchAction.GetState(SteamVR_Input_Sources.LeftHand))
-            {
-                m_verticalInput = -0.8f;
-
                 if (gasSoundDone)
                 {
                     source.PlayOneShot(gasSound);
                     gasSoundStartTime = Time.time;
                     gasSoundDone = false;
                 }
+            }
+            else if (grabPinchAction.GetState(SteamVR_Input_Sources.LeftHand))
+            {
+                m_verticalInput = -0.8f;
             }
             else
             {
@@ -197,7 +196,7 @@ namespace Valve.VR.InteractionSystem
 
             Debug.Log(gasSoundDone);
 
-            if (!Input.GetKey(KeyCode.J))
+            if (!grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
             {
                 if (!gasSoundDone)
                 {
