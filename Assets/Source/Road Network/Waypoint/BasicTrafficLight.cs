@@ -23,7 +23,7 @@ public class BasicTrafficLight : MonoBehaviour
     public bool IsSplitPoint = false;
 
     //DEBUG
-    GameObject cube;
+    //GameObject cube;
 
     // Start is called before the first frame update
     void Start()
@@ -36,34 +36,34 @@ public class BasicTrafficLight : MonoBehaviour
         yellowCD = 0f;
 
         //spawn debug cube only in debug mode
-        if (Debug.isDebugBuild)
-        {
-            cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        }
+        //if (Debug.isDebugBuild)
+        //{
+        //    cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
         //-------DEBUG CUBE LIGHTS-------
-        if (Debug.isDebugBuild)
-        {
-            cube.transform.position = this.transform.position;
-            switch (trafficLight)
-            {
-                case LIGHT_STATUS.LIGHT_GREEN:
-                    cube.GetComponent<Renderer>().material.color = Color.green;
-                    break;
-                case LIGHT_STATUS.LIGHT_RED:
-                    cube.GetComponent<Renderer>().material.color = Color.red;
-                    break;
-                case LIGHT_STATUS.LIGHT_YELLOW:
-                    cube.GetComponent<Renderer>().material.color = Color.yellow;
-                    break;
-                default:
-                    break;
-            }
-        }
+        //if (Debug.isDebugBuild)
+        //{
+        //    cube.transform.position = this.transform.position;
+        //    switch (trafficLight)
+        //    {
+        //        case LIGHT_STATUS.LIGHT_GREEN:
+        //            cube.GetComponent<Renderer>().material.color = Color.green;
+        //            break;
+        //        case LIGHT_STATUS.LIGHT_RED:
+        //            cube.GetComponent<Renderer>().material.color = Color.red;
+        //            break;
+        //        case LIGHT_STATUS.LIGHT_YELLOW:
+        //            cube.GetComponent<Renderer>().material.color = Color.yellow;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
         //-------DEBUG CUBE LIGHTS END-------
 
         //-------TRAFFIC LIGHT CONTROLLER-------
