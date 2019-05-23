@@ -42,6 +42,8 @@ TagManager:
   - NightSetting
   - Moon
   - Hands
+  - NYPLOGO
+  - VIDEO
   layers:
   - Default
   - TransparentFX

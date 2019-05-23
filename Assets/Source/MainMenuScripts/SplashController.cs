@@ -14,7 +14,6 @@ public class SplashController : MonoBehaviour
 
     IEnumerator Start()
     {
-
         UnityEngine.XR.InputTracking.Recenter();
 
         float minimumTimeEnd = Time.realtimeSinceStartup + minimumTimeToShowLogo;
