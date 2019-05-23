@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14047359, g: 0.16288376, b: 0.19119889, a: 1}
+  m_IndirectSpecularColor: {r: 0.075830214, g: 0.10459103, b: 0.15419379, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -56,7 +56,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 0.5
-    m_BakeResolution: 40
+    m_BakeResolution: 0.5
     m_AtlasSize: 1024
     m_AO: 1
     m_AOMaxDistance: 1
@@ -57354,6 +57354,11 @@ PrefabInstance:
     - target: {fileID: 4090592276694686, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3.1415927
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
