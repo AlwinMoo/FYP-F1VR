@@ -23,7 +23,7 @@ namespace Valve.VR.InteractionSystem
         };
 
         [Tooltip("The axis around which the circular drive will rotate in local space")]
-        public Axis_t axisOfRotation = Axis_t.ZAxis;
+        public Axis_t axisOfRotation = Axis_t.XAxis;
 
         [Tooltip("Child GameObject which has the Collider component to initiate interaction, only needs to be set if there is more than one Collider child")]
         public Collider childCollider = null;
@@ -424,13 +424,13 @@ namespace Valve.VR.InteractionSystem
             {
                 outAngle += 0.5f;
                 float var = outAngle * 3.0f;
-                if (var < -179.0f)
+                if (var < -89.0f)
                 {
-                    var = -179.0f;
+                    var = -89.0f;
                 }
-                if (var > 0.5f)
+                if (var > 90)
                 {
-                    var = 0.5f;
+                    var = 90;
                 }
 
                 transform.localRotation = start * Quaternion.AngleAxis(var, localPlaneNormal);

@@ -33,8 +33,8 @@ public class AudioManager : MonoBehaviour
     public void Update()
     {
         Vector3 soundDialRotation = soundDial.transform.localRotation.eulerAngles;
-        float value = soundDialRotation.y;
-        if (value > 270 && value < 271)
+        float value = soundDialRotation.z;
+        if (value > 270 && value < 280)
         {
             value = 0;
         }
@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
         {
             master = 0;
         }
+        Debug.Log(master);
     }
 
     /// <summary>
