@@ -105,11 +105,10 @@ MonoBehaviour:
   components:
   - {fileID: 114920148507229532}
   - {fileID: 114189414877628876}
-  - {fileID: 9078926407336154370}
   - {fileID: 6183576675780029200}
   - {fileID: -584251567173809438}
   - {fileID: 6685357898982655462}
-  - {fileID: 3119022408660106485}
+  - {fileID: 2956683301263361778}
 --- !u!114 &114189414877628876
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -322,6 +321,29 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 1
     m_Value: 2
+--- !u!114 &2956683301263361778
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  skyType:
+    m_OverrideState: 1
+    m_Value: 2
+  skyAmbientMode:
+    m_OverrideState: 1
+    m_Value: 1
+  fogType:
+    m_OverrideState: 1
+    m_Value: 3
 --- !u!114 &3119022408660106485
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -520,52 +542,3 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &9078926407336154370
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
-  m_Name: Bloom
-  m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.2
-    min: 0
-    max: 1
-  scatter:
-    m_OverrideState: 1
-    m_Value: 0
-    min: 0
-    max: 1
-  tint:
-    m_OverrideState: 1
-    m_Value: {r: 0.8773585, g: 0.8358232, b: 0.7821734, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
-  dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
-  dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 1
-  resolution:
-    m_OverrideState: 0
-    m_Value: 2
-  prefilter:
-    m_OverrideState: 0
-    m_Value: 0
-  anamorphic:
-    m_OverrideState: 0
-    m_Value: 1

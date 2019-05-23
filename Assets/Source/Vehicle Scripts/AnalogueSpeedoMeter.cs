@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnalogueSpeedoMeter : MonoBehaviour
 {
-    static float minAngle = 125.0f;
-    static float maxAngle = -130.0f;
+    static float minAngle = 122.0f;
+    static float maxAngle = -58f;
     static AnalogueSpeedoMeter theSpeedo;
 
     // Start is called before the first frame update
