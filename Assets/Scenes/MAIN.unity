@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -34381,6 +34381,31 @@ PrefabInstance:
     - target: {fileID: 4090592276694686, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: -1.9656165e-33
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 9.005439e+35
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: -7.031508e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 3.4051145e+21
+      objectReference: {fileID: 0}
+    - target: {fileID: 108292156947882920, guid: b188eaa541739634c826ce045ad01dd7,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b188eaa541739634c826ce045ad01dd7, type: 3}
