@@ -96,7 +96,7 @@ namespace Valve.VR.InteractionSystem
             fR_Wheel.motorTorque = 0;
             fL_Wheel.motorTorque = 0;
 
-            if ((gasSoundStartTime + gasSound.length - 0.2) < Time.time)
+            if ((gasSoundStartTime + gasSound.length - 0.9) < Time.time)
             {
                 gasSoundDone = true;
             }
@@ -201,11 +201,17 @@ namespace Valve.VR.InteractionSystem
 
             if (!grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
             {
-                if (!gasSoundDone || (this.GetComponent<Rigidbody>().velocity.magnitude <= 1 && fL_Wheel.motorTorque > 0))
+                if (!gasSoundDone)
                 {
                     source.Stop();
                     gasSoundDone = true;
                 }
+            }
+
+            if (this.GetComponent<Rigidbody>().velocity.magnitude <= 1 && fL_Wheel.motorTorque > 0)
+            {
+                source.Stop();
+                gasSoundDone = true;
             }
 
             if (!source.isPlaying)
