@@ -176,11 +176,14 @@ namespace Valve.VR.InteractionSystem
             if (grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
             {
                 m_verticalInput = 0.7f;
-                if (gasSoundDone)
+                if (this.GetComponent<Rigidbody>().velocity.magnitude > 1)
                 {
-                    source.PlayOneShot(gasSound);
-                    gasSoundStartTime = Time.time;
-                    gasSoundDone = false;
+                    if (gasSoundDone)
+                    {
+                        source.PlayOneShot(gasSound);
+                        gasSoundStartTime = Time.time;
+                        gasSoundDone = false;
+                    }
                 }
             }
             else if (grabPinchAction.GetState(SteamVR_Input_Sources.LeftHand))
@@ -198,7 +201,7 @@ namespace Valve.VR.InteractionSystem
 
             if (!grabPinchAction.GetState(SteamVR_Input_Sources.RightHand))
             {
-                if (!gasSoundDone)
+                if (!gasSoundDone || (this.GetComponent<Rigidbody>().velocity.magnitude <= 1 && fL_Wheel.motorTorque > 0))
                 {
                     source.Stop();
                     gasSoundDone = true;
