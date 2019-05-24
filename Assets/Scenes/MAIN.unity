@@ -73760,6 +73760,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 21.73
       objectReference: {fileID: 0}
+    - target: {fileID: 1798093473685660938, guid: ee262a929518daf42ad912ae97aa127f,
+        type: 3}
+      propertyPath: gasSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f20b8f21f2109414a88a407a6648cbd8, type: 3}
     m_RemovedComponents:
     - {fileID: 5222119017380224722, guid: ee262a929518daf42ad912ae97aa127f, type: 3}
     - {fileID: 1401711881, guid: ee262a929518daf42ad912ae97aa127f, type: 3}
